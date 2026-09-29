@@ -1,0 +1,24 @@
+# OBB Annotation Sidecar V1 (Phase 1D)
+
+A workspace is **separate from the immutable raw capture session**. Create with `AnnotationSession.create(workspace_path, capture_session_path)`; the source must be schema-v2, bound to one part ID, and contain the front/back canonical names. `annotation.json` records the absolute source session path, session ID, part ID, face-to-class mapping, SHA-256 of `session.json` and `manifest.jsonl`, and creation time. Do not edit the source session, manifest, or JPEGs. Only accepted manifest attempts with non-null `saved_path` are review targets; rejected attempts are not.
+
+`records/<face>/<source-image-stem>.json` holds one current review per accepted JPEG. `AnnotationSession.write_record(record)` atomically replaces a record; there is no history in the sidecar. Both annotated and excluded records have `schema_version: 1`, `status`, `part_id`, `face`, `class_name`, `source_path` (relative to capture session), `source_image_sha256`, `image_width`, `image_height`. Annotated records additionally have `corners`: exactly four `[x,y]` pairs in normalized image coordinates ([0,1], x right, y down), in either clockwise or counter-clockwise perimeter order. Excluded records instead require a nonblank `reason`; they have no corners. Dimensions are positive integer pixel dimensions. Source paths are `front/<relative-name>.jpg` or `back/<relative-name>.jpg` (also `.jpeg`), preserving nested safe relative paths. The recorded pixel dimensions must match the source JPEG frame header. The source class name is `<part_id>_<face>`; face is not inferred from orientation. No numeric YOLO class ID is stored.
+
+Corners must be distinct, strictly convex, non-self-intersecting and nonzero-area. The angle/evaluability check converts corners to pixel coordinates before determining the axial long direction. Valid near-square boxes remain annotated; QA reports `angle_evaluable=false` as a warning, not a rejection. Exclusions are explicit human decisions, not synthesized negative labels.
+
+## OpenCV operator review
+
+From the project root, with the project environment active:
+
+```powershell
+python scripts/annotate_obb.py data/captures/<capture-session-id>
+python scripts/annotate_obb.py data/captures/<capture-session-id> --workspace data/annotations/<capture-session-id> --max-window 900
+python scripts/annotate_obb.py data/captures/<capture-session-id> --revisit
+python scripts/qa_annotations.py data/annotations/<capture-session-id>
+```
+
+The first command creates `data/annotations/<source_session_id>` if missing. A matching existing workspace resumes; a workspace bound to another source or changed session/manifest fails closed. Only accepted capture manifest JPEGs are targeted. Previously reviewed (annotated **or** excluded) images are skipped by default, retaining their record bytes. `--revisit` explicitly opens them again; only saving or excluding replaces the record. An incomplete/invalid existing record is an error, not an invitation to overwrite it. The CLI writes only to the sidecar via `AnnotationSession.write_record`, never to capture directories. Face, part and canonical class name come from the capture metadata, never from operator input.
+
+Each image opens one at a time. **Left click** four approximate perimeter points in order; the green box previews the fitted OpenCV minimum-area rotated rectangle. The displayed image may be scaled, but points are mapped back to original pixels before fitting and normalizing. **U** undoes the last point; **R** resets all points; **Enter/Space** saves only with four valid points forming a valid in-bounds OBB; **X** explicitly excludes the image (`reason: operator_excluded`, no corners); **S** skips without a review record; **Q/Esc** quits without modifying the current record. Closing the window also quits. The overlay shows session/part, face/class, progress, existing-record state, point count and controls. If a four-point fit crosses the image boundary or is degenerate, adjust the points before saving.
+
+Run `python scripts/qa_annotations.py WORKSPACE` for a read-only JSON report and nonzero exit on errors. The report checks source metadata/manifest hashes, expected review coverage, safe source and record paths, identity/class/face, current image hashes and geometry, and gives expected/annotated/excluded/missing and angle-evaluable/unevaluable counts plus separate errors and warnings. A clean audit does **not** mark data train-ready. These sidecars are **not train-ready**; numeric YOLO class IDs and any conversion, splitting and dataset audit are deferred to Project Dataset V1 assembly. Training Gate remains CLOSED. **GUI visual acceptance on a real Part A image is still required** as a later human-in-the-loop check; passing automated geometry/CLI tests does not replace that check.

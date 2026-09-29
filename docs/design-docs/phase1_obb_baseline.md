@@ -6,11 +6,11 @@
 
 单帧记录应能追溯输入图、权重来源及校验、Ultralytics/Python 版本、设备、输入尺寸、运行参数、ROI 与数据版本；预测时保留未经过 ROI 过滤的原始输出供漏检/边界分析，不把可视化当作定量证据。不得提交未经许可的原图、权重或隐私信息。
 
-## 数据与标注约定（待审计）
+## 数据与标注约定（软件已实现，真实数据待审计）
 
-- Phase 1C 原始采集工具及工作树中的 [V2 按零件契约](../data/LABEL_CONTRACT_V2.md) 已存在，但尚无真实项目 OBB 数据。每次新会话绑定一个 `part_id`；人工选择 `front` / `back` 作为面标签，未来 OBB 类名为 `<part_id>_front` / `<part_id>_back`，非全局两类。先制定每种零件的可见面判据并由人工核查；朝向不决定可见面。反光、严重遮挡或其他无法确定可见面的帧标记不确定并复核，不硬分配类别。数据是否真的支持判别必须等采集审计后确认。
+- Phase 1C 原始采集工具及工作树中的 [V2 按零件契约](../data/LABEL_CONTRACT_V2.md) 已存在；当前工作树的 Phase 1D [OBB 标注 sidecar 契约与操作指南](../data/obb_annotation_v1.md) 已实现独立 sidecar/store、只读 QA 和轻量 OpenCV 四点击标注器，但尚无真实项目 OBB 数据。仓库根目录运行 `python scripts/annotate_obb.py data/captures/<capture-session-id>` 对接受的 JPEG 标注或明确排除，再运行 `python scripts/qa_annotations.py data/annotations/<capture-session-id>` 获取只读 JSON QA 报告；sidecar 不修改原始采集。尚未通过 GUI 标注真实 Part A 图像，真实可视/数据验收待完成。每次新会话绑定一个 `part_id`；人工选择 `front` / `back` 作为面标签，未来 OBB 类名为 `<part_id>_front` / `<part_id>_back`，非全局两类。先制定每种零件的可见面判据并由人工核查；朝向不决定可见面。反光、严重遮挡或其他无法确定可见面的帧标记不确定并复核，不硬分配类别。数据是否真的支持判别必须等采集审计后确认。
 - OBB 四角覆盖零件可见轮廓，记录角点顺序/坐标系、可见边界及遮挡规则；对同一长轴的近 180° 旋转保持标注一致。核查角点、宽高和类别；对于近方形或长轴模糊目标将角度标为不可评估。若使用 Ultralytics OBB 标注格式，类别 ID 与归一化四角坐标须按实际数据配置核对，裁切/缩放后同时变换角点和 ROI。
-- 图像按**会话/采集序列**隔离将来训练/验证/测试，检查相邻帧及近重复泄漏，记录各零件面类、角度、位置、光照、遮挡、边界覆盖及缺失；审计未通过则补拍或重标，不开展训练。MVTec Screws V1.0 / 公开 OBB 参考数据仍需修正/当前完整版或明确审查的过滤策略，且没有本项目面类。Training Gate CLOSED，直到真实零件采集/复核、OBB 标注+QA、会话/序列划分及 Dataset Audit 通过；审计结论不是精度结论。
+- 下一步依次完成真实 Part A 采集/复核、GUI OBB 标注与可视验收、只读 QA；再在后续组装 Project Dataset V1 时按**会话/采集序列**隔离训练/验证/测试，检查相邻帧及近重复泄漏，记录各零件面类、角度、位置、光照、遮挡、边界覆盖及缺失。Project Dataset V1 尚不存在；审计未通过则补拍或重标，不开展训练。MVTec Screws V1.0 / 公开 OBB 参考数据仍需修正/当前完整版或明确审查的过滤策略，且没有本项目面类。Training Gate CLOSED，直到真实零件采集/复核、OBB 标注+QA、会话/序列划分及 Dataset Audit 通过；审计结论不是精度结论。
 
 ## 单帧几何与 ROI
 
