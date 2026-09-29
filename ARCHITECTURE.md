@@ -2,11 +2,11 @@
 
 ## 定位与边界
 
-V2 目标是普通 RGB 相机、消费级 GPU 和开源 YOLO26n-OBB 支撑的低成本、软件定义、可再训练柔性产线原型；从单零件建立基线，未来通过实验增加不同零件，而非永久单零件全局 `front`/`back` 分类。原型边界见 [项目范围](docs/product-specs/project_scope.md)。主线基线始于 `7b9ae4b`；已有单帧脚手架、Phase 1C 原始采集工具及工作树中的 [V2 按零件采集契约](docs/data/LABEL_CONTRACT_V2.md)，但无真实项目 OBB 数据集、微调指标或生产就绪证据；不得接入安全联锁或生产执行机构。
+V2 目标是普通 RGB 相机、消费级 GPU 和开源 YOLO26n-OBB 支撑的低成本、软件定义、可再训练柔性产线原型；从单零件建立基线，未来通过实验增加不同零件，而非永久单零件全局 `front`/`back` 分类。原型边界见 [项目范围](docs/product-specs/project_scope.md)。主线基线始于 `7b9ae4b`；已有单帧脚手架、Phase 1C 原始采集工具、工作树中的 [V2 按零件采集契约](docs/data/LABEL_CONTRACT_V2.md) 和 [Project Dataset V1 组装指南](docs/data/project_dataset_v1.md) 对应的 `scripts/build_project_dataset.py`：从 QA-clean 标注 sidecar 按显式完整会话 train/val/test 计划组装的工具已实现，但无真实 Part A 试点标注集、真实 split plan、已组装的真实 Project Dataset V1、微调指标或生产就绪证据；不得接入安全联锁或生产执行机构。
 
 ## Phase 1：单帧 OBB 基线
 
-唯一官方预训练模型起点为 Ultralytics `yolo26n-obb.pt`，单个 OBB 检测头输出每个候选的类别、置信度和旋转框（四角/中心、宽高、角度可由相应 Ultralytics 输出转换）。预训练类别不等同于未来的 `<part_id>_front` / `<part_id>_back`；采集中的 `front`/`back` 是每会话人工可见面标签，非全局最终类名。实际能力必须在审计通过的真实零件数据上微调并独立评估后才能报告。Phase 1 只建立运行脚手架、输入/输出约定和数据审计，不实施长时训练；没有 Seg 分支。
+唯一官方预训练模型起点为 Ultralytics `yolo26n-obb.pt`，单个 OBB 检测头输出每个候选的类别、置信度和旋转框（四角/中心、宽高、角度可由相应 Ultralytics 输出转换）。预训练类别不等同于未来的 `<part_id>_front` / `<part_id>_back`；采集中的 `front`/`back` 是每会话人工可见面标签，非全局最终类名。数值类 ID 仅在 Dataset V1 组装时分配，Part A 对应 `0=<part_id>_front`、`1=<part_id>_back`。实际能力必须在审计通过的真实零件数据上微调并独立评估后才能报告。Phase 1 只建立运行脚手架、输入/输出约定和数据审计，不实施长时训练；没有 Seg 分支。
 
 数据路径：有权使用的单帧图像 → 相机/照明/分辨率记录 → 标定在相同图像坐标系中的固定传送带 ROI → ROI 内候选的 OBB 检测及可见面标签（未来微调后） → 单帧可视化/结构化实验记录。ROI 是检测目标过滤边界，不是跟踪器：框中心须在 ROI 内，跨 ROI 边缘或被遮挡的样本需人工复核；预测时保留原始输出以便检查漏检与边界错误。ROI 顶点随采集配置记录，改变裁切/缩放必须同步变换 ROI 和标注坐标。可先对完整画面推理再按 ROI 过滤，避免把 ROI 裁切误当模型能力提升。
 
@@ -18,6 +18,6 @@ V2 目标是普通 RGB 相机、消费级 GPU 和开源 YOLO26n-OBB 支撑的低
 
 ## 约束与记录
 
-- 类别、标注、ROI、数据划分和质量门见 [OBB 基线设计](docs/design-docs/phase1_obb_baseline.md)。Training Gate CLOSED：真实零件采集/复核、OBB 标注+QA、会话/序列隔离划分与 Dataset Audit 须通过；MVTec Screws V1.0 / 公开 OBB 参考数据还须取得修正/当前完整版或冻结明确审查的过滤策略，其无项目面标签，不能代替真实采集。
+- 类别、标注、ROI、数据划分和质量门见 [OBB 基线设计](docs/design-docs/phase1_obb_baseline.md) 与 [Project Dataset V1 组装指南](docs/data/project_dataset_v1.md)。真实数据顺序：收集多个 Part A 会话 → 标注/明确排除并可视复核 → 对各 sidecar 运行 `scripts/qa_annotations.py` → 编写显式 split plan → 运行 `scripts/build_project_dataset.py` → 运行 `scripts/audit_dataset.py <output> --classes 2` → Codex/数据复核。禁止随机逐帧划分；至少三个会话填充 train/val/test，且每个 split 有已标注的 front/back。Training Gate CLOSED：真实数据与相关门禁未通过，软件测试或未来组装成功均不解锁训练；全部相关门禁通过后才可另行考虑训练阶段。MVTec Screws V1.0 是独立公开参考数据，还须取得修正/当前完整版或冻结明确审查的过滤策略，其无项目面标签，不能代替真实 Project Dataset V1。
 - 只采用单模型 OBB；Seg+OBB 仅在基线证据显示有实质瓶颈时作为后续实验，不在 Phase 1 增加。选择依据见 [ADR-0001](docs/decisions/adr-0001-single-obb-baseline.md)。
 - 实验需记录权重来源/版本、运行环境、输入分辨率、硬件、ROI 版本、数据版本与配置；指标只有在实际实验之后才能报告。
