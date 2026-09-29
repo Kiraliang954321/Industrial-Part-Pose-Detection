@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yolo-conveyor"
+version = "0.1.0"
+description = "Single-frame conveyor OBB baseline scaffold"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+inference = ["ultralytics"]
+
+[project.scripts]
+yolo-conveyor = "yolo_conveyor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
