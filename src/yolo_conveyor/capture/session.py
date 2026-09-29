@@ -8,8 +8,9 @@ import re
 from typing import Mapping
 from uuid import uuid4
 
+from yolo_conveyor.label_contract import FACE_LABELS, canonical_class_name, validate_part_id
 
-_LABELS = ("front", "back")
+
 _MODES = ("manual", "auto")
 _ID_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]*\Z")
 
@@ -34,12 +35,14 @@ class CaptureSession:
         cls,
         root: str | Path,
         *,
+        part_id: str,
         source: str,
         backend: str,
         config: Mapping[str, object],
         session_id: str | None = None,
     ) -> "CaptureSession":
         """Create a new session below root, failing if the ID is already in use."""
+        validate_part_id(part_id)
         if session_id is None:
             session_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ") + "-" + uuid4().hex
         if not isinstance(session_id, str) or not _ID_PATTERN.fullmatch(session_id):
@@ -49,10 +52,14 @@ class CaptureSession:
         if not isinstance(config, Mapping):
             raise ValueError("config must be a mapping")
         metadata = {
-            "schema_version": 1,
+            "schema_version": 2,
             "session_id": session_id,
+            "part_id": part_id,
             "state": "raw_capture",
-            "labels": list(_LABELS),
+            "labels": list(FACE_LABELS),
+            "face_labels": list(FACE_LABELS),
+            "manifest_label_semantics": "face_label",
+            "class_names": {face: canonical_class_name(part_id, face) for face in FACE_LABELS},
             "source": source,
             "backend": backend,
             "config": dict(config),
@@ -86,7 +93,7 @@ class CaptureSession:
         timestamp: str | None = None,
     ) -> None:
         """Append one attempt, validating the path without writing any image pixels."""
-        if label not in _LABELS:
+        if label not in FACE_LABELS:
             raise ValueError("label must be 'front' or 'back'")
         if mode not in _MODES:
             raise ValueError("mode must be 'manual' or 'auto'")

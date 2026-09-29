@@ -1,7 +1,8 @@
 import cv2
 import pytest
 
-from yolo_conveyor.capture.cli import build_parser, parse_source
+from yolo_conveyor.capture.cli import build_parser, main, parse_source
+from yolo_conveyor.capture import cli as cli_module
 from yolo_conveyor.capture.collector import open_source, run_collector
 from yolo_conveyor.capture import collector as module
 
@@ -16,10 +17,39 @@ def test_source_parsing(text, result):
 
 
 def test_cli_defaults_and_policy():
-    args = build_parser().parse_args([])
+    args = build_parser().parse_args(["--part-id", "screw_A-1"])
+    assert args.part_id == "screw_A-1"
     assert parse_source(args.source) == 0
     assert str(args.output_root).replace("\\", "/") == "data/captures"
     assert args.quality_policy == "warn" and args.auto_interval == 0
+
+
+def test_cli_part_id_required_without_creating_root(tmp_path):
+    root = tmp_path / "captures"
+    with pytest.raises(SystemExit) as error:
+        main(["--output-root", str(root)])
+    assert error.value.code == 2
+    assert not root.exists()
+
+
+@pytest.mark.parametrize("part_id", ["../escape", "-bad", "a/b", "a b", "é"])
+def test_cli_rejects_unsafe_part_id_before_creating_root(tmp_path, part_id):
+    root = tmp_path / "captures"
+    with pytest.raises(SystemExit) as error:
+        main(["--part-id", part_id, "--output-root", str(root)])
+    assert error.value.code == 2
+    assert not root.exists()
+
+
+def test_cli_passes_part_id_to_session(tmp_path, monkeypatch):
+    monkeypatch.setattr(cli_module, "run_collector", lambda *args, **kwargs: None)
+    assert main(["--part-id", "screw_A-1", "--output-root", str(tmp_path)]) == 0
+    sessions = list(tmp_path.iterdir())
+    assert len(sessions) == 1
+    import json
+    metadata = json.loads((sessions[0] / "session.json").read_text(encoding="utf-8"))
+    assert metadata["part_id"] == "screw_A-1"
+    assert metadata["class_names"] == {"front": "screw_A-1_front", "back": "screw_A-1_back"}
 
 
 @pytest.mark.parametrize(("source", "backend", "uses_dshow"), [

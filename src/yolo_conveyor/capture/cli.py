@@ -10,6 +10,7 @@ from .collector import CaptureCollector, run_collector
 from .duplicates import DuplicateGuard
 from .quality import QualityPolicy
 from .session import CaptureSession
+from yolo_conveyor.label_contract import validate_part_id
 
 
 def parse_source(text: str) -> int | str:
@@ -19,6 +20,8 @@ def parse_source(text: str) -> int | str:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Collect unlabelled raw front/back JPEGs from a phone camera or video")
+    parser.add_argument("--part-id", required=True, type=validate_part_id,
+                        help="safe single-token part ID for this capture session")
     parser.add_argument("--source", default="0", help="nonnegative camera index or video path/URL (default: 0)")
     parser.add_argument("--output-root", type=Path, default=Path("data/captures"))
     parser.add_argument("--backend", choices=("auto", "dshow"), default="auto")
@@ -47,7 +50,7 @@ def main(argv: list[str] | None = None) -> int:
                                     history_size=args.duplicate_history)
         source = parse_source(args.source)
         session = CaptureSession.create(
-            args.output_root, source=args.source, backend=args.backend,
+            args.output_root, part_id=args.part_id, source=args.source, backend=args.backend,
             config={"width": args.width, "height": args.height, "fps": args.fps,
                     "auto_interval": args.auto_interval, "min_blur_score": args.min_blur_score,
                     "min_brightness": args.min_brightness, "max_brightness": args.max_brightness,

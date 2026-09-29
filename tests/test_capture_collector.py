@@ -13,7 +13,7 @@ def frame():
 
 
 def setup(tmp_path, *, reject=False):
-    session = CaptureSession.create(tmp_path, source="0", backend="auto", config={})
+    session = CaptureSession.create(tmp_path, part_id="screw_A-1", source="0", backend="auto", config={})
     collector = CaptureCollector(session, quality=QualityPolicy(min_blur_score=100, reject=reject),
                                  duplicates=DuplicateGuard(max_distance=0))
     return collector, session

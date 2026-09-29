@@ -7,7 +7,7 @@ from yolo_conveyor.capture import CaptureSession, QualityMetrics
 
 def _session(tmp_path, session_id="pilot-01"):
     return CaptureSession.create(
-        tmp_path, session_id=session_id, source="phone/iVCam", backend="ivcam",
+        tmp_path, part_id="screw_A-1", session_id=session_id, source="phone/iVCam", backend="ivcam",
         config={"device": "téléphone", "fps": 30},
     )
 
@@ -31,8 +31,11 @@ def test_initial_layout_and_raw_capture_metadata(tmp_path):
     assert (session.path / "manifest.jsonl").read_bytes() == b""
     metadata = json.loads((session.path / "session.json").read_text(encoding="utf-8"))
     assert metadata == {
-        "schema_version": 1, "session_id": "pilot-01", "state": "raw_capture",
-        "labels": ["front", "back"], "source": "phone/iVCam", "backend": "ivcam",
+        "schema_version": 2, "session_id": "pilot-01", "part_id": "screw_A-1",
+        "state": "raw_capture", "labels": ["front", "back"],
+        "face_labels": ["front", "back"], "manifest_label_semantics": "face_label",
+        "class_names": {"front": "screw_A-1_front", "back": "screw_A-1_back"},
+        "source": "phone/iVCam", "backend": "ivcam",
         "config": {"device": "téléphone", "fps": 30},
         "started_at": metadata["started_at"], "obb_labeled": False, "train_ready": False,
     }
@@ -40,7 +43,7 @@ def test_initial_layout_and_raw_capture_metadata(tmp_path):
     assert b"t\xc3\xa9l\xc3\xa9phone" in (session.path / "session.json").read_bytes()
     with pytest.raises(FileExistsError):
         _session(tmp_path)
-    generated = CaptureSession.create(tmp_path, source="phone", backend="ivcam", config={})
+    generated = CaptureSession.create(tmp_path, part_id="screw_A-1", source="phone", backend="ivcam", config={})
     assert generated.path.parent == tmp_path
     assert generated.path != session.path
 
@@ -110,6 +113,23 @@ def test_invalid_attempt_does_not_append(tmp_path, changes):
     with pytest.raises(ValueError):
         _attempt(session, **changes)
     assert (session.path / "manifest.jsonl").read_bytes() == b""
+
+
+def test_part_id_is_required_before_creating_root(tmp_path):
+    root = tmp_path / "not-created"
+    with pytest.raises(TypeError, match="part_id"):
+        CaptureSession.create(root, source="phone", backend="auto", config={})
+    assert not root.exists()
+
+
+@pytest.mark.parametrize("part_id", [None, "", "../escape", "a/b", "a\\b", ".", "-a",
+                                    "a b", "C:bad", "é", "a\nb", 123])
+def test_unsafe_part_ids_are_rejected_before_filesystem_mutation(tmp_path, part_id):
+    root = tmp_path / "not-created"
+    with pytest.raises(ValueError, match="part_id"):
+        CaptureSession.create(root, part_id=part_id, session_id="pilot-01",
+                              source="phone", backend="auto", config={})
+    assert not root.exists()
 
 
 @pytest.mark.parametrize("session_id", ["../escape", "a/b", "a\\b", ".", "..", "C:bad", ""])
