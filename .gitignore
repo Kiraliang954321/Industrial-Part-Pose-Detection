@@ -5,3 +5,15 @@ __pycache__/
 .venv/
 *.pt
 runs/
+# Raw and converted datasets and downloaded archives
+/data/
+/datasets/
+/mvtec_screws/
+/mvtec_screws_*/
+/processed/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar

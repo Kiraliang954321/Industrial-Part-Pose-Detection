@@ -1,0 +1,14 @@
+# Dataset capability matrix (Phase 1, Dataset V1)
+
+This is a low-cost, single-OBB classroom prototype, not a production or safety system. Counts below describe source metadata, **not** model performance. See [V1 audit](MVTEC_SCREWS_V1_AUDIT.md) for the provenance and limitations behind these entries.
+
+| Need / source | Verified evidence | Capability / remaining gap |
+| --- | --- | --- |
+| MVTec Screws, authoritative dataset and license source | MVTec official dataset page: 384 images, 13 classes, 4426 OBB annotations; CC BY-NC-SA 4.0. | Public screws OBB data can support conversion/audit experiments under the **non-commercial** license restriction; no commercial usage rights are claimed. MVTec Screws does **not** supply `front` / `back` labels. |
+| Public V1.0 GitHub mirror, transfer/audit provenance only | Locally inspected mirror metadata: 384 images, 4427 annotations; train/val/test 269/55/60 images and 3119/647/661 annotations. Splits have no overlapping image filenames and together match the unsplit metadata exactly. | Metadata is not identical to the official 4426-annotation figure; do not substitute the mirror for MVTec as authority on dataset or licensing. V1.0 is not cleared for full training. |
+| V1.0 label geometry and orientation | Category 13 has 321 annotations. MVTec HALCON 26.05 release notes say some `class_13` orientation labels were wrong and fixed. V1.0 metadata has 50 annotations with corners outside strict [0,1], including 22 outside current Ultralytics tolerance [-0.01,1.01], among categories 1–4. | Full corrected/current dataset not acquired. Training Gate **closed** until that dataset or an explicitly reviewed filtering policy is frozen; no silent clipping or unchecked full-set training. |
+| Safe real-data audit sample | `train/screws_004` (16 annotations), `val/screws_001` (16), `test/screws_022` (8); excludes `class_13` and boundary-crossing boxes. Conversion succeeded; existing audit reports 3 images / 3 labels, `errors=[]`. | Verifies only this selected conversion/audit path, not full-set train readiness, accuracy, FPS or `front` / `back` capability. |
+| ICDM 3214/11 candidate | Previously proposed source/count was not reliably verified. | Excluded from Dataset V1 evidence and training claims. |
+| Later small real-part collection | MVTec Screws has no `front` / `back` labels. | Collect and audit legally usable labeled real-part images with fixed camera/ROI and sequence-aware splits before face-class training/evaluation. Still pending. |
+
+Full project tests: **31/31 PASS** (software verification only, not model-quality evidence). No measured accuracy or FPS is claimed. The official MVTec dataset page and MVTec HALCON 26.05 release notes are the authority for their respective published facts; mirror inspection is local V1.0 observation only.
