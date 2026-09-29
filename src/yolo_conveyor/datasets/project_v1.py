@@ -12,13 +12,14 @@ from yolo_conveyor.annotation.store import load_source
 from yolo_conveyor.label_contract import FACE_LABELS, canonical_class_name
 
 _SESSION_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]*\Z")
-_SPLITS = ("train", "val", "test")
+_SPLITS = ("train", "val", "test", "final_holdout")
+_YAML_SPLITS = ("train", "val", "test")
 
 
 def _plan(path: Path, sessions: set[str]) -> dict[str, list[str]]:
     plan = json.loads(path.read_text(encoding="utf-8"))
     if (not isinstance(plan, dict) or set(plan) != {"schema_version", "splits"} or
-            type(plan["schema_version"]) is not int or plan["schema_version"] != 1 or
+            type(plan["schema_version"]) is not int or plan["schema_version"] != 2 or
             not isinstance(plan["splits"], dict) or set(plan["splits"]) != set(_SPLITS)):
         raise ValueError("invalid split plan schema")
     splits = plan["splits"]
@@ -126,8 +127,11 @@ def build_project_dataset(annotations: list[str | Path], split_plan: str | Path,
                                for raw in sorted(workspaces[session_id][3])},
                            "excluded": sum(store.read_record(raw)["status"] == "excluded"
                                            for raw in workspaces[session_id][3])})
-    manifest = {"schema_version": 1, "part_id": part_id, "names": names,
+    manifest = {"schema_version": 2, "part_id": part_id, "names": names,
                 "splits": splits, "counts": counts, "excluded_counts": excluded_counts,
+                "final_holdout": {"path": "images/final_holdout",
+                                  "labels_path": "labels/final_holdout",
+                                  "purpose": "untuned final validation"},
                 "inputs": provenance, "training_gate": "closed"}
     # mkdir is deliberately last: failures after this point remain visible, never masquerading as atomic.
     output.mkdir(parents=True, exist_ok=False)
@@ -141,7 +145,7 @@ def build_project_dataset(annotations: list[str | Path], split_plan: str | Path,
         label = output / label_rel
         label.parent.mkdir(parents=True, exist_ok=True)
         label.write_text(row, encoding="utf-8")
-    yaml = "path: .\n" + "".join(f"{split}: images/{split}\n" for split in _SPLITS)
+    yaml = "path: .\n" + "".join(f"{split}: images/{split}\n" for split in _YAML_SPLITS)
     yaml += "names:\n" + "".join(f"  {i}: {json.dumps(name)}\n" for i, name in names.items())
     (output / "data.yaml").write_text(yaml, encoding="utf-8")
     (output / "dataset_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

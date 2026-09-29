@@ -13,7 +13,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--annotation", type=Path, required=True, action="append",
                         metavar="WORKSPACE", help="QA-clean annotation workspace (repeatable)")
     parser.add_argument("--split-plan", type=Path, required=True, metavar="PLAN",
-                        help="explicit whole-session train/val/test split JSON")
+                        help="explicit whole-session train/val/test/final_holdout split JSON")
     parser.add_argument("--output", type=Path, required=True, metavar="OUTPUT",
                         help="new, nonoverlapping output directory")
     args = parser.parse_args(argv)

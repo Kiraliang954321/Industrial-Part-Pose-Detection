@@ -42,10 +42,10 @@ def session(root, session_id, part="gear", back=True, exclude=False):
 
 
 def setup(tmp_path):
-    pairs = [session(tmp_path, f"s{i}", exclude=i == 1) for i in range(3)]
+    pairs = [session(tmp_path, f"s{i}", exclude=i == 1) for i in range(4)]
     plan = tmp_path / "plan.json"
-    splits = {split: [f"s{i}"] for i, split in enumerate(("train", "val", "test"))}
-    plan.write_text(json.dumps({"schema_version": 1, "splits": splits}))
+    splits = {split: [f"s{i}"] for i, split in enumerate(("train", "val", "test", "final_holdout"))}
+    plan.write_text(json.dumps({"schema_version": 2, "splits": splits}))
     return pairs, plan, splits
 
 
@@ -56,16 +56,23 @@ def test_assembly_and_dataset_audit(tmp_path):
               [*source.rglob("*.jpg"), *source.rglob("*.jpeg"), *store.path.rglob("*.json")]}
     manifest = build_project_dataset([store.path for store, _ in reversed(pairs)], plan, output)
     assert manifest == json.loads((output / "dataset_manifest.json").read_text())
+    assert manifest["schema_version"] == 2
     assert manifest["splits"] == splits
+    assert manifest["final_holdout"] == {"path": "images/final_holdout",
+                                         "labels_path": "labels/final_holdout",
+                                         "purpose": "untuned final validation"}
     assert manifest["names"] == {"0": "gear_front", "1": "gear_back"}
     assert manifest["training_gate"] == "closed"
     assert manifest["counts"] == {s: {"images": 2, "faces": {"front": 1, "back": 1}} for s in splits}
-    assert manifest["excluded_counts"] == {"train": 0, "val": 1, "test": 0}
-    assert len(manifest["inputs"]) == 3
+    assert manifest["excluded_counts"] == {"train": 0, "val": 1, "test": 0, "final_holdout": 0}
+    assert len(manifest["inputs"]) == 4
     assert all(len(entry["source_session_sha256"]) == 64 and
                len(entry["annotation_sha256"]) == 64 and entry["record_sha256"]
                for entry in manifest["inputs"])
-    assert '  0: "gear_front"' in (output / "data.yaml").read_text()
+    yaml = (output / "data.yaml").read_text()
+    assert yaml == ('path: .\ntrain: images/train\nval: images/val\ntest: images/test\n'
+                    'names:\n  0: "gear_front"\n  1: "gear_back"\n')
+    assert "final_holdout" not in yaml
     assert not list(output.rglob("reject*"))
     for i, split in enumerate(splits):
         assert (output / f"images/{split}/s{i}/front/deep/a.jpeg").read_bytes() == JPEG
@@ -76,7 +83,8 @@ def test_assembly_and_dataset_audit(tmp_path):
     result = subprocess.run([sys.executable, str(ROOT / "scripts/audit_dataset.py"), str(output),
                              "--classes", "2"], capture_output=True, text=True)
     assert result.returncode == 0, result.stdout + result.stderr
-    assert json.loads(result.stdout)["image_count"] == 6
+    assert json.loads(result.stdout)["image_count"] == 8
+    assert json.loads(result.stdout)["label_count"] == 8
     with pytest.raises(FileExistsError):
         build_project_dataset([store.path for store, _ in pairs], plan, output)
     assert subprocess.run([sys.executable, str(ROOT / "scripts/build_project_dataset.py"),
@@ -91,7 +99,8 @@ def test_assembly_and_dataset_audit(tmp_path):
         p.relative_to(tmp_path / "cli"): p.read_bytes() for p in (tmp_path / "cli").rglob("*") if p.is_file()}
 
 
-@pytest.mark.parametrize("change", ["duplicate", "unknown", "unsafe", "empty", "extra", "version"])
+@pytest.mark.parametrize("change", ["duplicate", "unknown", "unsafe", "empty", "extra", "version",
+                                    "v1", "three_way", "missing_holdout", "empty_holdout"])
 def test_invalid_plan_preflight(tmp_path, change):
     pairs, plan, splits = setup(tmp_path)
     if change == "duplicate":
@@ -104,7 +113,14 @@ def test_invalid_plan_preflight(tmp_path, change):
         splits["test"] = []
     elif change == "extra":
         splits["other"] = ["s2"]
-    payload = {"schema_version": 1 if change != "version" else True, "splits": splits}
+    elif change == "three_way":
+        splits.pop("final_holdout")
+    elif change == "missing_holdout":
+        splits.pop("final_holdout")
+    elif change == "empty_holdout":
+        splits["final_holdout"] = []
+    payload = {"schema_version": 1 if change == "v1" else True if change == "version" else 2,
+               "splits": splits}
     plan.write_text(json.dumps(payload))
     with pytest.raises(ValueError):
         build_project_dataset([store.path for store, _ in pairs], plan, tmp_path / "out")
@@ -114,7 +130,7 @@ def test_invalid_plan_preflight(tmp_path, change):
 def test_unassigned_preflight(tmp_path):
     pairs, plan, _ = setup(tmp_path)
     with pytest.raises(ValueError, match="unassigned"):
-        build_project_dataset([s.path for s, _ in pairs] + [session(tmp_path, "s3")[0].path],
+        build_project_dataset([s.path for s, _ in pairs] + [session(tmp_path, "s4")[0].path],
                               plan, tmp_path / "out")
     assert not (tmp_path / "out").exists()
 
@@ -156,6 +172,19 @@ def test_invalid_inputs_preflight(tmp_path, change):
         assert os.path.lexists(output)
     else:
         assert not output.exists()
+
+
+@pytest.mark.parametrize("split_index", range(4))
+def test_each_split_requires_annotated_front_and_back(tmp_path, split_index):
+    pairs, plan, _ = setup(tmp_path)
+    record = pairs[split_index][0].read_record("back/b.jpg")
+    record.pop("corners")
+    record.update(status="excluded", reason="hidden")
+    pairs[split_index][0].write_record(record)
+    output = tmp_path / "out"
+    with pytest.raises(ValueError, match="lacks annotated front/back coverage"):
+        build_project_dataset([s.path for s, _ in pairs], plan, output)
+    assert not output.exists()
 
 
 def test_copy_fallback_and_visible_write_failure(tmp_path, monkeypatch):

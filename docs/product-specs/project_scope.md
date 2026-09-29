@@ -1,25 +1,39 @@
-# 项目范围：传送带零件正反面与平面姿态
+# 项目范围：V4.1 假设验证
 
-## 目标与现状
+当前权威：[V4.1 项目方案](../new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)及其正式修正 [EXPERIMENT_PROTOCOL_V1](../new-plans/EXPERIMENT_PROTOCOL_V1.md)。旧 V2 命名仅用于现存采集/标注软件契约，并非当前项目方案。本项目是普通 RGB 相机、消费级 GPU、轻量 OBB 的课程研究原型，不是生产系统、安全联锁或 PLC/机器人控制。结论只能限定在已冻结 Operating Envelope 内；不得宣称通用工业可靠性。
 
-V2 定位是使用普通 RGB 相机、消费级 GPU、开源 YOLO26n-OBB 的低成本、软件定义、可再训练柔性产线零件可见面与 2D 姿态原型；先建立 Part A，再实验性增加 Part B，不将当前单件试验限定为永久全局两类。课堂原型，非生产系统；不得用于安全联锁或设备控制。主线基线始于 `7b9ae4b`；已具单帧脚手架、Phase 1C 原始采集工具、工作树中的 [V2 按零件采集契约](../data/LABEL_CONTRACT_V2.md) 和 `scripts/build_project_dataset.py` / [Project Dataset V1 组装指南](../data/project_dataset_v1.md) 所述的从 QA-clean 标注 sidecar 按显式完整会话 train/val/test 划分的组装工具，但无真实 Part A 试点标注集、真实 split plan、已组装的真实 Project Dataset V1、微调指标或生产就绪证据。可见面可辨性、准确率、帧率和现场可靠性**尚未验证**。
+## 四个研究问题与六阶段
 
-## Phase 1 冻结范围
+1. RQ1 Traditional CV vs YOLO26n-OBB / YOLO26s-OBB：AI 在指定工况是否值得使用？
+2. RQ2 Single Frame vs Tracking + Multi-frame + Decision Zone：事件决策能否减少错误和抖动？
+3. RQ3 Risk-Coverage-Latency/Throughput：UNCERTAIN 降低 Wrong Accept 的代价是什么？
+4. RQ4 Part A → Part B：换型的数据、标注、训练、Recipe、代码与回归成本如何？
 
-- 仅以官方 Ultralytics `yolo26n-obb.pt` 为**单模型 OBB** 预训练基线及未来微调起点；本阶段建立可复现的运行脚手架、输入/输出约定、采集/标注规范和数据审计，不进行长时训练，不引入 Seg。Seg+OBB 仅在基线证据证明实质瓶颈后作为后续实验。
-- 用有权使用的单帧测试图、固定相机与照明配置记录、传送带 ROI 验证环境及 OBB 输出可读性。预训练类别不等同于未来的 `<part_id>_front` / `<part_id>_back`；采集中的 `front` / `back` 是人工可见面标签，非最终全局类。数值类 ID 仅在 Dataset V1 组装时分配，Part A 为 `0=<part_id>_front`、`1=<part_id>_back`。烟测不证明任务精度。
-- ROI 只限定观测范围；以同一图像坐标系记录 ROI 顶点及标注，框中心在 ROI 内才视为候选；边界与遮挡样本须人工复核。跟踪、跨帧 ID、决策区触发和单件决策属于后续集成，不是本阶段交付。
-- 每个采集会话绑定一个 `part_id`；`front` / `back` 必须由人工可见面判据标注，不能由角度推断；不确定的样本不强行标注。未来运行时 `UNCERTAIN` 是拒绝/决策状态，不是训练类。长轴角度按图像水平轴 `θ ∈ [0°, 180°)` 表示，`θ` 与 `θ + 180°` 等价，不表达头尾方向；近方形或遮挡导致轴不稳定时标记为不可评估。
+| 阶段 | 验证主线 |
+| --- | --- |
+| Phase 1 — Data Foundation + Experiment Protocol Freeze | 冻结实验规则，通过 Dataset V1 Gate |
+| Phase 2 — Perception Baseline | Traditional CV 与 YOLO 公平对照 |
+| Phase 3 — Reliable Event Decision | 单帧与单件事件对照 |
+| Phase 4 — Risk-Aware Decision | UNCERTAIN 工作点与风险/覆盖/延迟/吞吐权衡 |
+| Phase 5 — Flexible Changeover | Part A → Part B 换型与回归 |
+| Phase 6 — Production-Oriented Finalization | 反馈、轻量环境监测、追溯、最终演示与报告 |
 
-## 数据审计与验收
+Phase 1 验收为 **Experiment Protocol FROZEN + Dataset V1 Gate OPEN**，并非仅成功组装数据。Phase 1 不做正式长时训练；Phase 2 才进行感知基线对照。Seg+OBB 不在默认主线，仅当基线证明实质瓶颈时考虑。Active Learning 的复杂版本、Unknown/Anomaly、3D、真实执行机构为 Future Work。
 
-1. 形成采集清单：相机视角、照明、分辨率、图像来源/使用权、传送带 ROI 与其版本；覆盖不同可见面、旋转、位置、边界、遮挡等场景，并记录缺口。数据存在与能力均须实际审计，不可凭计划视为已满足。
-2. 形成标注规范与审计记录：按可见面证据核查类别、OBB 四角/长轴、模 180° 姿态、无从判别时的处理、ROI 边界样本；明确同一坐标系及裁切/缩放变换。抽查分歧样本并记录修订，而不是把模糊样本算作正确。
-3. 真实数据顺序：收集多个 Part A 会话 → 标注或明确排除并可视复核 → 对各 sidecar 运行 `scripts/qa_annotations.py` → 编写显式完整会话 split plan → 运行 `scripts/build_project_dataset.py` → 运行 `scripts/audit_dataset.py <output> --classes 2` → Codex/数据复核。不可随机逐帧划分；当前契约至少需要三个会话填充 train/val/test，且每个 split 均有已标注的 front/back。检查近重复、数据泄漏、各面类/姿态覆盖和难例；审计不通过则补拍或重标，不训练，也不报告任务指标。**Training Gate CLOSED**：软件测试通过或未来数据组装成功均不单独解锁训练；所有相关门禁通过后才可另行考虑训练阶段和独立评估，**不等于模型已达标**。MVTec Screws V1.0 是独立的公开参考数据，还须取得修正/当前完整版或冻结明确审查的过滤策略；其无项目面标签，不能充当 Project Dataset V1。
-4. 保留烟测运行记录（权重来源/校验、Ultralytics/Python 版本、设备、输入尺寸、参数、ROI 版本与可视化/输出检查）；若没有帧或环境则明确记录未运行。Phase 1 的验收是规范、记录及基线脚手架可检查，不以预填准确率或实时 FPS 验收。
+## Phase 1 数据与协议门禁（当前 CLOSED）
 
-## 后续 V2 验证（非 Phase 1 交付）
+- Part A 和 Part B 的候选实物及选择理由须在 Part A 正式训练前预冻结，包含客观 Front/Back 与 Orientation 语义；Part B 须有明确差异，不可见结果后挑易成功对象。**Part A、Part B 实物及参数均 TBD，等待用户提供物理证据，不得虚构。**
+- Operating Envelope draft 须记录相机/分辨率/FPS/曝光/距离、ROI/目标像素尺寸、运动/间距/遮挡、照明/背景/模糊等范围；具体值 **TBD，等待用户物理证据**。形成事件级 GT schema (`CONFORMING`、`NONCONFORMING`、`INDETERMINATE`)、Face/Angle 真值与复核规则，建立 nominal、low_light、reflection、background_shift、motion_blur、partial_occlusion 的 Test Condition Matrix。
+- 真实 Part A 自建会话采集、人工可见面判据、OBB 四角标注与 GUI 可视复核、只读 QA、Dataset Audit、类别/角度/条件分布、来源和近重复/泄漏审查。禁止同一连续视频逐帧随机拆分。须按独立完整会话分 train、val/calibration、test、final_holdout；当前 schema v2 组装工具已支持四路完整 session，其中 Final Holdout 实体输出并从 `data.yaml` 的训练/调参 split 隔离，但尚无真实四路 Part A 数据，不能声称门禁已通过。数据详情见 [组装指南](../data/project_dataset_v1.md) 与 [标注指南](../data/obb_annotation_v1.md)。MVTec Screws 不含项目面类，不可替代 Part A。
+- 公平性：Traditional CV 与 YOLO 使用相同视频/分辨率/ROI/Test Events/GT/Operating Envelope/计时起止；两侧参数仅在 Train/Val/Calibration 上拟合和选择，最终 Test 前冻结。Risk Gate 工作点同样只在 Val/Calibration 扫描和冻结；**Test 与 Final Holdout 均不用于模型/规则/阈值调参**。若 Test 错误回流训练，原 Test 不再是新模型的无偏最终测试，使用未见 Final Holdout 或新 Session。
+- 统计：核心比例指标给 `x/n`、事件数 n、点估计和 Wilson 95% CI；零错误也须报告上置信界。延迟报告 n、Median、端到端 P95。报告 Overall、每个 Condition 与独立 Session，包含失败样本；不许把同一录像切片冒充跨 Session 重复性。Validated Event Throughput = 完成且可映射真值、恰好一个事件且日志完整的真实单件事件数 / 有效运行分钟，单位 parts/min；与 Wrong Accept/Reject、Coverage、Missed/Duplicate Event、P95 一同报告，而非用 FPS 替代。
 
-计划路径：Camera/Video → ROI → YOLO26n-OBB → Tracking → Multi-frame Aggregation → Confidence/Stability Gate → Decision Zone → PASS/FAIL_FACE/FAIL_ORIENTATION/UNCERTAIN → single-part statistics；跟踪、事件及统计运行时均未实现。柔性换型实验应先建立 Part A，再加入 Part B，记录新增图像、标注工作量、微调时间、软件/配置变更与 Part A 回归。95% 面准确率、90% mAP50、30/60 FPS 若作为未来目标，均**不是**已取得指标。
+任一前提未通过：**Dataset V1 Gate CLOSED — 不正式训练**。源协议标注“FROZEN BEFORE FORMAL TRAINING”是冻结条件，不代表现状：Part A/B/Operating Envelope TBD 仍未解决，协议尚未正式 FROZEN。
 
-实现约定见 [基线设计](../design-docs/phase1_obb_baseline.md)，步骤见 [执行计划](../exec-plans/active/phase1_execution_plan.md)，选择依据见 [ADR-0001](../decisions/adr-0001-single-obb-baseline.md)。
+## 指标语义与证据边界
+
+GT 仅 `CONFORMING` / `NONCONFORMING` / `INDETERMINATE`；系统输出 `PASS` / `FAIL_FACE` / `FAIL_ORIENTATION` / `UNCERTAIN`。`UNCERTAIN` 是系统拒绝状态，不是训练类别或 GT。Wrong Accept = `NONCONFORMING → PASS` / 所有有效 NONCONFORMING 事件；Wrong Reject = CONFORMING 未 PASS / 所有有效 CONFORMING 事件，须分拆 hard reject 与 uncertain reject。INDETERMINATE 单独分层，不进入两者分母。Coverage 为可评价事件中收到明确 PASS/FAIL 的比例。决策以物理单件事件而非逐帧投票计数；角度真值优先物理基准，无治具时人工标注二次复核，争议真值标记 INDETERMINATE 并版本化。
+
+**现状（非成果）：**已有单帧脚手架、part-aware 原始采集、OBB sidecar/四点击标注与 QA、按完整 session 的 schema v2 `train/val/test/final_holdout` 四路 Dataset V1 组装能力。无真实 Part A 项目数据集、真实四路 split、正式训练、模型指标、已冻结协议或 Phase 2–6 运行时证据；软件测试或合成烟测不是性能结论。95% 面准确率、90% mAP50、30/60 FPS 仅为未来工程目标，不能预填实测值。
+
+实现约定见 [基线设计](../design-docs/phase1_obb_baseline.md)，工作顺序见 [执行计划](../exec-plans/active/phase1_execution_plan.md)，技术选择见 [ADR-0001](../decisions/adr-0001-single-obb-baseline.md)。

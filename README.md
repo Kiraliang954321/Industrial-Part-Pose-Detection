@@ -1,14 +1,25 @@
-# FlexPose-YOLO：低成本柔性产线零件可见面与 2D 姿态原型
+# FlexPose-YOLO：V4.1 低成本工业零件姿态检测假设验证原型
 
-V2 项目定位是用普通 RGB 相机、消费级 GPU 与开源 YOLO26n-OBB，探索可通过软件配置与再训练换型的低成本工业检测。识别每种零件的可见正/反面和图像平面内**无方向**长轴姿态（模 180°）。这是课堂原型，不用于设备控制或安全联锁；当前无真实项目 OBB 数据集、微调指标、现场可靠性或生产就绪证据。
+当前项目权威为 [V4.1 项目方案](docs/new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)与修正其真值/吞吐/重复性规则的 [EXPERIMENT_PROTOCOL_V1](docs/new-plans/EXPERIMENT_PROTOCOL_V1.md)。旧 V2 名称指现有采集契约，不再是项目计划。普通 RGB 相机、消费级 GPU、开源轻量 OBB 构成课程研究原型，**不是生产系统、安全联锁或设备控制**；性能结论必须限定在冻结的 Operating Envelope 内。
 
-## 当前阶段与范围
+## 研究问题与路线
 
-主线基线始于 `7b9ae4b`。Phase 1 仅做官方 Ultralytics `yolo26n-obb.pt` 单模型基线的可复现运行脚手架、采集/标注规范与数据审计；不安排长时训练，不添加 Seg。Seg+OBB 仅在基线证据证明有实质瓶颈时作为后续实验。仓库已有 `pyproject.toml`、`src/`、`scripts/` 和 `tests/`，包含单帧 OBB 适配器、命令行入口、环境检查、数据审计脚本及自动化测试；Phase 1C 手机/iVCam 原始图像采集器已实现，工作树现有 V2 按零件采集契约；Phase 1D 标注 sidecar/store、只读 QA 和轻量 OpenCV 四点击标注器，以及 `scripts/build_project_dataset.py` 和 [Project Dataset V1 组装指南](docs/data/project_dataset_v1.md) 所述的显式按完整会话划分 train/val/test、从 QA-clean 标注 sidecar 组装数据集的工具，均已在当前工作树实现。真实手机预览/采集硬件烟测待完成，尚无真实 Part A 试点标注集、真实 split plan 或已组装的真实 Project Dataset V1，也未微调；真实图像的 GUI 可视验收仍待完成。已完成 MVTec Screws V1.0 镜像元数据检查及 3 张真实图像的安全样本转换/审计；完整修正数据集获取、真实零件可见面采集/标注和训练仍待完成。详情见 [数据能力矩阵](docs/data/DATASET_CAPABILITY_MATRIX.md) 和 [V1.0 审计记录](docs/data/MVTEC_SCREWS_V1_AUDIT.md)。MVTec 官方页面是数据集与许可的权威来源；GitHub 镜像仅用于传输/审计溯源。官方页面列出 384 张图、13 类、4426 个 OBB 标注，CC BY-NC-SA 4.0 **仅限非商业用途**；本地镜像 V1.0 元数据则为 384 张图、4427 个标注，两者计数不一致。MVTec Screws 不含 `front`/`back` 标签。模型预训练类别不等于项目面类：运行预训练权重只检查环境和推理集成，不作为本任务精度证据。MVTec Screws V1.0 / 公开 OBB 参考数据的修正/当前完整版或明确审查的过滤策略须先核定；其本身没有项目面标签。真实零件采集并复核、OBB 标注与 QA、显式按完整会话隔离划分及 Dataset Audit、项目/数据复核全部通过前，**Training Gate CLOSED**；工具软件测试通过或未来单次组装成功均不解除门禁。禁止随机逐帧划分；当前契约要求至少三个采集会话才能填满 train/val/test，且每个 split 都有标注的 front 和 back 覆盖。未来微调按零件使用 `<part_id>_front` / `<part_id>_back` 类名：采集器中的 `front` / `back` 仅为人工可见面标签，不可由角度推断；数值类 ID 仅在 Dataset V1 组装时分配，Part A 为 `0=<part_id>_front`、`1=<part_id>_back`。详见 [Label Contract V2](docs/data/LABEL_CONTRACT_V2.md)。相机、ROI、跟踪和决策区的职责边界见 [架构](ARCHITECTURE.md)；跟踪、单件事件与决策区触发是**后续集成**，不是本阶段交付。
+- RQ1：Traditional CV vs YOLO26n-OBB / YOLO26s-OBB，AI 是否值得使用？
+- RQ2：Single Frame vs Tracking + Multi-frame + Decision Zone，单件事件决策是否更可靠？
+- RQ3：Risk-Coverage-Latency/Validated Event Throughput，UNCERTAIN 降低 Wrong Accept 需要多少自动处理率、延迟和吞吐代价？
+- RQ4：Part A → Part B，量化采集、标注、Fine-tune、Recipe、代码改动和 Part A 回归。
 
-## 本地准备与最小烟测
+六阶段：Phase 1 — Data Foundation + Experiment Protocol Freeze；Phase 2 — Perception Baseline；Phase 3 — Reliable Event Decision；Phase 4 — Risk-Aware Decision；Phase 5 — Flexible Changeover；Phase 6 — Production-Oriented Finalization。**当前仍在 Phase 1，验收为 Experiment Protocol FROZEN + Dataset V1 Gate OPEN，不是组装成功。** Part A、Part B 和 Operating Envelope 的物理值均 TBD，等待用户提供实物/工况证据；虽然源协议写有条件性冻结声明，现状尚未正式 FROZEN。
 
-需要 Python >=3.10、可联网下载官方权重的环境（或已合法获得的本地权重）；实际图像测试还需要一张**自行采集且有权使用**的单帧图片。GPU 非必需。仓库有项目依赖声明和自动化测试，但没有依赖锁文件或数据集。以下是 PowerShell 示例，在仓库根目录执行；首次推理可能下载权重，具体安装版本请记录，避免把未锁定环境当成复现实验。
+已有单帧 OBB 脚手架、part-aware 原始采集、OBB sidecar/四点击标注/只读 QA，以及按完整 session 的 schema v2 `train/val/test/final_holdout` 四路 Dataset V1 组装能力。`data.yaml` 仅暴露 train/val/test；Final Holdout 单独物理输出并在 manifest 中记录为 untuned final validation。真实手机/iVCam 硬件验收、真实 Part A GUI 标注可视验收、真实 Part A 数据集、真实四路划分和门禁均未完成；无正式训练、模型指标或 Phase 2–6 运行时证据。预训练/合成烟测与 MVTec Screws 有限审计不证明项目精度；MVTec 无项目正反面标签。
+
+## Phase 1 必须先冻结什么
+
+预冻结 Part A/B、Front/Back/Orientation 与 Operating Envelope draft；定义单件事件 GT `CONFORMING` / `NONCONFORMING` / `INDETERMINATE`、复核与版本记录，建立 nominal/low_light/reflection/background_shift/motion_blur/partial_occlusion 测试矩阵；完成真实采集、OBB 标注/可视复核/QA/Audit、分布与来源/泄漏检查、完整 session 的 train/val/calibration/test/final_holdout 隔离。`UNCERTAIN` 是系统拒绝/决策，不是训练或 GT 类；Wrong Accept = `NONCONFORMING → PASS`，INDETERMINATE 单独分层。Traditional CV/YOLO 必须共享输入、ROI、事件、GT、工况和计时口径；只在 Train/Val/Calibration 调参和选择工作点，**Test/Final Holdout 不调参**。Test 错误回流后须用未见 Final Holdout 或新 session 做无偏最终测试。比例报告 `x/n`、Wilson 95% CI（零错误亦报上界）；报告不同 condition 与独立 session 的重复性、端到端 P95 与有效完成事件/分钟的 Validated Event Throughput，不能用 FPS 代替生产吞吐。具体 gate 见 [范围与验收](docs/product-specs/project_scope.md) 与 [Phase 1 执行计划](docs/exec-plans/active/phase1_execution_plan.md)。
+
+## 本地软件烟测（非模型质量证据）
+
+需要 Python >=3.10；推理可能需要合法获取官方权重及一张有权使用的本地图像。在仓库根目录运行 PowerShell：
 
 ```powershell
 py -3 -m venv .venv
@@ -16,27 +27,17 @@ py -3 -m venv .venv
 python -m pip install -e ".[test,inference]"
 python scripts/check_env.py
 python -m pytest -q
-# 将 <frame-path> 换成自己的单帧图片路径；确认来源合法且不含敏感内容
-# 预训练权重类别不是未来的 <part_id>_front/<part_id>_back 类别
+# <frame-path> 必须替换为合法、非敏感的真实单帧图像
+# 预训练类别不是未来的项目 <part_id>_front / <part_id>_back
 yolo-conveyor "<frame-path>" --model yolo26n-obb.pt
 ```
 
-本地 `.venv` 已验证安装 Ultralytics 8.4.165 和 pytest；此前 `compileall` 通过。此前完整项目测试 **31/31 PASS**（历史记录，非本次全量重跑），仅作为软件验证，不作为模型质量证据。项目适配器已加载官方 `yolo26n-obb.pt`，在 RTX 4060/CUDA 上完成一次合成空白图像的烟测推理。这些仅是环境与集成证据，**不是**工业场景准确率、FPS 或正反面识别效果的证据；空白图像烟测不等于对真实零件的验证，独立的 3 图数据审计也不构成模型质量证据。真实帧测试仍需另行记录日期、Python/Ultralytics 版本、权重来源与校验信息、设备、输入分辨率和参数；请勿提交原始图像、权重或数据隐私信息。
+以上命令仅供操作，未在本次文档迁移中运行模型/硬件测试。运行时记录权重来源、Python/Ultralytics 版本、设备、分辨率、输入和参数；不得把预训练输出或官方 benchmark 写成项目结果。
 
-## 手机/iVCam 原始采集（Phase 1C）
+## 现有 Phase 1 软件操作
 
-操作指南见 [PHONE_CAPTURE_V1](docs/data/PHONE_CAPTURE_V1.md)：Windows iVCam 示例在仓库根目录运行 `python scripts/capture_phone.py --part-id screw_A-1 --source 0 --backend dshow`（实际索引/后端可能不同）。采集器已实现；此前合并采集测试 **57 PASS**、`--help` **PASS** 仅为历史软件验证，真实手机/iVCam 预览硬件烟测仍待完成。每个新会话须绑定一个 `part_id`；输出是按人工所选可见面分组的原始 JPEG，不含 OBB 标注，也不具备训练就绪状态。
+- [PHONE_CAPTURE_V1](docs/data/PHONE_CAPTURE_V1.md)：`python scripts/capture_phone.py --part-id <part-id> --source 0 --backend dshow`。每次原始会话绑定一个 part，操作者选 `front`/`back`；采集不自动生成 OBB。
+- [OBB Annotation Sidecar V1](docs/data/obb_annotation_v1.md)：`python scripts/annotate_obb.py data/captures/<capture-session-id>`；`python scripts/qa_annotations.py data/annotations/<capture-session-id>`。四点击标注或明确排除；自动 QA 不能代替真实 GUI 人工可视验收。
+- [Project Dataset V1 组装指南](docs/data/project_dataset_v1.md)：当前仅支持按完整 session 划分 train/val/test；不能随机逐帧切分。数值类 ID 仅在组装时分配为 Part A 的 `0=<part_id>_front`、`1=<part_id>_back`；`front`/`back` 不可由无方向模 180° OBB 角度推断。门禁仍 CLOSED，不要将组装脚本能力当成四路完成。
 
-## Phase 1D OBB 标注与 QA（软件已实现，真实验收待完成）
-
-操作和 sidecar 格式见 [OBB Annotation Sidecar V1](docs/data/obb_annotation_v1.md)。在仓库根目录运行 `python scripts/annotate_obb.py data/captures/<capture-session-id>`，对已接受的 JPEG 用 OpenCV 界面依次点击四角并保存或明确排除；标注写入独立 sidecar，不改原始采集。运行 `python scripts/qa_annotations.py data/annotations/<capture-session-id>` 取得只读 JSON 覆盖率/几何/来源检查报告，错误时退出码非零。软件可用不代表真实 Part A GUI 可视验收已通过，也不代表数据可训练。
-
-## 下一步（Phase 1）
-
-1. 按 [范围与验收](docs/product-specs/project_scope.md) 定义可见面判据、相机与 ROI；按 [原始采集指南](docs/data/PHONE_CAPTURE_V1.md) 完成真实硬件预览烟测、Part A 采集和人工复核；无法判定的面不强行标注。
-2. 用上述 OpenCV 工具对真实 Part A 采集图像做 OBB 标注并完成 GUI 可视验收，再运行只读 QA、人工复核四角/面类/角度语义；审计不过则先补拍/重标，不训练。
-3. 确保已收集多个真实 Part A 会话并完成上述标注或明确排除与可视复核 → 对每个 sidecar 运行 `scripts/qa_annotations.py` → 按 [Project Dataset V1 组装指南](docs/data/project_dataset_v1.md) 编写显式完整会话 split plan → 运行 `scripts/build_project_dataset.py` → 运行 `scripts/audit_dataset.py <output> --classes 2` → Codex/数据复核；禁止随机逐帧划分，每个 split 须有已标注的 front/back。当前无真实 split plan 或已组装的真实 Project Dataset V1，**Training Gate CLOSED**。按 [基线设计](docs/design-docs/phase1_obb_baseline.md) 和 [执行计划](docs/exec-plans/active/phase1_execution_plan.md) 继续记录完整数据审计和真实帧烟测；只有相关门禁均通过，才可另行考虑训练阶段、验证并报告实测指标，不得预填结果。
-
-未来运行路径（**尚未实现跟踪/事件运行时**）：Camera/Video → ROI → YOLO26n-OBB → Tracking → Multi-frame Aggregation → Confidence/Stability Gate → Decision Zone → PASS/FAIL_FACE/FAIL_ORIENTATION/UNCERTAIN → single-part statistics。`UNCERTAIN` 只表示运行时拒绝/决策，绝非训练类。未来柔性换型实验先建立 Part A，再加入 Part B，量化新增图像、标注工作量、微调时间、软件/配置变更及 Part A 回归；现在没有换型结果。95% 面准确率、90% mAP50、30/60 FPS 若作为未来目标均非已达成结果。
-
-设计选择：[ADR-0001](docs/decisions/adr-0001-single-obb-baseline.md)。已有脚手架、测试与有限样本审计不代表完整数据审计或模型质量通过；未声称 lint 或 typecheck 已运行。
+设计见 [架构](ARCHITECTURE.md)、[基线设计](docs/design-docs/phase1_obb_baseline.md) 与 [ADR-0001](docs/decisions/adr-0001-single-obb-baseline.md)。95% 面准确率、90% mAP50、30/60 FPS 如被列作目标，仅是未来目标，绝非已测结果。
