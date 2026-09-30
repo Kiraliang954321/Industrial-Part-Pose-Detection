@@ -77,31 +77,96 @@ def test_write_failure_records_rejection_without_poisoning_history(tmp_path, mon
     assert collector.attempt(frame()).saved_path == "front/000001.jpg"
 
 
-def test_run_controls_auto_and_cleanup(tmp_path, monkeypatch):
-    collector, session = setup(tmp_path)
+def run_preview(monkeypatch, collector, steps, *, auto_interval=0):
+    """Run the real overlay with a scripted camera, keyboard and monotonic clock."""
+    clock = [0.0]
+    script = iter(steps)
+    keys = []
+    lines = []
+    previews = []
+    destroyed = []
 
     class Camera:
-        def __init__(self):
-            self.released = False
+        released = False
 
         def read(self):
+            clock[0], key = next(script)
+            keys.append(key)
             return True, frame()
 
         def release(self):
             self.released = True
 
+    def wait_key(delay):
+        assert delay == 1
+        return keys.pop(0)
+
+    def show(*_):
+        previews.append(tuple(lines))
+        lines.clear()
+
+    def sleep(_):
+        pytest.fail("capture feedback must not sleep")
+
     camera = Camera()
-    destroyed = []
-    keys = iter([ord("b"), 32, ord("a"), -1, ord("q")])
-    times = iter([0, 0, 2, 2])
     monkeypatch.setattr(module, "open_source", lambda *a, **kw: camera)
-    monkeypatch.setattr(module.time, "monotonic", lambda: next(times))
-    monkeypatch.setattr(module.cv2, "imshow", lambda *a: None)
-    monkeypatch.setattr(module.cv2, "waitKey", lambda _: next(keys))
+    monkeypatch.setattr(module.time, "monotonic", lambda: clock[0])
+    monkeypatch.setattr(module.time, "sleep", sleep)
+    monkeypatch.setattr(module.cv2, "putText", lambda image, text, *a: lines.append(text))
+    monkeypatch.setattr(module.cv2, "imshow", show)
+    monkeypatch.setattr(module.cv2, "waitKey", wait_key)
     monkeypatch.setattr(module.cv2, "destroyAllWindows", lambda: destroyed.append(True))
-    module.run_collector(collector, 0, auto_interval=1)
+    module.run_collector(collector, 0, auto_interval=auto_interval)
     assert camera.released and destroyed
+    return previews
+
+
+def test_run_controls_auto_and_cleanup(tmp_path, monkeypatch):
+    collector, session = setup(tmp_path)
+    previews = run_preview(monkeypatch, collector, [
+        (0, ord("b")), (0, 32), (0, ord("a")), (2, -1),
+        (2, ord("f")), (2, ord("a")), (4, 27),
+    ], auto_interval=1)
     assert [(r["label"], r["mode"]) for r in rows(session)] == [("back", "manual"), ("back", "auto")]
+    assert "SAVED back/000001.jpg" in previews[2]
+    assert "REJECTED: duplicate" in previews[4]
+    assert "Face: FRONT  Auto: OFF" in previews[-1][0]
+
+
+@pytest.mark.parametrize("rejection, expected", [
+    (None, "SAVED front/000001.jpg"),
+    ("duplicate", "REJECTED: duplicate"),
+    ("quality_duplicate", "REJECTED: quality, duplicate"),
+    ("write", "REJECTED: image_write_failed"),
+])
+def test_manual_feedback_and_nonblocking_expiry(tmp_path, monkeypatch, rejection, expected):
+    collector, session = setup(tmp_path)
+    if rejection in ("duplicate", "quality_duplicate"):
+        collector.attempt(frame())
+    if rejection == "quality_duplicate":
+        collector.quality = QualityPolicy(min_blur_score=100, reject=True)
+    if rejection == "write":
+        monkeypatch.setattr(module.cv2, "imwrite", lambda *_: False)
+
+    previews = run_preview(monkeypatch, collector, [
+        (0, 32), (0.1, -1), (1.49, -1), (1.5, -1), (1.6, ord("q")),
+    ])
+    assert not any(line.startswith(("SAVED", "REJECTED")) for line in previews[0])
+    assert expected in previews[1] and expected in previews[2]
+    assert not any(line.startswith(("SAVED", "REJECTED"))
+                   for preview in previews[3:] for line in preview)
+    assert rows(session)[-1]["mode"] == "manual"
+
+
+def test_latest_manual_attempt_replaces_feedback(tmp_path, monkeypatch):
+    collector, session = setup(tmp_path)
+    previews = run_preview(monkeypatch, collector, [
+        (0, 32), (0.5, 32), (1.6, -1), (2, ord("q")),
+    ])
+    assert "SAVED front/000001.jpg" in previews[1]
+    assert "REJECTED: duplicate" in previews[2]
+    assert not any(line.startswith(("SAVED", "REJECTED")) for line in previews[3])
+    assert [r["accepted"] for r in rows(session)] == [True, False]
 
 
 def test_repeated_read_failure_releases_and_destroys(tmp_path, monkeypatch):

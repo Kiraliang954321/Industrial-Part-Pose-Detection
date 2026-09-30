@@ -103,7 +103,8 @@ def open_source(source: int | str, backend: str = "auto", *, width: float | None
 
 
 def _overlay(frame: np.ndarray, *, source: int | str, collector: CaptureCollector,
-             auto: bool, metrics: QualityMetrics, warnings: tuple[str, ...]) -> np.ndarray:
+             auto: bool, metrics: QualityMetrics, warnings: tuple[str, ...],
+             status: str | None = None) -> np.ndarray:
     preview = frame.copy()
     lines = [
         f"Source: {source}  Face: {collector.label.upper()}  Auto: {'ON' if auto else 'OFF'}",
@@ -112,6 +113,8 @@ def _overlay(frame: np.ndarray, *, source: int | str, collector: CaptureCollecto
         f"Warnings: {', '.join(warnings) if warnings else 'none'}",
         "F front  B back  Space capture  A auto  Q/Esc quit",
     ]
+    if status is not None:
+        lines.append(status)
     for index, line in enumerate(lines):
         y = 25 + index * 25
         cv2.putText(preview, line, (10, y), cv2.FONT_HERSHEY_SIMPLEX, 0.55,
@@ -130,6 +133,8 @@ def run_collector(collector: CaptureCollector, source: int | str, *, backend: st
     auto = False
     deadline = None
     failures = 0
+    status = None
+    status_until = 0.0
     try:
         cap = open_source(source, backend, width=width, height=height, fps=fps)
         while True:
@@ -141,11 +146,15 @@ def run_collector(collector: CaptureCollector, source: int | str, *, backend: st
                 continue
             failures = 0
             assessment = collector.quality.evaluate(frame)
+            if status is not None and time.monotonic() >= status_until:
+                status = None
             cv2.imshow("Phone capture", _overlay(frame, source=source, collector=collector,
-                        auto=auto, metrics=assessment.metrics, warnings=assessment.warnings))
+                        auto=auto, metrics=assessment.metrics, warnings=assessment.warnings,
+                        status=status))
             key = cv2.waitKey(1) & 0xff
             if key in (ord("q"), ord("Q"), 27):
                 break
+            result = None
             if key in (ord("f"), ord("F")):
                 collector.label = "front"
             elif key in (ord("b"), ord("B")):
@@ -154,10 +163,14 @@ def run_collector(collector: CaptureCollector, source: int | str, *, backend: st
                 auto = not auto
                 deadline = time.monotonic() + auto_interval if auto else None
             elif key == 32:
-                collector.attempt(frame, "manual")
+                result = collector.attempt(frame, "manual")
             if auto and deadline is not None and time.monotonic() >= deadline:
-                collector.attempt(frame, "auto")
+                result = collector.attempt(frame, "auto")
                 deadline = time.monotonic() + auto_interval
+            if result is not None:
+                status = (f"SAVED {result.saved_path}" if result.accepted else
+                          f"REJECTED: {', '.join(result.rejection_reasons)}")
+                status_until = time.monotonic() + 1.5
     finally:
         if cap is not None:
             cap.release()
