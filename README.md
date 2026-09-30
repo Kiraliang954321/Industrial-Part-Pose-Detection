@@ -17,6 +17,14 @@
 
 预冻结 Part A/B、Front/Back/Orientation 与 Operating Envelope draft；定义单件事件 GT `CONFORMING` / `NONCONFORMING` / `INDETERMINATE`、复核与版本记录，建立 nominal/low_light/reflection/background_shift/motion_blur/partial_occlusion 测试矩阵；完成真实采集、OBB 标注/可视复核/QA/Audit、分布与来源/泄漏检查、完整 session 的 train/val/calibration/test/final_holdout 隔离。`UNCERTAIN` 是系统拒绝/决策，不是训练或 GT 类；Wrong Accept = `NONCONFORMING → PASS`，INDETERMINATE 单独分层。Traditional CV/YOLO 必须共享输入、ROI、事件、GT、工况和计时口径；只在 Train/Val/Calibration 调参和选择工作点，**Test/Final Holdout 不调参**。Test 错误回流后须用未见 Final Holdout 或新 session 做无偏最终测试。比例报告 `x/n`、Wilson 95% CI（零错误亦报上界）；报告不同 condition 与独立 session 的重复性、端到端 P95 与有效完成事件/分钟的 Validated Event Throughput，不能用 FPS 代替生产吞吐。具体 gate 见 [范围与验收](docs/product-specs/project_scope.md) 与 [Phase 1 执行计划](docs/exec-plans/active/phase1_execution_plan.md)。
 
+## V4.1a 姿态协议：圆形件也是合法对象
+
+`orientation_semantics` 仅为 `AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE`：AXIAL_OBB 使用 OBB 长轴，需要稳定轴向时启用 `min_aspect_ratio` / near-square guard；FEATURE_ANGLE 使用相对零件中心的冻结方向特征，必须有 `feature_definition` 与可复现 GT 参考方法，圆形外轮廓本身不使其无效；SYMMETRY_AWARE 按 `360/symmetry_order` 等价，仍必须声明角度来源/参考，不能凭对称性生成角度。近方形只阻断依赖稳定长轴的方法，不统一判 UNCERTAIN。
+
+NOT_APPLICABLE 表示姿态不是合规维度，角度 N/A/null，仅按 Face / Identity 等剩余冻结维度评价；角度缺失本身绝不能产生 FAIL_ORIENTATION / UNCERTAIN 或 ORIENTATION 失败真值。Event GT 使用 `orientation_gt_status: VALID | INDETERMINATE | NOT_APPLICABLE` 配合语义：VALID 必须有可用真角度，INDETERMINATE 是适用姿态 GT 建立失败/歧义而非 N/A，NOT_APPLICABLE 必须 null。Angle MAE/Median/P95、姿态失败率及 Required-but-Undefined Orientation Rate（必需但未定义姿态率）仅以适用且 GT=VALID 的事件为评价集合；缺失预测单列，不把 N/A 放进分母。
+
+至少一个正式 Part A/B 对象须有适用姿态语义与有效正式测试证据才可声称已验证二维姿态性能；若均 NOT_APPLICABLE，检测/正反面仍可验证，姿态声明保持范围外。**这些是协议/Recipe 规则，不代表 FEATURE_ANGLE / SYMMETRY_AWARE 运行时已实现；按实物选择后才实施。Training Gate 仍 CLOSED，四路 session split / Final Holdout 规则不变。** 详见协议第 2、4 节及方案第 9、13 节。
+
 ## 本地软件烟测（非模型质量证据）
 
 需要 Python >=3.10；推理可能需要合法获取官方权重及一张有权使用的本地图像。在仓库根目录运行 PowerShell：

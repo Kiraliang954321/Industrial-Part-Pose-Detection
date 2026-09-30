@@ -1,7 +1,7 @@
 # EXPERIMENT_PROTOCOL_V1
 
 > 项目：面向柔性流水线的低成本工业零件正反面与二维姿态检测系统  
-> 对应方案：V4.1 — 生产检测验证与实验协议冻结版  
+> 对应方案：V4.1 — 生产检测验证与实验协议冻结版（V4.1a 姿态协议修正）
 > 项目目录：`G:\Project\Yolo`  
 > 协议状态：**FROZEN BEFORE FORMAL TRAINING**  
 > 日期：2026-09-29  
@@ -43,16 +43,21 @@ part_a:
   physical_object: TBD
   front_definition: TBD
   back_definition: TBD
-  orientation_semantics: TBD
-  symmetry_order: TBD
+  orientation_semantics: TBD # AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE
+  angle_source: TBD # 适用时冻结来源；NOT_APPLICABLE 为 null
+  angle_reference: TBD # 中心、零度轴、正方向、坐标系及周期；N/A 为 null
+  feature_definition: TBD # FEATURE_ANGLE 必填；特征来源的 SYMMETRY_AWARE 同样必填
+  gt_reference_method: TBD # 可复现 GT 方法；N/A 为 null
+  symmetry_order: TBD # SYMMETRY_AWARE 必填正整数；其他为 null
+  min_aspect_ratio: TBD # 仅稳定 OBB 长轴来源必填；其他为 null
   expected_aspect_ratio_range: TBD
 ```
 
 选择原则：
 
 - Front / Back 判据必须可由实物客观定义；
-- 应适合二维平面姿态任务；
-- 优先选择 OBB 长轴稳定、能建立可靠 baseline 的零件；
+- 应适合二维平面检测任务，圆形/近圆形零件（如瓶盖、轴承）也是合法对象；
+- OBB 长轴稳定的零件可建立 AXIAL_OBB baseline，但不是对象准入的必要条件；
 - 不允许为了追求高分而只选择极端容易识别的样本。
 
 ### 2.2 Part B
@@ -68,17 +73,46 @@ part_b:
   difference_from_part_a: TBD
   front_definition: TBD
   back_definition: TBD
-  orientation_semantics: TBD
+  orientation_semantics: TBD # AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE
+  angle_source: TBD
+  angle_reference: TBD
+  feature_definition: TBD
+  gt_reference_method: TBD
   symmetry_order: TBD
+  min_aspect_ratio: TBD
+  expected_aspect_ratio_range: TBD
 ```
+
+Part B 各姿态字段遵守与 Part A 相同的冻结/可空规则。
 
 Part B 要求：
 
-- 与 Part A 同属二维平面姿态检测问题；
+- 与 Part A 同属二维平面检测问题，姿态是否适用由实物与 Recipe 冻结；
 - 在外形、纹理、尺寸或正反面差异上至少存在一种明显变化；
 - 仍位于本项目 Operating Envelope 内；
 - Part A 正式训练前冻结候选实物与选择理由；
 - Phase 5 前不因为结果方便而替换。
+
+---
+
+### 2.3 V4.1a 姿态语义冻结规则
+
+`orientation_semantics` 只允许 `AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE`：
+
+| 语义 | 角度来源与适用性 | Guard / 冻结要求 |
+| --- | --- | --- |
+| `AXIAL_OBB` | OBB 长轴轴向角，θ ∈ [0°,180°)，θ 与 θ+180° 等价 | 需要稳定轴向时冻结 `min_aspect_ratio`；近方形/近圆形导致长轴不稳定时不能强造角度 |
+| `FEATURE_ANGLE` | 相对零件中心的明确方向性视觉特征，通常周期 360° | 必须冻结 `feature_definition`（特征位置/识别、中心定义、方向构造、可见面）与可复现 `gt_reference_method`；外轮廓圆形本身不能使该角度无效 |
+| `SYMMETRY_AWARE` | 姿态适用，等价角周期 `period = 360 / symmetry_order` | 必须冻结真实结构支持的正整数 `symmetry_order`，并声明 `angle_source` / `angle_reference` 与 GT 方法；对称性本身不产生角度测量 |
+| `NOT_APPLICABLE` | 姿态不是合规维度，Angle = N/A/null | 不启用角度目标、容差、抖动或长轴 guard；仅角度缺失不得产生 FAIL_ORIENTATION 或 UNCERTAIN |
+
+适用语义均须冻结角度来源、零度轴、旋转正方向、坐标系、周期和 GT 建立方法。非特征来源的 `feature_definition` 为 null；NOT_APPLICABLE 的来源、参考、特征、GT 方法、对称阶数及长轴阈值均为 null。Event 的语义与角度参考必须对应其冻结的 Part / Recipe 定义，不得逐样本临时改换来源。SYMMETRY_AWARE 若来源依赖 OBB 长轴，仍适用稳定长轴 guard；若使用有效特征/其他可复现参考，则近方形几何不阻断角度评价。FEATURE_ANGLE 特征不可见或参考有歧义时才可能证据不足，不能因轮廓圆形而否定它。不能把所有近方形零件统一判为 UNCERTAIN。
+
+NOT_APPLICABLE 零件继续按冻结的 Face / Identity 等剩余维度判定合规，是一等支持对象而非失败样本。圆形瓶盖有清楚正反面并不自动证明有方向特征；在实物证据确认前不为它虚构 FEATURE_ANGLE。
+
+**方向性能声明门槛：**正式 Part A/B 至少一个对象必须采用适用姿态语义并取得有效 GT 与正式测试证据，才可声称已验证二维姿态性能。若两者均 NOT_APPLICABLE，检测/正反面/换型仍可验证，但二维姿态性能声明保持范围外，不编造角度结果。
+
+这些是待实物选择的协议/Recipe 语义，**不是 FEATURE_ANGLE 或 SYMMETRY_AWARE 运行时已实现的声明**。选择后才按对应语义实现与验证；本修正不开放正式训练，Training Gate 仍 CLOSED，现有 TBD 与 Dataset V1 Gate 前提不变。
 
 ---
 
@@ -233,8 +267,9 @@ Ambiguous Accept Rate
 event_gt_id: string
 part_id: string
 true_face: front | back | not_applicable
+orientation_semantics: AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE
+orientation_gt_status: VALID | INDETERMINATE | NOT_APPLICABLE
 true_orientation_deg: float | null
-orientation_valid: bool
 conformance_gt: CONFORMING | NONCONFORMING | INDETERMINATE
 expected_failure_reason: FACE | ORIENTATION | BOTH | NONE | INDETERMINATE
 session_id: string
@@ -247,11 +282,30 @@ ground_truth_version: string
 规则：
 
 1. Face GT 必须由实物正反面定义产生，并在采集前冻结；
-2. Angle GT 优先由物理角度基准板或固定治具产生；
-3. 无治具时可使用人工 OBB / 方向标注，但必须二次复核；
+2. Angle GT 必须与冻结的语义、来源和参考一致，优先使用物理角度基准板 / 固定治具；不能给圆形外轮廓任意指定 OBB 角度作为方向真值；
+3. 无治具时可使用人工 OBB（仅稳定长轴来源）或方向特征标注并二次复核；FEATURE_ANGLE 须按冻结的中心/特征定义建立可复现参考，SYMMETRY_AWARE 须按声明的来源标注并以冻结周期归一化；
 4. Event GT 以单个物理零件事件为统计单位，不以逐帧多数投票生成；
-5. 无法可靠确定的样本必须标为 `INDETERMINATE`，不得强行指定；
-6. Ground Truth 修改必须版本化并留下变更记录。
+5. 适用姿态成功建立 GT 时 `orientation_gt_status=VALID`，必须有可用的 `true_orientation_deg`；GT 建立失败/歧义时为 `INDETERMINATE`，角度为 null，单独报告，不等同于不适用；
+6. `orientation_semantics=NOT_APPLICABLE` 当且仅当 `orientation_gt_status=NOT_APPLICABLE`，且 `true_orientation_deg=null`；这不是 GT 失败，也不是系统 UNCERTAIN；
+7. NOT_APPLICABLE 的 `conformance_gt` 仅根据剩余冻结维度（Face / Identity 等）确定；不得仅因角度 N/A 将 `expected_failure_reason` 设为 ORIENTATION 或 BOTH，也不得仅因此设为 INDETERMINATE；
+8. 适用姿态 GT 的 INDETERMINATE 若使整体合规无法可靠确定，`conformance_gt` 标为 INDETERMINATE；无法可靠确定的 GT 不得强行指定。系统因必需姿态证据不足输出 UNCERTAIN 与此 GT 状态独立记录；
+9. Ground Truth 修改必须版本化并留下变更记录。旧 `orientation_valid` 布尔字段已废弃，不再用于正式 Event GT，以显式语义与三态状态区分 N/A 和建立失败。
+
+### 4.6 Orientation 指标与分母
+
+统一定义角度评价集合：
+
+```text
+S = applicable events with orientation_gt_status = VALID
+  = orientation_semantics != NOT_APPLICABLE 且 orientation_gt_status = VALID 的事件
+```
+
+- Angle MAE / Median / P95 仅使用 S；周期误差为 `min(|pred-gt| mod period, period - (|pred-gt| mod period))`，AXIAL_OBB 的 period=180°，FEATURE_ANGLE 默认 360°，SYMMETRY_AWARE 为 `360/symmetry_order`；
+- S 中预测角度缺失不能伪造成 0° 或静默视作成功；角度误差统计同时报告 `n_defined_predictions / |S|`，缺失预测另入必需但未定义率；
+- 姿态失败指标的分母只取 |S|，不可加入 NOT_APPLICABLE 或 orientation_gt_status=INDETERMINATE。须区分角度容差超限率（S 中可用预测超过冻结容差的事件数 / |S|）与系统 FAIL_ORIENTATION 率（S 中该决策事件数 / |S|）；缺失预测不视为容差内成功，另报必需但未定义率。指标名称/判据在 Test 前冻结，不得事后切换；
+- 旧名 UNDEFINED Orientation Rate 明确改为 **Required-but-Undefined Orientation Rate（必需但未定义姿态率）**：`S 中系统未能形成可用角度的事件数 / |S|`；不适用对象不进入分子或分母。GT 建立失败数量单独按 orientation_gt_status=INDETERMINATE 报告；
+- |S|=0 时角度/姿态失败/必需但未定义指标报告 N/A（n=0），而非 0% 或完美精度；Angle Jitter / Stability 也只评估适用语义并报告有效样本数；
+- Wrong Accept / Wrong Reject / Coverage 的整体事件口径不改：NOT_APPLICABLE 姿态的事件只要剩余维度 GT 可确定，仍是可评价事件。其他证据不足仍可触发 UNCERTAIN，但角度 N/A 本身绝不能触发。
 
 ---
 
@@ -781,7 +835,8 @@ Validated Event Throughput
 - [ ] Part A 已冻结；
 - [ ] Part B 候选实物与选择原则已冻结；
 - [ ] Front / Back 判据已冻结；
-- [ ] Orientation 语义已冻结；
+- [ ] Orientation 四语义、对应来源/参考/特征/GT 方法及适用 guard 已冻结；
+- [ ] 已记录 Part A/B 姿态适用性与二维姿态性能声明边界；
 - [ ] Operating Envelope Draft 已完成；
 - [ ] Ground Truth Schema 已冻结；
 - [ ] `CONFORMING / NONCONFORMING / INDETERMINATE` 定义已确认；
@@ -791,7 +846,7 @@ Validated Event Throughput
 - [ ] OBB QA 通过；
 - [ ] Dataset Audit 通过；
 - [ ] 类别分布可接受；
-- [ ] 角度分布可接受；
+- [ ] 适用姿态的有效 GT 角度分布可接受；NOT_APPLICABLE 记录为 N/A，不制造角度；
 - [ ] Provenance 有记录；
 - [ ] 无明显数据泄漏；
 - [ ] Traditional CV Fairness Protocol 已冻结；

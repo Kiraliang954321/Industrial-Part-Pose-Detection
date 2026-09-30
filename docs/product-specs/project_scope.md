@@ -34,6 +34,14 @@ Phase 1 验收为 **Experiment Protocol FROZEN + Dataset V1 Gate OPEN**，并非
 
 GT 仅 `CONFORMING` / `NONCONFORMING` / `INDETERMINATE`；系统输出 `PASS` / `FAIL_FACE` / `FAIL_ORIENTATION` / `UNCERTAIN`。`UNCERTAIN` 是系统拒绝状态，不是训练类别或 GT。Wrong Accept = `NONCONFORMING → PASS` / 所有有效 NONCONFORMING 事件；Wrong Reject = CONFORMING 未 PASS / 所有有效 CONFORMING 事件，须分拆 hard reject 与 uncertain reject。INDETERMINATE 单独分层，不进入两者分母。Coverage 为可评价事件中收到明确 PASS/FAIL 的比例。决策以物理单件事件而非逐帧投票计数；角度真值优先物理基准，无治具时人工标注二次复核，争议真值标记 INDETERMINATE 并版本化。
 
+### V4.1a 圆形/近圆形件与姿态适用性
+
+`orientation_semantics` 仅为 `AXIAL_OBB | FEATURE_ANGLE | SYMMETRY_AWARE | NOT_APPLICABLE`。AXIAL_OBB 使用 OBB 长轴，需要稳定轴向时冻结 `min_aspect_ratio` / near-square guard；FEATURE_ANGLE 使用相对零件中心的冻结方向特征，必需 `feature_definition` 与可复现 GT 参考方法，圆形轮廓本身不能使其失效；SYMMETRY_AWARE 按 `360/symmetry_order` 等价，仍须声明角度来源/参考，对称性不提供测量。近方形只阻断实际依赖稳定长轴的来源，有效特征/对称参考仍可评价，不能统一判 UNCERTAIN。
+
+NOT_APPLICABLE 表示姿态不是合规维度，Angle=N/A/null，按 Face / Identity 等剩余冻结维度判定；角度 N/A 本身不得造成 FAIL_ORIENTATION / UNCERTAIN 或 ORIENTATION 失败真值。Event GT 以 `orientation_gt_status: VALID | INDETERMINATE | NOT_APPLICABLE` 配合语义替代模糊布尔判据；VALID 必须有可用真角度，INDETERMINATE 是适用姿态 GT 建立失败/歧义而非 N/A，NOT_APPLICABLE 必须 null。Angle MAE/Median/P95、姿态失败及 Required-but-Undefined Orientation Rate（必需但未定义姿态率）仅以适用且 GT=VALID 的事件为评价集合；缺失预测另报，不适用不入角度分母，但剩余维度有效时仍进入整体合规统计。
+
+正式 Part A/B 至少一个对象须有适用姿态语义及有效正式实验结果才可声明已验证二维姿态性能；两者均 NOT_APPLICABLE 时仍可验证检测/正反面，但姿态声明范围外。以上是协议/Recipe 语义，**不宣称 FEATURE_ANGLE / SYMMETRY_AWARE 运行时已实现**，仅在实物选用时实施。Training Gate 仍 CLOSED；假设验证、四路 session 隔离与 Final Holdout 规则不变。
+
 **现状（非成果）：**已有单帧脚手架、part-aware 原始采集、OBB sidecar/四点击标注与 QA、按完整 session 的 schema v2 `train/val/test/final_holdout` 四路 Dataset V1 组装能力。无真实 Part A 项目数据集、真实四路 split、正式训练、模型指标、已冻结协议或 Phase 2–6 运行时证据；软件测试或合成烟测不是性能结论。95% 面准确率、90% mAP50、30/60 FPS 仅为未来工程目标，不能预填实测值。
 
 实现约定见 [基线设计](../design-docs/phase1_obb_baseline.md)，工作顺序见 [执行计划](../exec-plans/active/phase1_execution_plan.md)，技术选择见 [ADR-0001](../decisions/adr-0001-single-obb-baseline.md)。
