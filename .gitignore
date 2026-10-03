@@ -5,6 +5,7 @@ __pycache__/
 .venv/
 *.pt
 runs/
+
 # Raw and converted datasets and downloaded archives
 /data/
 /datasets/
@@ -17,3 +18,13 @@ runs/
 *.tgz
 *.7z
 *.rar
+
+# Local secrets / credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+.secrets/
+credentials*.json
