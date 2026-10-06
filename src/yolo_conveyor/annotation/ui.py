@@ -22,16 +22,27 @@ def original_point(x: int, y: int, width: int, height: int,
     return x * width / shown_width, y * height / shown_height
 
 
-def canonical_corners(points: list[tuple[float, float]], width: int, height: int) -> list[list[float]]:
+def canonical_corners(points: list[tuple[float, float]], width: int, height: int,
+                      *, allow_boundary: bool = False) -> list[list[float]]:
     """Fit an actual rotated rectangle in original pixel space, then normalize."""
     if len(points) != 4 or min(width, height) <= 0:
         raise ValueError("four points and positive dimensions required")
     pixels = np.asarray(points, dtype=np.float32)
-    if pixels.shape != (4, 2) or not np.isfinite(pixels).all() or (pixels < 0).any() or (pixels[:, 0] >= width).any() or (pixels[:, 1] >= height).any():
+    if pixels.shape != (4, 2) or not np.isfinite(pixels).all() or (pixels < 0).any():
+        raise ValueError("invalid pixel points")
+    upper = np.asarray([width, height], dtype=np.float32)
+    outside = pixels > upper if allow_boundary else pixels >= upper
+    if outside.any():
         raise ValueError("invalid pixel points")
     rect = cv2.minAreaRect(pixels)
     box = cv2.boxPoints(rect)
     corners = [[float(x / width), float(y / height)] for x, y in box]
+    if allow_boundary:
+        # boxPoints can place an exact image-edge rectangle a few float32 ULPs outside.
+        # Correct numerical roundoff only; meaningful out-of-bounds geometry still fails.
+        tolerance = 4 * np.finfo(np.float32).eps
+        if all(-tolerance <= value <= 1 + tolerance for point in corners for value in point):
+            corners = [[min(1.0, max(0.0, value)) for value in point] for point in corners]
     validate_corners(corners)  # Includes bounds and strict nonzero convex area.
     return corners
 
@@ -43,6 +54,7 @@ class PointState:
     shown_width: int
     shown_height: int
     points: list[tuple[float, float]] = field(default_factory=list)
+    allow_boundary: bool = False
 
     def click(self, x: int, y: int) -> None:
         if len(self.points) < 4:
@@ -54,7 +66,8 @@ class PointState:
 
     def corners(self) -> list[list[float]] | None:
         try:
-            return canonical_corners(self.points, self.width, self.height)
+            return canonical_corners(self.points, self.width, self.height,
+                                     allow_boundary=self.allow_boundary)
         except ValueError:
             return None
 
@@ -79,11 +92,17 @@ class PointState:
 
 def review_image(image: np.ndarray, *, session_id: str, part_id: str, face: str,
                  class_name: str, index: int, total: int, existing: bool,
-                 max_window: int) -> tuple[str, list[list[float]] | None]:
+                 max_window: int,
+                 initial_corners: list[list[float]] | None = None) -> tuple[str, list[list[float]] | None]:
     """Return an operator action, never persist it; closing the window quits safely."""
     height, width = image.shape[:2]
     shown_width, shown_height = display_size(width, height, max_window)
-    state = PointState(width, height, shown_width, shown_height)
+    state = PointState(width, height, shown_width, shown_height,
+                       allow_boundary=initial_corners is not None)
+    if initial_corners is not None:
+        state.points = [(x * width, y * height) for x, y in validate_corners(initial_corners)]
+        if state.corners() is None:
+            raise ValueError("candidate corners cannot be represented by the image reviewer")
     displayed = cv2.resize(image, (shown_width, shown_height), interpolation=cv2.INTER_AREA) if (shown_width, shown_height) != (width, height) else image
     window = "OBB annotation"
     header_height = 4 * 25 + 10
@@ -107,8 +126,9 @@ def review_image(image: np.ndarray, *, session_id: str, part_id: str, face: str,
             if corners is not None:
                 polygon = np.rint(np.asarray(corners) * [shown_width, shown_height]).astype(np.int32)
                 cv2.polylines(frame, [polygon], True, (0, 255, 0), 2)
+            candidate_note = " | CANDIDATE" if initial_corners is not None else ""
             lines = [f"{session_id} / {part_id} | {face} / {class_name}",
-                     f"{index}/{total} | existing: {'yes' if existing else 'no'} | points: {len(state.points)}/4" + (" (invalid box)" if len(state.points) == 4 and corners is None else ""),
+                     f"{index}/{total} | existing: {'yes' if existing else 'no'} | points: {len(state.points)}/4" + (" (invalid box)" if len(state.points) == 4 and corners is None else "") + candidate_note,
                      "Left click: add | U: undo | R: reset | Enter/Space: save",
                      "X: exclude | S: skip | Q/Esc: quit"]
             # A separate header avoids hiding pixels underneath the label/controls.
