@@ -38,9 +38,12 @@
 - `orientation_semantics = NOT_APPLICABLE`，因为该零件外轮廓近圆且没有稳定的工业方向特征；
 - 已使用手机 + iVCam 做真实采集验证；
 - 当前正式采集使用 iVCam `source=1`、DirectShow、640×480、请求 30 FPS；
+- 本批实拍 8 张（Front 4 / Back 4）已完成人工 GUI 接受与标注 QA：8 接受、0 排除、0 缺失、0 错误；Part B 6 张仍为候选参考，完整 Dataset Audit 尚未完成；
+- 2026-10-06 新增黄色瓶盖实拍 80 张（Front 40 / Back 40），已保真归档并完成助手逐图可视复核；这批作为 Train，原人工接受的 8 张作为开发 Val，已完成真实照片开发微调：13 epochs，AP 最佳 best 权重的开发 Val mAP50–95 为 0.87025，见[80 张真实照片开发微调](docs/exec-plans/active/real_cap_80_development.md)；
+- 开发推理组合使用 last 权重与显式黄色像素过滤；其固定阈值回放为已见 Train 80 / 80、开发 Val 8 / 8 单个正确框、0 额外框，是组合感知的开发观察，不是纯 YOLO AP、风险拒绝或无偏测试结果；
 - 四路正式 Session 仍在建立中，因此 **Training Gate 仍为 CLOSED**。
 
-Part B 与完整 Operating Envelope 仍需后续冻结；正式训练和 Phase 2 性能对比尚未开始。
+Part B 与完整 Operating Envelope 仍需后续冻结；开发微调已完成，正式训练和 Phase 2 公平性能对比尚未开始。80 张是用户授权的本轮实拍预算，先前 200 张建议不作为门槛；数据增强仅作用于 Train，不增加独立真实批次。
 
 ## 研究问题
 
@@ -122,6 +125,9 @@ python scripts/audit_dataset.py --help
 
 更多说明：
 
+- [Part A / B 实拍预冻结草案](docs/data/part_ab_photo_prefreeze_v1.md)：保留原 14 张素材及 Part A 8 张人工接受记录，并记录新 80 张开发来源；正式门禁还缺独立真实四路数据及 Operating Envelope、GT 与合格规则的冻结。
+- [80 张真实照片开发微调](docs/exec-plans/active/real_cap_80_development.md)：新增 80 张 Part A 实拍作为 Train，旧 8 张作为开发 Val，按完整批次隔离；记录助手标注来源、数据增强与已完成的开发微调结果，正式门禁保持 CLOSED。
+- [独立合成瓶盖训练演示](docs/exec-plans/active/synthetic_cap_training_demo.md)：已完成 1,440 张合成图像、12 段视频、双 OBB 模型训练与预测演示；结果限定为 `synthetic_only`，不改变正式 Training Gate。
 - [PHONE_CAPTURE_V1](docs/data/PHONE_CAPTURE_V1.md)
 - [OBB Annotation Sidecar V1](docs/data/obb_annotation_v1.md)
 - [Project Dataset V1](docs/data/project_dataset_v1.md)
