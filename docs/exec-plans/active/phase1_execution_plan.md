@@ -1,5 +1,7 @@
 # Phase 1 — Data Foundation + Experiment Protocol Freeze
 
+> 2026-10-31 方向更新：本页保留 V4.1 二维基线的开发历史与未完成门禁。新的直接下一步转到[工业件朝向与 3D 研究计划](industrial_orientation_3d_execution_plan.md) S0，依据 [ADR-0002](../../decisions/adr-0002-industrial-orientation-3d-simulation.md)确认轴承、锥形齿轮或螺丝的具体对象/CAD/方向。下文旧 `cap_a/cap_b` 采集与换型安排仅作历史记录，不再指派新瓶盖任务，也不自动继承为新对象定义。原冻结与门禁状态保持不变。
+
 状态：**进行中；Experiment Protocol 未正式 FROZEN、Dataset V1 Gate CLOSED、正式训练未开始。**当前项目权威：[V4.1 方案](../../new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)与 [EXPERIMENT_PROTOCOL_V1](../../new-plans/EXPERIMENT_PROTOCOL_V1.md)（其正式修正规则优先）；协议中的 TBD 和 gate checklist 尚未满足。Phase 1 验收必须是 **Experiment Protocol FROZEN + Dataset V1 Gate OPEN**，不能以数据组装/脚本测试通过替代。
 
 最近更新：2026-10-06。用户已选择沿项目 **Part A → Part B** 路线推进，当前执行 Phase 1 准备，不再以四类联合开发训练作为主线。新增 80 张 Part A 照片的隔离开发微调已完成，范围见[80 张真实照片开发微调](real_cap_80_development.md)；该开发结果不替代正式 Phase 2 对照。
