@@ -1,0 +1,725 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "held_simulation_development",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 24,
+    "decisions": {
+      "UNCERTAIN": 7,
+      "REJECT": 6,
+      "PASS": 11
+    },
+    "wrong_accept": {
+      "x": 0,
+      "n": 9,
+      "estimate": 0.0,
+      "wilson95": [
+        0,
+        0.2991450484195441
+      ]
+    },
+    "conforming_not_passed": {
+      "x": 4,
+      "n": 15,
+      "estimate": 0.26666666666666666,
+      "wilson95": [
+        0.10897453325692374,
+        0.5195043405598057
+      ]
+    },
+    "preinsert_success_given_attempt": {
+      "x": 8,
+      "n": 8,
+      "estimate": 1.0,
+      "wilson95": [
+        0.6755924351161198,
+        1
+      ]
+    },
+    "preinsert_success_given_inspection_pass": {
+      "x": 8,
+      "n": 11,
+      "estimate": 0.7272727272727273,
+      "wilson95": [
+        0.43435469882387084,
+        0.902539407099751
+      ]
+    },
+    "preinsert_success_all_episodes": {
+      "x": 8,
+      "n": 24,
+      "estimate": 0.3333333333333333,
+      "wilson95": [
+        0.1797219032729775,
+        0.5329368316186824
+      ]
+    },
+    "permit_denials": {
+      "permit_expired": 3
+    },
+    "tip_error_mm": {
+      "n": 17,
+      "mean": 1.0601035143085122,
+      "median": 0.9454520654613994,
+      "p95": 1.6360372880180147
+    },
+    "axis_error_deg": {
+      "n": 17,
+      "mean": 1.0759995262375157,
+      "median": 1.0465747612347591,
+      "p95": 1.3039011711676054
+    },
+    "inference_ms_two_views": {
+      "n": 24,
+      "mean": 92.14412916723329,
+      "median": 94.73270000307821,
+      "p95": 127.01938998943659
+    },
+    "end_to_end_wall_s": {
+      "n": 24,
+      "mean": 7.577473416650416,
+      "median": 6.998601099970983,
+      "p95": 15.568712919973766
+    },
+    "simulated_cycle_s": {
+      "n": 24,
+      "mean": 20.074500000001276,
+      "median": 11.71199999999881,
+      "p95": 41.81199999999267
+    },
+    "continuous_throughput": "not measured: independent episodes without return/refeed",
+    "illegal_contact_episodes": 0
+  },
+  "by_case": {
+    "normal": {
+      "episodes": 3,
+      "decisions": {
+        "UNCERTAIN": 1,
+        "PASS": 2
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 1,
+        "n": 3,
+        "estimate": 0.3333333333333333,
+        "wilson95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "preinsert_success_given_attempt": {
+        "x": 2,
+        "n": 2,
+        "estimate": 1.0,
+        "wilson95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 2,
+        "n": 2,
+        "estimate": 1.0,
+        "wilson95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "preinsert_success_all_episodes": {
+        "x": 2,
+        "n": 3,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 2,
+        "mean": 0.8712575758864045,
+        "median": 0.8712575758864045,
+        "p95": 0.8802206534982608
+      },
+      "axis_error_deg": {
+        "n": 2,
+        "mean": 1.0515965743686935,
+        "median": 1.0515965743686935,
+        "p95": 1.112655628025866
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 112.6393999826784,
+        "median": 99.02309998869896,
+        "p95": 138.62912997719832
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 8.572289933314702,
+        "median": 8.546582599985413,
+        "p95": 9.660922459961148
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 20.912000000005268,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "reversed": {
+      "episodes": 3,
+      "decisions": {
+        "REJECT": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_all_episodes": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 3,
+        "mean": 1.628647899247994,
+        "median": 1.6296495612324835,
+        "p95": 1.658394331767374
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 1.1829678724272767,
+        "median": 1.204791879702094,
+        "p95": 1.2218298959457572
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 98.5591333398285,
+        "median": 99.95060000801459,
+        "p95": 113.60045000910759
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 4.96079403332745,
+        "median": 4.7491813999949954,
+        "p95": 7.426058329996885
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 11.71199999999881,
+        "median": 11.71199999999881,
+        "p95": 11.71199999999881
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "short": {
+      "episodes": 3,
+      "decisions": {
+        "REJECT": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_all_episodes": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 3,
+        "mean": 0.9140017108375337,
+        "median": 0.9633319111987079,
+        "p95": 1.0686511389914866
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 1.1802364382652872,
+        "median": 1.2116142347113246,
+        "p95": 1.331149112315362
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 83.23936664965004,
+        "median": 90.38299997337162,
+        "p95": 98.79349999828264
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 4.882609333299722,
+        "median": 5.018167399975937,
+        "p95": 6.974345119955251
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 11.71199999999881,
+        "median": 11.71199999999881,
+        "p95": 11.71199999999881
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "long": {
+      "episodes": 3,
+      "decisions": {
+        "PASS": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "preinsert_success_given_attempt": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preinsert_success_all_episodes": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 3,
+        "mean": 1.0980535982395323,
+        "median": 1.1451334667032516,
+        "p95": 1.2033748465027154
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 0.9517103834017462,
+        "median": 0.9823092531436866,
+        "p95": 1.068988987610196
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 83.14976668528591,
+        "median": 93.60010002274066,
+        "p95": 105.65739999874495
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 11.286505166674033,
+        "median": 11.873306199966464,
+        "p95": 16.16735938003985
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 25.512000000008502,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "tilted": {
+      "episodes": 3,
+      "decisions": {
+        "PASS": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "preinsert_success_given_attempt": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preinsert_success_all_episodes": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 3,
+        "mean": 0.8768633051879623,
+        "median": 0.8689573218658626,
+        "p95": 0.9809386639055354
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 1.0857007175321913,
+        "median": 0.9970652428773641,
+        "p95": 1.2640984196402352
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 90.97899999081467,
+        "median": 89.12299998337403,
+        "p95": 115.9106899634935
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 9.414952300003884,
+        "median": 9.959309900004882,
+        "p95": 11.51888534000609
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 25.512000000008502,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "empty": {
+      "episodes": 3,
+      "decisions": {
+        "UNCERTAIN": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_all_episodes": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "axis_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 89.19353332991402,
+        "median": 88.49890000419691,
+        "p95": 124.45893999538384
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 4.540017366642132,
+        "median": 4.155590599984862,
+        "p95": 6.5405126599885985
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 11.71199999999881,
+        "median": 11.71199999999881,
+        "p95": 11.71199999999881
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "blackout": {
+      "episodes": 3,
+      "decisions": {
+        "UNCERTAIN": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preinsert_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_all_episodes": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "tip_error_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "axis_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 72.6458333665505,
+        "median": 88.46230001654476,
+        "p95": 91.94665004033595
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 3.8672556999566345,
+        "median": 4.499496899952646,
+        "p95": 4.830949169950327
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 11.71199999999881,
+        "median": 11.71199999999881,
+        "p95": 11.71199999999881
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    },
+    "expired_permit": {
+      "episodes": 3,
+      "decisions": {
+        "PASS": 3
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "preinsert_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preinsert_success_given_inspection_pass": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "preinsert_success_all_episodes": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {
+        "permit_expired": 3
+      },
+      "tip_error_mm": {
+        "n": 3,
+        "mean": 0.9088483503109441,
+        "median": 0.9011931153935109,
+        "p95": 0.9410261704546106
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 0.9956508541402931,
+        "median": 1.0103118146240053,
+        "p95": 1.0429484665736837
+      },
+      "inference_ms_two_views": {
+        "n": 3,
+        "mean": 106.74699999314423,
+        "median": 106.81149997981265,
+        "p95": 115.71223001810722
+      },
+      "end_to_end_wall_s": {
+        "n": 3,
+        "mean": 13.095363499984765,
+        "median": 14.54876289999811,
+        "p95": 15.628709979972337
+      },
+      "simulated_cycle_s": {
+        "n": 3,
+        "mean": 41.81199999999267,
+        "median": 41.81199999999267,
+        "p95": 41.81199999999267
+      },
+      "continuous_throughput": "not measured: independent episodes without return/refeed",
+      "illegal_contact_episodes": 0
+    }
+  },
+  "limitations": [
+    "Independent biased scenario episodes; not production prevalence or throughput",
+    "No real CAD, real sensor validation, thread engagement or tightening",
+    "Finger encoder does not exclude axial slip with unchanged width; no continuous visual servo"
+  ]
+}

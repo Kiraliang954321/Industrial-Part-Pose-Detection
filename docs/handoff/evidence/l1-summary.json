@@ -1,0 +1,1050 @@
+{
+  "status": "completed",
+  "scope": "indexed_line_simulation_development",
+  "real_formal_gate": "closed",
+  "role": "evaluation",
+  "manifest_sha256": "dcd019c49779a354af378d4a7ae59bc5a031e6bf24948af4289c3250c3e1334a",
+  "overall": {
+    "single_frame": {
+      "events": 24,
+      "determinate_gt": 24,
+      "conforming_gt": 16,
+      "nonconforming_gt": 8,
+      "indeterminate_gt": 0,
+      "outcome_counts": {
+        "PASS": 4,
+        "FAIL_ORIENTATION": 8,
+        "UNCERTAIN": 12
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 8,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.32440756488388023
+        ]
+      },
+      "wrong_reject": {
+        "x": 12,
+        "n": 16,
+        "estimate": 0.75,
+        "wilson95": [
+          0.5050168346449122,
+          0.8981793250878696
+        ]
+      },
+      "hard_reject_conforming": {
+        "x": 0,
+        "n": 16,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.1936076805344365
+        ]
+      },
+      "uncertain_reject_conforming": {
+        "x": 12,
+        "n": 16,
+        "estimate": 0.75,
+        "wilson95": [
+          0.5050168346449122,
+          0.8981793250878696
+        ]
+      },
+      "coverage_determinate": {
+        "x": 12,
+        "n": 24,
+        "estimate": 0.5,
+        "wilson95": [
+          0.3142742581957335,
+          0.6857257418042665
+        ]
+      },
+      "decision_latency_sim_s": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      }
+    },
+    "multi_frame": {
+      "events": 24,
+      "determinate_gt": 24,
+      "conforming_gt": 16,
+      "nonconforming_gt": 8,
+      "indeterminate_gt": 0,
+      "outcome_counts": {
+        "PASS": 8,
+        "FAIL_ORIENTATION": 8,
+        "UNCERTAIN": 8
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 8,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.32440756488388023
+        ]
+      },
+      "wrong_reject": {
+        "x": 8,
+        "n": 16,
+        "estimate": 0.5,
+        "wilson95": [
+          0.27999563610326017,
+          0.7200043638967398
+        ]
+      },
+      "hard_reject_conforming": {
+        "x": 0,
+        "n": 16,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.1936076805344365
+        ]
+      },
+      "uncertain_reject_conforming": {
+        "x": 8,
+        "n": 16,
+        "estimate": 0.5,
+        "wilson95": [
+          0.27999563610326017,
+          0.7200043638967398
+        ]
+      },
+      "coverage_determinate": {
+        "x": 16,
+        "n": 24,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.4670631683813174,
+          0.8202780967270225
+        ]
+      },
+      "decision_latency_sim_s": {
+        "n": 24,
+        "mean": 0.7000000000002338,
+        "median": 0.7000000000002338,
+        "p95": 0.7000000000002338
+      }
+    },
+    "missing_events": 0,
+    "duplicate_events": 0,
+    "automatic_action_success": {
+      "x": 16,
+      "n": 16,
+      "estimate": 1.0,
+      "wilson95": [
+        0.8063923194655637,
+        1
+      ]
+    },
+    "halted_for_review": 8,
+    "safe_halt": {
+      "x": 8,
+      "n": 8,
+      "estimate": 1.0,
+      "wilson95": [
+        0.6755924351161198,
+        1
+      ]
+    },
+    "automatic_active_segment_sim_s": {
+      "n": 16,
+      "mean": 16.738562500000445,
+      "median": 15.95899999999949,
+      "p95": 23.919250000006556
+    },
+    "decision_wall_ms_including_rendering_and_logging": {
+      "n": 24,
+      "mean": 1314.7687750048742,
+      "median": 1288.8681000331417,
+      "p95": 1460.6083050108282
+    },
+    "continuous_line_throughput_parts_per_min": null,
+    "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+  },
+  "by_scenario": {
+    "clear_pass": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "PASS": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "PASS": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "halted_for_review": 0,
+      "safe_halt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 4,
+        "mean": 12.750749999998234,
+        "median": 12.750499999998233,
+        "p95": 12.751849999998234
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1304.1266000218457,
+        "median": 1268.7484500347637,
+        "p95": 1424.8882200219668
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    },
+    "axis_fail": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 0,
+        "nonconforming_gt": 4,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "FAIL_ORIENTATION": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 0,
+        "nonconforming_gt": 4,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "FAIL_ORIENTATION": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "halted_for_review": 0,
+      "safe_halt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 4,
+        "mean": 19.252250000000853,
+        "median": 19.24450000000084,
+        "p95": 19.344700000000966
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1329.8374749865616,
+        "median": 1337.1486999967601,
+        "p95": 1445.3773049928714
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    },
+    "reversed_fail": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 0,
+        "nonconforming_gt": 4,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "FAIL_ORIENTATION": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 0,
+        "nonconforming_gt": 4,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "FAIL_ORIENTATION": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "halted_for_review": 0,
+      "safe_halt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 4,
+        "mean": 22.200750000004454,
+        "median": 22.152500000004395,
+        "p95": 24.04465000000671
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1367.7314250235213,
+        "median": 1377.9508500301745,
+        "p95": 1466.0923700401327
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    },
+    "startup_dropout": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "UNCERTAIN": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "coverage_determinate": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "PASS": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "coverage_determinate": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "halted_for_review": 0,
+      "safe_halt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 4,
+        "mean": 12.750499999998235,
+        "median": 12.750499999998233,
+        "p95": 12.750999999998234
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1309.565025003394,
+        "median": 1316.1141499876976,
+        "p95": 1425.3317900118418
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    },
+    "camera_blackout": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "UNCERTAIN": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "coverage_determinate": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "UNCERTAIN": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "coverage_determinate": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "halted_for_review": 4,
+      "safe_halt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1287.2222000005422,
+        "median": 1258.5859500104561,
+        "p95": 1403.18001996784
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    },
+    "boundary": {
+      "single_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "UNCERTAIN": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "coverage_determinate": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0
+        }
+      },
+      "multi_frame": {
+        "events": 4,
+        "determinate_gt": 4,
+        "conforming_gt": 4,
+        "nonconforming_gt": 0,
+        "indeterminate_gt": 0,
+        "outcome_counts": {
+          "UNCERTAIN": 4
+        },
+        "wrong_accept": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "wrong_reject": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "hard_reject_conforming": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "uncertain_reject_conforming": {
+          "x": 4,
+          "n": 4,
+          "estimate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1
+          ]
+        },
+        "coverage_determinate": {
+          "x": 0,
+          "n": 4,
+          "estimate": 0.0,
+          "wilson95": [
+            0,
+            0.4898908364545973
+          ]
+        },
+        "decision_latency_sim_s": {
+          "n": 4,
+          "mean": 0.7000000000002338,
+          "median": 0.7000000000002338,
+          "p95": 0.7000000000002338
+        }
+      },
+      "missing_events": 0,
+      "duplicate_events": 0,
+      "automatic_action_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "halted_for_review": 4,
+      "safe_halt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "automatic_active_segment_sim_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "decision_wall_ms_including_rendering_and_logging": {
+        "n": 4,
+        "mean": 1290.12992499338,
+        "median": 1279.1029500076547,
+        "p95": 1359.553764987504
+      },
+      "continuous_line_throughput_parts_per_min": null,
+      "throughput_reason": "Independent single-pallet episodes; unloading/return/loading/review recovery are not integrated. No continuous-line throughput claim."
+    }
+  },
+  "wall_seconds": 225.04411029996118,
+  "completed_at": "2026-10-31T11:32:28.236826+00:00"
+}

@@ -1,0 +1,1042 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "A2_CUSTOM_PROXY_SIMULATION",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 48,
+    "decisions": {
+      "PASS": 7,
+      "REJECT": 10,
+      "UNCERTAIN": 31
+    },
+    "coverage": {
+      "x": 22,
+      "n": 40,
+      "estimate": 0.55,
+      "wilson95": [
+        0.39829091798932054,
+        0.6929469218909508
+      ]
+    },
+    "wrong_accept": {
+      "x": 0,
+      "n": 24,
+      "estimate": 0.0,
+      "wilson95": [
+        1.3877787807814457e-17,
+        0.13797620467498017
+      ]
+    },
+    "conforming_not_passed": {
+      "x": 9,
+      "n": 16,
+      "estimate": 0.5625,
+      "wilson95": [
+        0.331785563988119,
+        0.7690134759450765
+      ]
+    },
+    "indeterminate_with_pose": {
+      "x": 0,
+      "n": 8,
+      "estimate": 0.0,
+      "wilson95": [
+        0,
+        0.32440756488388023
+      ]
+    },
+    "axis_error_deg": {
+      "n": 22,
+      "mean": 1.7976021618583038,
+      "median": 1.2227391808332895,
+      "p95": 4.047768912205756
+    },
+    "spin_error_deg": {
+      "n": 22,
+      "mean": 1.189842387035876,
+      "median": 1.0728975716278324,
+      "p95": 2.901718089798422
+    },
+    "rotation_error_deg": {
+      "n": 22,
+      "mean": 2.235278488463431,
+      "median": 1.5565186752362792,
+      "p95": 4.97794766087572
+    },
+    "inference_ms_three_views": {
+      "n": 48,
+      "mean": 43.695962500351015,
+      "median": 41.99430003063753,
+      "p95": 59.38400996965356
+    },
+    "wall_s": {
+      "n": 48,
+      "mean": 3.4953902708330133,
+      "median": 3.2043720500078052,
+      "p95": 5.088981184968724
+    },
+    "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+  },
+  "by_part": {
+    "bearing": {
+      "episodes": 24,
+      "decisions": {
+        "PASS": 3,
+        "REJECT": 5,
+        "UNCERTAIN": 16
+      },
+      "coverage": {
+        "x": 11,
+        "n": 20,
+        "estimate": 0.55,
+        "wilson95": [
+          0.34208534245034233,
+          0.7418021417443759
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 12,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 5,
+        "n": 8,
+        "estimate": 0.625,
+        "wilson95": [
+          0.30574239460262737,
+          0.8631557141764026
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "axis_error_deg": {
+        "n": 11,
+        "mean": 1.6907371796457455,
+        "median": 1.2948656644970367,
+        "p95": 4.2513267226185665
+      },
+      "spin_error_deg": {
+        "n": 11,
+        "mean": 1.3476375601066248,
+        "median": 1.1437327631521435,
+        "p95": 3.2981528495991697
+      },
+      "rotation_error_deg": {
+        "n": 11,
+        "mean": 2.275473577348287,
+        "median": 1.7059556544159762,
+        "p95": 5.732540788439975
+      },
+      "inference_ms_three_views": {
+        "n": 24,
+        "mean": 43.88200000539655,
+        "median": 40.75975000159815,
+        "p95": 59.9893049977254
+      },
+      "wall_s": {
+        "n": 24,
+        "mean": 3.5966501083409335,
+        "median": 3.331731150014093,
+        "p95": 5.475991360034094
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear": {
+      "episodes": 24,
+      "decisions": {
+        "UNCERTAIN": 15,
+        "REJECT": 5,
+        "PASS": 4
+      },
+      "coverage": {
+        "x": 11,
+        "n": 20,
+        "estimate": 0.55,
+        "wilson95": [
+          0.34208534245034233,
+          0.7418021417443759
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 12,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 4,
+        "n": 8,
+        "estimate": 0.5,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "axis_error_deg": {
+        "n": 11,
+        "mean": 1.9044671440708612,
+        "median": 1.0892660655159394,
+        "p95": 4.034548482729376
+      },
+      "spin_error_deg": {
+        "n": 11,
+        "mean": 1.0320472139651276,
+        "median": 0.722791137045749,
+        "p95": 2.728942926859832
+      },
+      "rotation_error_deg": {
+        "n": 11,
+        "mean": 2.1950833995785755,
+        "median": 1.0959254902282323,
+        "p95": 4.834740947496522
+      },
+      "inference_ms_three_views": {
+        "n": 24,
+        "mean": 43.50992499530548,
+        "median": 42.657399986637756,
+        "p95": 58.55580995848867
+      },
+      "wall_s": {
+        "n": 24,
+        "mean": 3.3941304333250932,
+        "median": 3.1271486000041477,
+        "p95": 4.981397199985804
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    }
+  },
+  "by_case": {
+    "bearing/aligned": {
+      "episodes": 4,
+      "decisions": {
+        "PASS": 2,
+        "UNCERTAIN": 2
+      },
+      "coverage": {
+        "x": 3,
+        "n": 4,
+        "estimate": 0.75,
+        "wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 3.1772435903282497,
+        "median": 1.9280185349386962,
+        "p95": 5.8707637678879845
+      },
+      "spin_error_deg": {
+        "n": 3,
+        "mean": 1.8960904883928666,
+        "median": 2.1078661268272696,
+        "p95": 2.4037919303619955
+      },
+      "rotation_error_deg": {
+        "n": 3,
+        "mean": 3.782271223773396,
+        "median": 2.856560134805361,
+        "p95": 6.37200661381709
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 57.01802502153441,
+        "median": 48.33505002898164,
+        "p95": 85.70954503666142
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.1890771750040585,
+        "median": 4.073378750006668,
+        "p95": 5.5624842150020415
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "bearing/axis_error": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 3,
+        "UNCERTAIN": 1
+      },
+      "coverage": {
+        "x": 3,
+        "n": 4,
+        "estimate": 0.75,
+        "wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 1.399350104970402,
+        "median": 1.4018155563982644,
+        "p95": 1.621241410848886
+      },
+      "spin_error_deg": {
+        "n": 3,
+        "mean": 0.699186994251589,
+        "median": 0.4557075500662935,
+        "p95": 1.1185123086639113
+      },
+      "rotation_error_deg": {
+        "n": 3,
+        "mean": 1.594566858381886,
+        "median": 1.7059556544159762,
+        "p95": 1.8267557336032998
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 48.26265000156127,
+        "median": 45.88980000698939,
+        "p95": 58.61414999526459
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.6051990250125527,
+        "median": 3.696280600008322,
+        "p95": 3.883585090035922
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "bearing/spin_error": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 2,
+        "UNCERTAIN": 2
+      },
+      "coverage": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 2,
+        "mean": 1.463610221853634,
+        "median": 1.463610221853634,
+        "p95": 2.120787208504667
+      },
+      "spin_error_deg": {
+        "n": 2,
+        "mean": 2.09282310400729,
+        "median": 2.09282310400729,
+        "p95": 3.9529521219999664
+      },
+      "rotation_error_deg": {
+        "n": 2,
+        "mean": 2.718172270037698,
+        "median": 2.718172270037698,
+        "p95": 4.5040400458591705
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 45.50377500709146,
+        "median": 45.05699998117052,
+        "p95": 54.39771001401823
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.004814950021682,
+        "median": 3.674255850026384,
+        "p95": 5.284144015039782
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "bearing/boundary": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "coverage": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 2,
+        "mean": 0.5758300518073864,
+        "median": 0.5758300518073864,
+        "p95": 0.6259767150054519
+      },
+      "spin_error_deg": {
+        "n": 2,
+        "mean": 0.8438856647262496,
+        "median": 0.8438856647262496,
+        "p95": 1.0957118217622699
+      },
+      "rotation_error_deg": {
+        "n": 2,
+        "mean": 1.028134434116666,
+        "median": 1.028134434116666,
+        "p95": 1.262915068514166
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 40.287249998073094,
+        "median": 40.22224998334423,
+        "p95": 43.150764980237
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.2393590499996208,
+        "median": 3.22740815000725,
+        "p95": 3.48606510500249
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "bearing/one_camera_dark": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 3,
+        "PASS": 1
+      },
+      "coverage": {
+        "x": 1,
+        "n": 4,
+        "estimate": 0.25,
+        "wilson95": [
+          0.04558726080970055,
+          0.6993581574175981
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 3,
+        "n": 4,
+        "estimate": 0.75,
+        "wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 1,
+        "mean": 0.7894473428852029,
+        "median": 0.7894473428852029,
+        "p95": 0.7894473428852029
+      },
+      "spin_error_deg": {
+        "n": 1,
+        "mean": 1.164763175772426,
+        "median": 1.164763175772426,
+        "p95": 1.164763175772426
+      },
+      "rotation_error_deg": {
+        "n": 1,
+        "mean": 1.4070816960565822,
+        "median": 1.4070816960565822,
+        "p95": 1.4070816960565822
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 39.98065000632778,
+        "median": 38.346949993865564,
+        "p95": 45.0544750172412
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.53225580000435,
+        "median": 3.507007850013906,
+        "p95": 3.8963545700069515
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "bearing/plain": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "axis_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "spin_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "rotation_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 32.239649997791275,
+        "median": 31.90629999153316,
+        "p95": 35.3608249919489
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.0091946500033373,
+        "median": 2.962874599994393,
+        "p95": 3.2369798850122606
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/aligned": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 2,
+        "PASS": 2
+      },
+      "coverage": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 2,
+        "mean": 1.8594724752092167,
+        "median": 1.8594724752092167,
+        "p95": 3.0309550485761143
+      },
+      "spin_error_deg": {
+        "n": 2,
+        "mean": 0.7367284984895244,
+        "median": 0.7367284984895244,
+        "p95": 1.3037709887972038
+      },
+      "rotation_error_deg": {
+        "n": 2,
+        "mean": 2.0059051854872734,
+        "median": 2.0059051854872734,
+        "p95": 3.300078697253745
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 45.074099994963035,
+        "median": 44.9367500259541,
+        "p95": 55.00325998291373
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.02733124999213,
+        "median": 4.014758500008611,
+        "p95": 4.981397199985804
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/axis_error": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 3,
+        "UNCERTAIN": 1
+      },
+      "coverage": {
+        "x": 3,
+        "n": 4,
+        "estimate": 0.75,
+        "wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 2.848532927885636,
+        "median": 3.9294991722710186,
+        "p95": 4.03726398115992
+      },
+      "spin_error_deg": {
+        "n": 3,
+        "mean": 2.060225663588471,
+        "median": 2.5369705235947317,
+        "p95": 2.8825208494719123
+      },
+      "rotation_error_deg": {
+        "n": 3,
+        "mean": 3.5293477611252846,
+        "median": 4.677035399267456,
+        "p95": 4.960905386079775
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 50.909574987599626,
+        "median": 51.32429997320287,
+        "p95": 59.485489974031225
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.1449481249874225,
+        "median": 3.128917599970009,
+        "p95": 3.279229584973655
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/spin_error": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 3,
+        "REJECT": 1
+      },
+      "coverage": {
+        "x": 1,
+        "n": 4,
+        "estimate": 0.25,
+        "wilson95": [
+          0.04558726080970055,
+          0.6993581574175981
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 1,
+        "mean": 1.0892660655159394,
+        "median": 1.0892660655159394,
+        "p95": 1.0892660655159394
+      },
+      "spin_error_deg": {
+        "n": 1,
+        "mean": 0.12063397929479636,
+        "median": 0.12063397929479636,
+        "p95": 0.12063397929479636
+      },
+      "rotation_error_deg": {
+        "n": 1,
+        "mean": 1.0959254902282323,
+        "median": 1.0959254902282323,
+        "p95": 1.0959254902282323
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 42.09577500296291,
+        "median": 43.08485001092777,
+        "p95": 44.22781000321265
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.8496006749774097,
+        "median": 3.572068349982146,
+        "p95": 4.950135914963902
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/boundary": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 1,
+        "UNCERTAIN": 3
+      },
+      "coverage": {
+        "x": 3,
+        "n": 4,
+        "estimate": 0.75,
+        "wilson95": [
+          0.30064184258240184,
+          0.9544127391902995
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 3,
+        "mean": 2.2619480546376116,
+        "median": 1.9628212525766007,
+        "p95": 3.8141553302377176
+      },
+      "spin_error_deg": {
+        "n": 3,
+        "mean": 1.0250905615508865,
+        "median": 1.0221026373782816,
+        "p95": 1.670444659186152
+      },
+      "rotation_error_deg": {
+        "n": 3,
+        "mean": 2.4850871345249885,
+        "median": 2.2129751237229955,
+        "p95": 4.164311172013351
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 45.25952499534469,
+        "median": 45.75014999136329,
+        "p95": 47.54215498396661
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.4484932249906706,
+        "median": 3.332009499979904,
+        "p95": 4.006570325011853
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/one_camera_dark": {
+      "episodes": 4,
+      "decisions": {
+        "PASS": 2,
+        "UNCERTAIN": 2
+      },
+      "coverage": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 2,
+        "n": 4,
+        "estimate": 0.5,
+        "wilson95": [
+          0.15003898915214947,
+          0.8499610108478506
+        ]
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "axis_error_deg": {
+        "n": 2,
+        "mean": 0.40474231063767785,
+        "median": 0.40474231063767785,
+        "p95": 0.46358072109254966
+      },
+      "spin_error_deg": {
+        "n": 2,
+        "mean": 0.2512398509622427,
+        "median": 0.2512398509622427,
+        "p95": 0.36636852157368244
+      },
+      "rotation_error_deg": {
+        "n": 2,
+        "mean": 0.49743842360536833,
+        "median": 0.49743842360536833,
+        "p95": 0.5077119373348786
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 43.70592499617487,
+        "median": 42.572350008413196,
+        "p95": 50.73557999567129
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.1512889500008896,
+        "median": 3.169767400017008,
+        "p95": 3.234004029989592
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    },
+    "gear/plain": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "indeterminate_with_pose": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "axis_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "spin_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "rotation_error_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "inference_ms_three_views": {
+        "n": 4,
+        "mean": 34.01464999478776,
+        "median": 32.08430000813678,
+        "p95": 40.92542997968849
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 2.743120375002036,
+        "median": 2.709371850010939,
+        "p95": 2.8641369999822928
+      },
+      "notes": "Pose measurement and target comparison only; no automated correction/assembly claim"
+    }
+  }
+}

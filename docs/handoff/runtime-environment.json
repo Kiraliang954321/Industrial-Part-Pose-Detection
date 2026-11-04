@@ -1,0 +1,79 @@
+{
+  "scope": "Recorded A5 development environment",
+  "environment": {
+    "python": "3.11.9",
+    "executable": "E:\\AllProjects\\Industrial-Part-Pose-Detection\\.venv\\Scripts\\python.exe",
+    "user_site_enabled": true,
+    "platform": "Windows-10-10.0.26300-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "torchvision": "0.26.0+cu128",
+      "ultralytics": "8.4.171",
+      "numpy": "1.26.4",
+      "opencv-python": "4.11.0.86",
+      "mujoco": "3.17.0",
+      "glfw": "2.11.0",
+      "PyOpenGL": "3.1.10",
+      "etils": "1.14.0",
+      "zipp": "4.1.2",
+      "absl-py": "2.4.0",
+      "fsspec": "2026.2.0",
+      "websockets": "16.0"
+    }
+  },
+  "model_availability": "Local artifacts requiring separate transfer",
+  "models": [
+    {
+      "path": "runs/screw-orientation/20261031-h1-train-v1/fit/weights/best.pt",
+      "sha256": "e78fc24c4dd5b758aa0646e8da7ec8b7ba251f382ac327c17dcf85725903cb03",
+      "bytes": 5852526,
+      "stages": [
+        "h1",
+        "h2"
+      ]
+    },
+    {
+      "path": "runs/annular/20261031-train-v1/fit/weights/best.pt",
+      "sha256": "c281106e782be9b86378d7337ab5663c17f296d845741f9647f45a992040e518",
+      "bytes": 5386629,
+      "stages": [
+        "a1"
+      ]
+    },
+    {
+      "path": "runs/datum-pose/20261101-train-precise-v1/fit/weights/best.pt",
+      "sha256": "7cbe908673310b64e16668d608d48e721b23e6fb30d7d254c75b42d019904ed3",
+      "bytes": 6045166,
+      "stages": [
+        "a2"
+      ]
+    },
+    {
+      "path": "runs/pose-cell/20261101-train-centers-v1/fit/weights/best.pt",
+      "sha256": "d12fefc4565a20030cdbf752a4f31411be13eb77191f4dddf75d1385de9b6c3c",
+      "bytes": 6047982,
+      "stages": [
+        "a3",
+        "a4"
+      ]
+    },
+    {
+      "path": "runs/active-pose/20261101-train-v1/fit/weights/best.pt",
+      "sha256": "ae474306bca4ec34f50ab9cdb437ae7dc1cf0a62a9bc9b4e5d9bfb3a3d8713b1",
+      "bytes": 6046766,
+      "stages": [
+        "a4",
+        "a5"
+      ]
+    },
+    {
+      "path": "runs/screw-orientation/20261031-development-train-v2/fit/weights/best.pt",
+      "sha256": "0a29b8c5660d62cb19b84bf2cc0805e1c3b3ed2fb2e7478dc80813ab2f1e155a",
+      "bytes": 5857518,
+      "stages": [
+        "m4",
+        "l1"
+      ]
+    }
+  ]
+}

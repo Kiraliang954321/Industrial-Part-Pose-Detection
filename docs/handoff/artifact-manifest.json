@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Public simulation preview and evaluation summaries",
+  "real_formal_gate": "closed",
+  "protocols": [
+    "docs/data/screw_m4_protocol_v1.json",
+    "docs/data/screw_line_protocol_v1.json",
+    "docs/data/screw_held_protocol_v1.json",
+    "docs/data/screw_held_recheck_protocol_v1.json",
+    "docs/data/bearing_bevel_a1_protocol_v1.json",
+    "docs/data/datum_pose_a2_protocol_v1.json",
+    "docs/data/pose_cell_a3_protocol_v1.json",
+    "docs/data/active_pose_a4_protocol_v1.json",
+    "docs/data/keyed_cell_a5_protocol_v1.json"
+  ],
+  "previews": [
+    {
+      "stage": "m4",
+      "video": "docs/previews/m4.mp4",
+      "source_manifest": "runs/screw-orientation/20261031-m4-paired-v1/video-verification.json",
+      "source_manifest_sha256": "7b2b9402bc8a6bbb193eeb25fe195a488c44eb7e8e79a4eb790a9a9340687e21",
+      "playback_speed": 1,
+      "source_note": "Selected recorded vision branch"
+    },
+    {
+      "stage": "l1",
+      "video": "docs/previews/l1.mp4",
+      "source_manifest": "runs/screw-orientation/20261031-l1-evaluation-v1/presentation/video-verification.json",
+      "source_manifest_sha256": "ad0c29db886d45baa85e6c79c463ccaa2aaa4adeac29680e3dc8f960909835ca",
+      "playback_speed": 1,
+      "source_note": null
+    },
+    {
+      "stage": "h1",
+      "video": "docs/previews/h1.mp4",
+      "source_manifest": "runs/screw-orientation/20261031-h1-demo-v1/manifest.json",
+      "source_manifest_sha256": "d3532bdb266ca525b1772b6797cd38324ac8c34a7d891dc649bfc458e2d40b9f",
+      "playback_speed": 1,
+      "source_note": "Captions describe recorded outcomes. A one-second final still follows each episode; raw physics videos are unchanged."
+    },
+    {
+      "stage": "h2",
+      "video": "docs/previews/h2.mp4",
+      "source_manifest": "runs/screw-orientation/20261031-h2-demo-v1/video-manifest.json",
+      "source_manifest_sha256": "d97ba3a3bdb7ab79a4b7df9fbcaf24cd26f2b24170a426241a2803bed6acc031",
+      "playback_speed": 1,
+      "source_note": "Recorded physics with outcome captions and one-second final still per clip. Raw evidence videos are unchanged. Thumbnails show the latest RGB observation."
+    },
+    {
+      "stage": "a1",
+      "video": "docs/previews/a1.mp4",
+      "source_manifest": "runs/annular/20261031-demo-v1/manifest.json",
+      "source_manifest_sha256": "1c316a40dcaa7e81eaf8c93bcb76a97c398cdb63053b518b9630fbd3905d45cc",
+      "playback_speed": 1,
+      "source_note": "One-second final still after each episode; captions describe recorded outcomes; raw videos unchanged"
+    },
+    {
+      "stage": "a2",
+      "video": "docs/previews/a2.mp4",
+      "source_manifest": "runs/datum-pose/20261101-demo-v1/manifest.json",
+      "source_manifest_sha256": "b555573f5b331fd8d5e3768180138cada3692a2991ae3ac13362bda31926aa8d",
+      "playback_speed": 1,
+      "source_note": "One second final still per episode; measurements are RGB-derived; no GT overlay drives decisions"
+    },
+    {
+      "stage": "a3",
+      "video": "docs/previews/a3.mp4",
+      "source_manifest": "runs/pose-cell/20261101-demo-export-v1/export-manifest.json",
+      "source_manifest_sha256": "6496d92089c4830bd7bc7ab2aa13fa79d07902e659e330f5f49437f36c6e8fa0",
+      "playback_speed": 3,
+      "source_note": null
+    },
+    {
+      "stage": "a4",
+      "video": "docs/previews/a4.mp4",
+      "source_manifest": "runs/active-pose/20261101-demo-v1/export-manifest.json",
+      "source_manifest_sha256": "c1de15426e005af9307f68a875114f93c32a9c9bcbadde7d22aa1cbfac3d01f9",
+      "playback_speed": 2,
+      "source_note": "Selected illustrations do not change evaluation denominators. Some recordings begin at the first active-observation decision."
+    },
+    {
+      "stage": "a5",
+      "video": "docs/previews/a5.mp4",
+      "source_manifest": "runs/keyed-cell/20261101-demo-v1/export-manifest.json",
+      "source_manifest_sha256": "d662061a15ee7a60eb0ab6399ec11bf82ae25f42ef5d60d116b7284478e8d112",
+      "playback_speed": 1,
+      "source_note": "Original insertion motion at recorded speed; preceding pickup/inspection trimmed. Added two-second result cards are not live sensor readings. Plan view is display-only physics geometry."
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/previews/m4.mp4",
+      "bytes": 771068,
+      "sha256": "cbaf5c2422036504a7a8a9bf5f7db6ac4e7767b178731779810a4e37037e4a98",
+      "source": "runs/screw-orientation/20261031-m4-paired-v1/episode-2026103104/vision-h264.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/m4.jpg",
+      "bytes": 168868,
+      "sha256": "9e4c084663a9bf73704bb499a9d52596f1400526153c3cde98bb4e90b7432f2f",
+      "source": "runs/screw-orientation/20261031-m4-paired-v1/vision-contact-sheet.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/m4-summary.json",
+      "bytes": 1638,
+      "sha256": "239830494ce0d2dbad036de94f7d73b325eb4762747f3133b5662331adbf8b4f",
+      "source": "runs/screw-orientation/20261031-m4-paired-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/screw_m4_protocol_v1.json",
+      "bytes": 4196,
+      "sha256": "4010f979aea4f56568b4aa633ec8e60362a099112dee717aa2adae3bff5137fd",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/l1.mp4",
+      "bytes": 1996951,
+      "sha256": "6d8348464c9782b70b04e121db29ab1b5c79455c12c2e9de9ded8dee18d869a4",
+      "source": "runs/screw-orientation/20261031-l1-evaluation-v1/presentation/indexed-cell-demo-h264.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/l1.jpg",
+      "bytes": 121646,
+      "sha256": "1eb37f2db607bdcc0dade066b55a92294208d704ad4cd47757aa2364953b4991",
+      "source": "runs/screw-orientation/20261031-l1-evaluation-v1/presentation/outcomes-contact-sheet.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/l1-summary.json",
+      "bytes": 24776,
+      "sha256": "67770e05140bfefe251b5f8b543c8294000e5bc5febf2fc885b80145d5d53620",
+      "source": "runs/screw-orientation/20261031-l1-evaluation-v1/report.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/screw_line_protocol_v1.json",
+      "bytes": 6405,
+      "sha256": "02dd1db399bd26ed4aedc4c0778949fb61ed6687a1c6f2e033643fd4d71870ac",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/h1.mp4",
+      "bytes": 1462748,
+      "sha256": "708ec54273c44c3d9a799475708d6f24727a4567cc45246c4cc00b06407179f3",
+      "source": "runs/screw-orientation/20261031-h1-demo-v1/h1-held-inspection-preinsert.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/h1.jpg",
+      "bytes": 76813,
+      "sha256": "ace3e933c1350d9e5e7765f07b1d8a92f7c272324dcb4e3612ce484da6435946",
+      "source": "runs/screw-orientation/20261031-h1-demo-v1/preview-4.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/h1-summary.json",
+      "bytes": 17302,
+      "sha256": "f99138b39ec28c24cb04519bfb9cb8476dbf58da4aa418d7561fa9708f422c4f",
+      "source": "runs/screw-orientation/20261031-h1-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/screw_held_protocol_v1.json",
+      "bytes": 11064,
+      "sha256": "29af3a6feb5314f3481a824838770300c0d64b10be08531801e4be0c72fd685c",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/h2.mp4",
+      "bytes": 2146033,
+      "sha256": "23fabc4b334a90f94a047a8dab89d61a83eb0325f77c657bb4e0264054c0cf34",
+      "source": "runs/screw-orientation/20261031-h2-demo-v1/h2-recheck-preinsert.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/h2.png",
+      "bytes": 177360,
+      "sha256": "519bd5f157b60ac46b0be3e49fc1aa4ab5ea848e2d15bf66195a699c596561f7",
+      "source": "runs/screw-orientation/20261031-h2-demo-v1/slip-recheck-evidence.png",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/h2-summary.json",
+      "bytes": 24068,
+      "sha256": "073f93e7bc425d8845931d64e9d341194bf03d7a335b1c8f2daf3883d34e65bf",
+      "source": "runs/screw-orientation/20261031-h2-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/screw_held_recheck_protocol_v1.json",
+      "bytes": 11623,
+      "sha256": "d0dadb0ea42220eb25fa45834a3089f39b7349f151549b9077fb0d3ab97b4e81",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a1.mp4",
+      "bytes": 3057464,
+      "sha256": "6fb16a26e1091b6c40ea9380800fc19688c5d0a7742316bf640fb4cacbf9e7bb",
+      "source": "runs/annular/20261031-demo-v1/bearing-bevel-inspection.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/a1.jpg",
+      "bytes": 153953,
+      "sha256": "dc0ce8f12037ec007230033467ea6060b963fbc7f2e9661e8ebc9cc9b34cccc5",
+      "source": "runs/annular/20261031-demo-v1/front-back-evidence.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/a1-summary.json",
+      "bytes": 16915,
+      "sha256": "e2a8d280aa63b8be9e6381d9c7e0f2adf868ff007e35efe990fead2d5c260a14",
+      "source": "runs/annular/20261031-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/bearing_bevel_a1_protocol_v1.json",
+      "bytes": 8382,
+      "sha256": "cf1233036c56c3585831edfa5b83258ad4523b07287bf1f814d7f666bcaadaaf",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a2.mp4",
+      "bytes": 4840060,
+      "sha256": "e8390ed2d132def8c28d5f1d7aba77e4091d6f32022d7d63b4f35baed83db20c",
+      "source": "runs/datum-pose/20261101-demo-v1/continuous-orientation-a2.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/a2.jpg",
+      "bytes": 245464,
+      "sha256": "9fae74874f5ebc617a5ae54cd991401ab579910a3a4115719846fa4e9138cf2d",
+      "source": "runs/datum-pose/20261101-demo-v1/pose-comparison-v2.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/a2-summary.json",
+      "bytes": 24356,
+      "sha256": "c0c357a0134a5cee6e9567aa48b90246f68dff3da68a413f02a7e2f06373e60c",
+      "source": "runs/datum-pose/20261101-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/datum_pose_a2_protocol_v1.json",
+      "bytes": 11931,
+      "sha256": "ceebe55e8b8b852bef75e997a0f225f9f86717c4f9c204f54257deb04b276cbb",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a3.mp4",
+      "bytes": 2473477,
+      "sha256": "1eda890a6331e2d5899473a492b3ea1116a738fa281f766be8122e8e581c68ef",
+      "source": "runs/pose-cell/20261101-demo-export-v1/a3-auto-orientation.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/a3.jpg",
+      "bytes": 112027,
+      "sha256": "4f068f813ab927c87a753d8bdd7ed535998f2dfacb359f3c5316190d6709b7c0",
+      "source": "runs/pose-cell/20261101-demo-export-v1/poster.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/a3-summary.json",
+      "bytes": 21942,
+      "sha256": "6e5ab9e578ce78bf02ecf60b5a12582c3e5bd51ad788b2673aa0176b2a53d30a",
+      "source": "runs/pose-cell/20261101-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/pose_cell_a3_protocol_v1.json",
+      "bytes": 14756,
+      "sha256": "5a2136d50f819dcc5d564ba6ffb7f32f5efb5cb47225a717ddc5d89896b59e7c",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a4.mp4",
+      "bytes": 1963606,
+      "sha256": "21cc85946922612be8fe0dfffd29cc2045980a24bd9f06b0836c16b4927f2b86",
+      "source": "runs/active-pose/20261101-demo-v1/a4-active-inspection.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/a4.jpg",
+      "bytes": 94858,
+      "sha256": "713053ecafb23ef64c304f51d9270cc9a07f58f66405562cdaa81a95d6826174",
+      "source": "runs/active-pose/20261101-demo-v1/poster-014.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/a4-summary.json",
+      "bytes": 54836,
+      "sha256": "282eaace4db48ce14acd7494f6db962c404b3f42cd78346ab6e2e1c82a36f719",
+      "source": "runs/active-pose/20261101-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/active_pose_a4_protocol_v1.json",
+      "bytes": 18532,
+      "sha256": "68e4bad0828327d1495ea93f20fd713d30c30c3082c11876d06a1fd4d2bdfef6",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a5.mp4",
+      "bytes": 1121317,
+      "sha256": "a5c64453b2b2911e9de5248e342fe550fd0b45ab631b86a3219b39d2dcc26b66",
+      "source": "runs/keyed-cell/20261101-demo-v1/a5-keyed-mating.mp4",
+      "purpose": "Recorded simulation preview"
+    },
+    {
+      "path": "docs/previews/a5.jpg",
+      "bytes": 135939,
+      "sha256": "a48fa0adcd1ba55f6272df480287a294a0d7b3a0d99ed05ac1ea1914ef658abf",
+      "source": "runs/keyed-cell/20261101-demo-v1/poster-042.jpg",
+      "purpose": "Simulation poster or evidence image"
+    },
+    {
+      "path": "docs/handoff/evidence/a5-summary.json",
+      "bytes": 39050,
+      "sha256": "50041132872749c3a13770eed289b4fab3a965824e982f3c6b8b0dec1ca8af32",
+      "source": "runs/keyed-cell/20261101-evaluation-v1/summary.json",
+      "purpose": "Original evaluation summary"
+    },
+    {
+      "path": "docs/data/keyed_cell_a5_protocol_v1.json",
+      "bytes": 19201,
+      "sha256": "0f077b46d15c895691f89aeee0eec2dda53526ebff3ef1a7bc48ef913ea7fa4e",
+      "purpose": "Original frozen simulation protocol"
+    },
+    {
+      "path": "docs/previews/a5-wrist-feedback.png",
+      "bytes": 238195,
+      "sha256": "b270cdb9ec3a22db95d1c6f78874d3015dc00504cc7ed29f553b716d05c8cf92",
+      "source": "runs/keyed-cell/20261101-force-plot-v1/wrist-contact-comparison.png",
+      "purpose": "Original wrist trace figure"
+    },
+    {
+      "path": "docs/previews/PANDA_LICENSE.txt",
+      "bytes": 10173,
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+      "source": "data/robot-assets/panda-a662de6/LICENSE",
+      "purpose": "Panda asset license attribution"
+    },
+    {
+      "path": "docs/handoff/evidence/a5-episodes.json",
+      "bytes": 96892,
+      "sha256": "be2f36802c91b8f31d09dd3123816d5a10a26dbe7fa9848729709be56366ddce",
+      "purpose": "All A5 episode outcomes with physical scores"
+    },
+    {
+      "path": "docs/handoff/runtime-environment.json",
+      "bytes": 2239,
+      "sha256": "b8369c6561e8641c2f97003dbe36b650cbd33006d716ddc15102804a2540bf35",
+      "purpose": "Runtime and model inventory"
+    },
+    {
+      "path": "docs/handoff/evidence/handoff-reference.json",
+      "bytes": 23572,
+      "sha256": "ee3a0ed43757e08c4d560e656fda16fba663dd3a9fb2162ab0fc949ace3bd54c",
+      "source": "runs/handoff/20261104-clean-checkout/runs/keyed-cell/handoff-reference/results.json",
+      "purpose": "Fresh minimal environment mechanical reference replay; oracle input"
+    }
+  ]
+}

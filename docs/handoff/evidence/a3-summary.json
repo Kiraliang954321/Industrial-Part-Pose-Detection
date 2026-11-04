@@ -1,0 +1,938 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "A3_SIMULATION_CLOSED_LOOP",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 48,
+    "outcomes": {
+      "SUCCESS": 25,
+      "UNCERTAIN": 20,
+      "PHYSICAL_CHECK_FAILED": 3
+    },
+    "initial_coverage": {
+      "x": 29,
+      "n": 42,
+      "estimate": 0.6904761904761905,
+      "wilson95": [
+        0.5397400606391092,
+        0.8092889714120513
+      ]
+    },
+    "initial_rotation_deg": {
+      "n": 29,
+      "mean": 2.268620107496242,
+      "median": 2.1801438079354747,
+      "p95": 4.0192068291752765
+    },
+    "initial_position_mm": {
+      "n": 29,
+      "mean": 0.13624195879239948,
+      "median": 0.07582801635088401,
+      "p95": 0.4271398106241759
+    },
+    "aligned_after_correction": {
+      "x": 29,
+      "n": 29,
+      "estimate": 1.0,
+      "wilson95": [
+        0.8830302015002593,
+        1
+      ]
+    },
+    "preposition_given_attempt": {
+      "x": 25,
+      "n": 28,
+      "estimate": 0.8928571428571429,
+      "wilson95": [
+        0.7280414845132785,
+        0.9628816331707
+      ]
+    },
+    "closed_loop_success_all_locatable": {
+      "x": 25,
+      "n": 42,
+      "estimate": 0.5952380952380952,
+      "wilson95": [
+        0.44494312750039344,
+        0.7295713885251867
+      ]
+    },
+    "closed_loop_success_clear_featured": {
+      "x": 25,
+      "n": 36,
+      "estimate": 0.6944444444444444,
+      "wilson95": [
+        0.5314372714948966,
+        0.8199554840517008
+      ]
+    },
+    "wrong_insertion_permission": {
+      "x": 0,
+      "n": 28,
+      "estimate": 0.0,
+      "wilson95": [
+        1.3877787807814457e-17,
+        0.12064330476584563
+      ]
+    },
+    "no_datum_with_action": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "wall_s": {
+      "n": 48,
+      "mean": 22.954650395836023,
+      "median": 22.6161792500061,
+      "p95": 32.24053257999185
+    },
+    "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+  },
+  "by_part": {
+    "bearing": {
+      "episodes": 24,
+      "outcomes": {
+        "SUCCESS": 12,
+        "UNCERTAIN": 12
+      },
+      "initial_coverage": {
+        "x": 13,
+        "n": 21,
+        "estimate": 0.6190476190476191,
+        "wilson95": [
+          0.4087865377511576,
+          0.7924898863143551
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 13,
+        "mean": 1.9427711231389964,
+        "median": 1.7549645345132525,
+        "p95": 3.233170884155628
+      },
+      "initial_position_mm": {
+        "n": 13,
+        "mean": 0.09494980779799175,
+        "median": 0.07582801635088401,
+        "p95": 0.20587461288789785
+      },
+      "aligned_after_correction": {
+        "x": 13,
+        "n": 13,
+        "estimate": 1.0,
+        "wilson95": [
+          0.7719046276458016,
+          0.9999999999999999
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 12,
+        "n": 12,
+        "estimate": 1.0,
+        "wilson95": [
+          0.7575059933447592,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 12,
+        "n": 21,
+        "estimate": 0.5714285714285714,
+        "wilson95": [
+          0.3654655436930671,
+          0.7553003107462404
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 12,
+        "n": 18,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.43749467295945105,
+          0.837212252491663
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 12,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "wall_s": {
+        "n": 24,
+        "mean": 23.683153383331955,
+        "median": 23.363652300002286,
+        "p95": 32.27499481999257
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "gear": {
+      "episodes": 24,
+      "outcomes": {
+        "PHYSICAL_CHECK_FAILED": 3,
+        "SUCCESS": 13,
+        "UNCERTAIN": 8
+      },
+      "initial_coverage": {
+        "x": 16,
+        "n": 21,
+        "estimate": 0.7619047619047619,
+        "wilson95": [
+          0.5490882631704924,
+          0.8937198697736354
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 16,
+        "mean": 2.533372407286504,
+        "median": 2.899072119696873,
+        "p95": 4.495729935283601
+      },
+      "initial_position_mm": {
+        "n": 16,
+        "mean": 0.16979183147535576,
+        "median": 0.06750425095796944,
+        "p95": 0.4860473369221716
+      },
+      "aligned_after_correction": {
+        "x": 16,
+        "n": 16,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8063923194655637,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 13,
+        "n": 16,
+        "estimate": 0.8125,
+        "wilson95": [
+          0.5699111903802586,
+          0.9340840092857187
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 13,
+        "n": 21,
+        "estimate": 0.6190476190476191,
+        "wilson95": [
+          0.4087865377511576,
+          0.7924898863143551
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 13,
+        "n": 18,
+        "estimate": 0.7222222222222222,
+        "wilson95": [
+          0.4912734343970254,
+          0.8750024662044601
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 16,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.1936076805344365
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "wall_s": {
+        "n": 24,
+        "mean": 22.226147408340086,
+        "median": 22.6161792500061,
+        "p95": 26.66334819503827
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    }
+  },
+  "by_case": {
+    "upright": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 5,
+        "PHYSICAL_CHECK_FAILED": 1
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 2.109672231147971,
+        "median": 1.8990703453453068,
+        "p95": 3.841740282863785
+      },
+      "initial_position_mm": {
+        "n": 6,
+        "mean": 0.06890733111303741,
+        "median": 0.07230516310288018,
+        "p95": 0.08642304156154715
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 24.45391923333712,
+        "median": 24.65826244998607,
+        "p95": 26.64773127497756
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "tilt60": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 4,
+        "UNCERTAIN": 1,
+        "PHYSICAL_CHECK_FAILED": 1
+      },
+      "initial_coverage": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 5,
+        "mean": 2.1820939402188153,
+        "median": 2.1271024559914893,
+        "p95": 3.036088634657885
+      },
+      "initial_position_mm": {
+        "n": 5,
+        "mean": 0.22700007852113085,
+        "median": 0.19628362403623947,
+        "p95": 0.41539745137235545
+      },
+      "aligned_after_correction": {
+        "x": 5,
+        "n": 5,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 4,
+        "n": 5,
+        "estimate": 0.8,
+        "wilson95": [
+          0.37553462976252533,
+          0.9637758913675698
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 4,
+        "n": 6,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 4,
+        "n": 6,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 23.313104833321024,
+        "median": 23.663450549996924,
+        "p95": 26.21977302498999
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "side90": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 3,
+        "SUCCESS": 2,
+        "PHYSICAL_CHECK_FAILED": 1
+      },
+      "initial_coverage": {
+        "x": 3,
+        "n": 6,
+        "estimate": 0.5,
+        "wilson95": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 3,
+        "mean": 3.858009281004186,
+        "median": 3.593057318719861,
+        "p95": 4.9250059412999505
+      },
+      "initial_position_mm": {
+        "n": 3,
+        "mean": 0.4500010991903521,
+        "median": 0.39640282169107205,
+        "p95": 0.5808066263240629
+      },
+      "aligned_after_correction": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 2,
+        "n": 3,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.2076596008020477,
+          0.9385080552796037
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 2,
+        "n": 6,
+        "estimate": 0.3333333333333333,
+        "wilson95": [
+          0.09677141110578041,
+          0.700006684861608
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 2,
+        "n": 6,
+        "estimate": 0.3333333333333333,
+        "wilson95": [
+          0.09677141110578041,
+          0.700006684861608
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 20.795667016674997,
+        "median": 19.736841200006893,
+        "p95": 25.441779225031496
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "tilt120": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 4,
+        "SUCCESS": 2
+      },
+      "initial_coverage": {
+        "x": 3,
+        "n": 6,
+        "estimate": 0.5,
+        "wilson95": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 3,
+        "mean": 1.6294140493226426,
+        "median": 0.900206687150343,
+        "p95": 2.952199016130596
+      },
+      "initial_position_mm": {
+        "n": 3,
+        "mean": 0.09267616380682105,
+        "median": 0.0708823766641934,
+        "p95": 0.16539441679643271
+      },
+      "aligned_after_correction": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 2,
+        "n": 2,
+        "estimate": 1.0,
+        "wilson95": [
+          0.34238022750665303,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 2,
+        "n": 6,
+        "estimate": 0.3333333333333333,
+        "wilson95": [
+          0.09677141110578041,
+          0.700006684861608
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 2,
+        "n": 6,
+        "estimate": 0.3333333333333333,
+        "wilson95": [
+          0.09677141110578041,
+          0.700006684861608
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 2,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.6576197724933469
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 21.96435046667466,
+        "median": 20.854410800006008,
+        "p95": 28.95280025001557
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "inverted180": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 2.043123026052369,
+        "median": 2.3102577708470893,
+        "p95": 3.1756512163304875
+      },
+      "initial_position_mm": {
+        "n": 6,
+        "mean": 0.0681808207293307,
+        "median": 0.04083521165935468,
+        "p95": 0.14663123607906775
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 31.46940711667412,
+        "median": 32.21468589999131,
+        "p95": 37.019266775023425
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "reverse_grasp": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 2.2500786470190683,
+        "median": 2.3167125084897706,
+        "p95": 3.535449140920676
+      },
+      "initial_position_mm": {
+        "n": 6,
+        "mean": 0.060909285388033675,
+        "median": 0.049557734280753205,
+        "p95": 0.09306993030434688
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 26.191408566655202,
+        "median": 25.523486749996664,
+        "p95": 30.990656524983933
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "blind": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "initial_position_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preposition_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 17.333850733353756,
+        "median": 17.347661150008207,
+        "p95": 18.600290025031427
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    },
+    "plain": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "initial_position_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preposition_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_action": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 18.115495199997287,
+        "median": 17.97412754999823,
+        "p95": 20.060181049979292
+      },
+      "note": "All correction targets are visual estimates plus robot FK; independent GT only scores results. No continuous throughput claim."
+    }
+  }
+}

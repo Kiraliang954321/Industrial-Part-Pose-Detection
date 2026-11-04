@@ -1,0 +1,1026 @@
+{
+  "status": "completed",
+  "scope": "H2_SIMULATION_DEVELOPMENT",
+  "mode": "evaluate",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 36,
+    "initial_decisions": {
+      "PASS": 24,
+      "REJECT": 6,
+      "UNCERTAIN": 6
+    },
+    "recheck_decisions": {
+      "PASS": 12,
+      "REJECT": 5,
+      "UNCERTAIN": 7
+    },
+    "initial_wrong_accept": {
+      "x": 0,
+      "n": 9,
+      "estimate": 0.0,
+      "wilson95": [
+        0,
+        0.2991450484195441
+      ]
+    },
+    "matched_clear_conforming_initial": {
+      "n": 24,
+      "raw_h1_pass": 24,
+      "calibrated_pass": 24
+    },
+    "unsafe_recheck_release": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "held_significant_change_blocked": {
+      "x": 6,
+      "n": 6,
+      "estimate": 1.0,
+      "wilson95": [
+        0.6096657120978346,
+        1
+      ]
+    },
+    "insertion_success_given_attempt": {
+      "x": 9,
+      "n": 9,
+      "estimate": 1.0,
+      "wilson95": [
+        0.7008549515804559,
+        1
+      ]
+    },
+    "insertion_success_all": {
+      "x": 9,
+      "n": 36,
+      "estimate": 0.25,
+      "wilson95": [
+        0.13750477662994837,
+        0.4107045376672835
+      ]
+    },
+    "permit_denials": {
+      "permit_expired": 3
+    },
+    "aborts": {},
+    "initial_inference_ms": {
+      "n": 36,
+      "mean": 90.22899999884733,
+      "median": 78.36450001923367,
+      "p95": 192.1314499923028
+    },
+    "recheck_inference_ms": {
+      "n": 24,
+      "mean": 78.95605833618902,
+      "median": 80.22679999703541,
+      "p95": 107.06774995778686
+    },
+    "wall_s": {
+      "n": 36,
+      "mean": 4.815378705557022,
+      "median": 3.688349100004416,
+      "p95": 11.212751349972677
+    },
+    "simulated_s": {
+      "n": 36,
+      "mean": 17.302000000001037,
+      "median": 16.85199999999792,
+      "p95": 25.512000000008502
+    },
+    "robot_collision_episodes": 0,
+    "continuous_throughput": "not measured; independent episodes, with injected faults"
+  },
+  "by_case": {
+    "normal": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "PASS": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "insertion_success_all": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 79.94033334155877,
+        "median": 72.13250000495464,
+        "p95": 95.30974999652244
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 71.95553334895521,
+        "median": 71.73670001793653,
+        "p95": 75.78985002473928
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 8.064713799976744,
+        "median": 6.819881399977021,
+        "p95": 12.16071638999274
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 25.512000000008502,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "long": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "PASS": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "insertion_success_all": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 87.11130001271765,
+        "median": 91.15490003023297,
+        "p95": 92.76950001367368
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 104.6275999979116,
+        "median": 102.17430000193417,
+        "p95": 119.88062998279929
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 7.13219579999956,
+        "median": 6.253535200026818,
+        "p95": 10.254412389971549
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 25.512000000008502,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "yaw_jitter": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "PASS": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "insertion_success_all": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 124.64663333958015,
+        "median": 102.71070001181215,
+        "p95": 196.01765997358598
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 84.54963335922609,
+        "median": 92.69090002635494,
+        "p95": 97.60922002024017
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 8.861633266652158,
+        "median": 7.295077399990987,
+        "p95": 14.009396269975696
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 25.512000000008502,
+        "median": 25.512000000008502,
+        "p95": 25.512000000008502
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "reversed": {
+      "episodes": 3,
+      "initial_decisions": {
+        "REJECT": 3
+      },
+      "recheck_decisions": {},
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "matched_clear_conforming_initial": {
+        "n": 0,
+        "raw_h1_pass": 0,
+        "calibrated_pass": 0
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 79.74833331536502,
+        "median": 87.48739998554811,
+        "p95": 91.76743999123573
+      },
+      "recheck_inference_ms": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 2.503982033347711,
+        "median": 2.5669844999792986,
+        "p95": 3.0922844400280156
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 11.411999999998976,
+        "median": 11.411999999998976,
+        "p95": 11.411999999998976
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "short": {
+      "episodes": 3,
+      "initial_decisions": {
+        "REJECT": 3
+      },
+      "recheck_decisions": {},
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "matched_clear_conforming_initial": {
+        "n": 0,
+        "raw_h1_pass": 0,
+        "calibrated_pass": 0
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 86.60876667515065,
+        "median": 78.0829000286758,
+        "p95": 102.02164000365883
+      },
+      "recheck_inference_ms": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 2.4932664000079967,
+        "median": 2.110048500006087,
+        "p95": 3.2617879499855915
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 11.411999999998976,
+        "median": 11.411999999998976,
+        "p95": 11.411999999998976
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "empty": {
+      "episodes": 3,
+      "initial_decisions": {
+        "UNCERTAIN": 3
+      },
+      "recheck_decisions": {},
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "matched_clear_conforming_initial": {
+        "n": 0,
+        "raw_h1_pass": 0,
+        "calibrated_pass": 0
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 88.63520001371701,
+        "median": 87.68590004183352,
+        "p95": 104.48827000218444
+      },
+      "recheck_inference_ms": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 2.5498660333493413,
+        "median": 2.152100100007374,
+        "p95": 3.415193580009509
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 11.411999999998976,
+        "median": 11.411999999998976,
+        "p95": 11.411999999998976
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "initial_blackout": {
+      "episodes": 3,
+      "initial_decisions": {
+        "UNCERTAIN": 3
+      },
+      "recheck_decisions": {},
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 0,
+        "raw_h1_pass": 0,
+        "calibrated_pass": 0
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 133.39346666665128,
+        "median": 126.4523999998346,
+        "p95": 195.40760998497717
+      },
+      "recheck_inference_ms": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 3.07145376666449,
+        "median": 1.9402299000066705,
+        "p95": 5.02617185995914
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 11.411999999998976,
+        "median": 11.411999999998976,
+        "p95": 11.411999999998976
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "axial_slip": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "REJECT": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "held_significant_change_blocked": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 77.90473332473387,
+        "median": 79.35320003889501,
+        "p95": 104.94505997630768
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 73.87813332024962,
+        "median": 84.21339996857569,
+        "p95": 84.55027001909912
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 5.327294933338028,
+        "median": 3.030956399976276,
+        "p95": 9.504224580014125
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 16.841999999997906,
+        "median": 16.841999999997906,
+        "p95": 16.841999999997906
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "strong_disturbance": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "REJECT": 2,
+        "UNCERTAIN": 1
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "held_significant_change_blocked": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 74.21053330957268,
+        "median": 71.20049995137379,
+        "p95": 85.02035998972133
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 97.30759998395418,
+        "median": 96.84390004258603,
+        "p95": 106.82255995925516
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 4.6625375000100275,
+        "median": 5.036962800018955,
+        "p95": 5.820377250027377
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 16.86199999999793,
+        "median": 16.86199999999793,
+        "p95": 16.86199999999793
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "recheck_blackout": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "UNCERTAIN": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 111.936766654253,
+        "median": 77.98100000945851,
+        "p95": 177.4350499967113
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 55.760266666766256,
+        "median": 52.01610003132373,
+        "p95": 69.489960023202
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 4.061364866657338,
+        "median": 4.029472699970938,
+        "p95": 5.2846355599875094
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 16.211999999997136,
+        "median": 16.211999999997136,
+        "p95": 16.211999999997136
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "stale_recheck": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "UNCERTAIN": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {},
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 67.36270000692457,
+        "median": 69.58790001226589,
+        "p95": 80.4741200292483
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 56.306266672133155,
+        "median": 56.93379999138415,
+        "p95": 57.55642001749948
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 5.351397900007821,
+        "median": 3.821160899999086,
+        "p95": 8.997544110001762
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 17.21199999999836,
+        "median": 17.21199999999836,
+        "p95": 17.21199999999836
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    },
+    "expired_insert": {
+      "episodes": 3,
+      "initial_decisions": {
+        "PASS": 3
+      },
+      "recheck_decisions": {
+        "PASS": 3
+      },
+      "initial_wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "matched_clear_conforming_initial": {
+        "n": 3,
+        "raw_h1_pass": 3,
+        "calibrated_pass": 3
+      },
+      "unsafe_recheck_release": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "held_significant_change_blocked": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "insertion_success_all": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "permit_denials": {
+        "permit_expired": 3
+      },
+      "aborts": {},
+      "initial_inference_ms": {
+        "n": 3,
+        "mean": 71.24923332594335,
+        "median": 76.55579998390749,
+        "p95": 78.43707000720315
+      },
+      "recheck_inference_ms": {
+        "n": 3,
+        "mean": 87.26343334031601,
+        "median": 97.25190000608563,
+        "p95": 98.23650001198985
+      },
+      "wall_s": {
+        "n": 3,
+        "mean": 3.704838166673047,
+        "median": 3.4031554000102915,
+        "p95": 4.4128558600146786
+      },
+      "simulated_s": {
+        "n": 3,
+        "mean": 18.311999999999703,
+        "median": 18.311999999999703,
+        "p95": 18.311999999999703
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent episodes, with injected faults"
+    }
+  }
+}

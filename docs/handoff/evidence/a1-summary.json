@@ -1,0 +1,768 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "A1_SIMULATION_DEVELOPMENT",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 40,
+    "decisions": {
+      "PASS": 8,
+      "REJECT": 16,
+      "UNCERTAIN": 16
+    },
+    "wrong_accept": {
+      "x": 0,
+      "n": 24,
+      "estimate": 0.0,
+      "wilson95": [
+        1.3877787807814457e-17,
+        0.13797620467498017
+      ]
+    },
+    "conforming_not_passed": {
+      "x": 8,
+      "n": 16,
+      "estimate": 0.5,
+      "wilson95": [
+        0.27999563610326017,
+        0.7200043638967398
+      ]
+    },
+    "success_given_attempt": {
+      "x": 8,
+      "n": 8,
+      "estimate": 1.0,
+      "wilson95": [
+        0.6755924351161198,
+        1
+      ]
+    },
+    "success_all": {
+      "x": 8,
+      "n": 40,
+      "estimate": 0.2,
+      "wilson95": [
+        0.10499989725437704,
+        0.347573063463995
+      ]
+    },
+    "inference_ms": {
+      "n": 40,
+      "mean": 49.740922506316565,
+      "median": 42.56500001065433,
+      "p95": 115.84877999848682
+    },
+    "wall_s": {
+      "n": 40,
+      "mean": 5.337187550001545,
+      "median": 4.833777849999024,
+      "p95": 7.5329530649469225
+    },
+    "simulated_s": {
+      "n": 40,
+      "mean": 7.661350000000094,
+      "median": 6.1130000000004765,
+      "p95": 12.762999999998199
+    },
+    "robot_collision_episodes": 0,
+    "continuous_throughput": "not measured; independent job episodes"
+  },
+  "by_part": {
+    "bearing": {
+      "episodes": 20,
+      "decisions": {
+        "PASS": 4,
+        "REJECT": 8,
+        "UNCERTAIN": 8
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 12,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 4,
+        "n": 8,
+        "estimate": 0.5,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "success_given_attempt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_all": {
+        "x": 4,
+        "n": 20,
+        "estimate": 0.2,
+        "wilson95": [
+          0.08065766257979806,
+          0.41601743225189364
+        ]
+      },
+      "inference_ms": {
+        "n": 20,
+        "mean": 52.34051000152249,
+        "median": 40.2788000064902,
+        "p95": 130.8420899527846
+      },
+      "wall_s": {
+        "n": 20,
+        "mean": 5.626344870001776,
+        "median": 4.996710549981799,
+        "p95": 7.551369029950002
+      },
+      "simulated_s": {
+        "n": 20,
+        "mean": 7.6626000000000944,
+        "median": 6.1130000000004765,
+        "p95": 12.762999999998199
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear": {
+      "episodes": 20,
+      "decisions": {
+        "PASS": 4,
+        "REJECT": 8,
+        "UNCERTAIN": 8
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 12,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.24249400665524085
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 4,
+        "n": 8,
+        "estimate": 0.5,
+        "wilson95": [
+          0.21521606221387757,
+          0.7847839377861224
+        ]
+      },
+      "success_given_attempt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_all": {
+        "x": 4,
+        "n": 20,
+        "estimate": 0.2,
+        "wilson95": [
+          0.08065766257979806,
+          0.41601743225189364
+        ]
+      },
+      "inference_ms": {
+        "n": 20,
+        "mean": 47.14133501111064,
+        "median": 44.81079999823123,
+        "p95": 93.93765500863083
+      },
+      "wall_s": {
+        "n": 20,
+        "mean": 5.048030230001314,
+        "median": 4.074221149989171,
+        "p95": 7.17631688999245
+      },
+      "simulated_s": {
+        "n": 20,
+        "mean": 7.660100000000095,
+        "median": 6.1130000000004765,
+        "p95": 12.762999999998199
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    }
+  },
+  "by_condition": {
+    "bearing/front": {
+      "episodes": 4,
+      "decisions": {
+        "PASS": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "success_given_attempt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_all": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 60.32789999153465,
+        "median": 39.04319999855943,
+        "p95": 117.66050495498345
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 6.7848479250242235,
+        "median": 6.452517550002085,
+        "p95": 7.9951788200385625
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 12.762999999998199,
+        "median": 12.762999999998199,
+        "p95": 12.762999999998199
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "bearing/back": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 66.44117501855362,
+        "median": 65.88555002235807,
+        "p95": 107.95823000371455
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.72065195000323,
+        "median": 4.311555599997519,
+        "p95": 5.937412985003902
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "bearing/tilted": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 29.420500024571083,
+        "median": 29.068400035612285,
+        "p95": 38.71411002764944
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.778305149986409,
+        "median": 4.821953449980356,
+        "p95": 5.018966944993008
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 7.211000000000843,
+        "median": 7.162500000000827,
+        "p95": 7.35020000000089
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "bearing/empty": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 63.68854998436291,
+        "median": 45.308949978789315,
+        "p95": 119.54950996732802
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 7.390710799983935,
+        "median": 7.408149149996461,
+        "p95": 7.502047704948927
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "bearing/blackout": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 41.82442498859018,
+        "median": 41.44414997426793,
+        "p95": 62.61329000699334
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.457208525011083,
+        "median": 4.467780450009741,
+        "p95": 4.687952075028443
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear/front": {
+      "episodes": 4,
+      "decisions": {
+        "PASS": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "success_given_attempt": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_all": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 38.330075025442056,
+        "median": 38.93135001999326,
+        "p95": 45.4435650317464
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 6.125696524992236,
+        "median": 5.760301200003596,
+        "p95": 7.625373649987159
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 12.762999999998199,
+        "median": 12.762999999998199,
+        "p95": 12.762999999998199
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear/back": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 76.79465001274366,
+        "median": 88.65330001572147,
+        "p95": 101.69373502139933
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 4.485176875008619,
+        "median": 3.7801509500131942,
+        "p95": 6.205774364990065
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear/tilted": {
+      "episodes": 4,
+      "decisions": {
+        "REJECT": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 40.98062500997912,
+        "median": 43.918700015638024,
+        "p95": 55.281825017300434
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.967815999989398,
+        "median": 3.956129750004038,
+        "p95": 4.120663314973354
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 7.1985000000008394,
+        "median": 7.162500000000827,
+        "p95": 7.332000000000884
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear/empty": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "conforming_not_passed": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 39.29732501273975,
+        "median": 37.94315000413917,
+        "p95": 60.67816002760082
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 6.8684070500021335,
+        "median": 6.828320850007003,
+        "p95": 7.109578929995768
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    },
+    "gear/blackout": {
+      "episodes": 4,
+      "decisions": {
+        "UNCERTAIN": 4
+      },
+      "wrong_accept": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "conforming_not_passed": {
+        "x": 4,
+        "n": 4,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5101091635454027,
+          1
+        ]
+      },
+      "success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "success_all": {
+        "x": 0,
+        "n": 4,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.4898908364545973
+        ]
+      },
+      "inference_ms": {
+        "n": 4,
+        "mean": 40.30399999464862,
+        "median": 44.81079999823123,
+        "p95": 53.32548500155099
+      },
+      "wall_s": {
+        "n": 4,
+        "mean": 3.7930547000141814,
+        "median": 3.798767950007459,
+        "p95": 3.868215415041777
+      },
+      "simulated_s": {
+        "n": 4,
+        "mean": 6.1130000000004765,
+        "median": 6.1130000000004765,
+        "p95": 6.1130000000004765
+      },
+      "robot_collision_episodes": 0,
+      "continuous_throughput": "not measured; independent job episodes"
+    }
+  }
+}

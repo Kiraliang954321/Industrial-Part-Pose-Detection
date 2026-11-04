@@ -2,17 +2,35 @@
 
 **FlexPose-YOLO — 面向柔性流水线的低成本工业零件正反面与姿态检测研究原型**
 
+当前主线已推进到 **A5 视觉摆正与键／销实体配合仿真**。首次接手请从[成果总览与运行指南](docs/handoff/README.md)开始，查看每阶段完成内容、指标分母、环境、模型材料和下一位 Agent 的阅读顺序。
+
+**克隆后即可预览。** 仓库附带[九段演示目录](docs/previews/README.md)、可离线打开的[预览页](docs/previews/index.html)及[原始评价汇总](docs/handoff/evidence/)。在根目录运行 `py -3 scripts/verify_handoff.py` 可校验公开材料和冻结源码。完整视觉重放所需的权重与实验归档见接手指南。
+
+**A5 实体键／销配合已完成（2026-11-03）。** 齿轮键槽配带键轴，轴承外缺口配定位销，连接视觉摆正、分段预插入、腕部力／力矩反馈停止与带件退回。冻结后 66 次新抓取中，正常工况 **34/36 完整成功**（齿轮 18/18、轴承 16/18），故意错位工装 **12/12 实际接触停止并退回**，意外有效进入 0/12。两个正常留件均为轴承几何无解，成功插入深度的上沿仍接近 4.2 mm 限值。A5 复用已有视觉权重，能力范围为有间隙、保持夹持的代理仿真。真实门禁 CLOSED。完整分母、置信区间与物理证据见 [A5 记录](docs/exec-plans/active/keyed_cell_a5.md)。
+
+A5 本地成果包含 [30 s 原始运行剪辑](runs/keyed-cell/20261101-demo-v1/a5-keyed-mating.mp4)与[腕部反馈对照图](runs/keyed-cell/20261101-force-plot-v1/wrist-contact-comparison.png)。四段依次展示轴承正确／工装错位、齿轮正确／工装错位，片尾结果卡和右上物理俯视示意已标注用途。
+
 **阶段收尾（2026-10-31）：**螺丝阶段已按用户要求收尾，H1 简单流程作为主展示，H2 作为扩展保留；后续转向可判正反的非对称轴承和锥形齿轮。见[阶段交付清单](docs/exec-plans/completed/screw_stage_completion_20261031.md)。
+
+**轴承/齿轮 A1 已完成首轮仿真开发：**以 F608ZZ 单侧法兰与 SB1-2040 锥齿面/轮毂为方向特征，训练单相机六类 YOLO 模型，连接夹取、判定和有间隙套轴预定位。冻结后两对象各 20 次新抓取，共 8 次放行预定位全部成功，16 次反向/倾斜拒绝，16 次空抓/黑屏留件；真实门禁仍 CLOSED。见 [A1 记录](docs/exec-plans/active/bearing_bevel_a1.md)。41.83 s 视频位于 `runs/annular/20261031-demo-v1/bearing-bevel-inspection.mp4`。
+
+**A2 连续角度初版（2026-11-01）：**用户要求指定空间方向及绕轴角后，新增定制外圈缺口/齿轮键槽代理、三 RGB 视角、关键点与孔口几何融合，可输出旋转与目标误差。冻结后 48 次评价中，有定位结构的 40 次里 22 次可测（55%）；可测样本平均轴向/绕轴误差约 1.80°/1.19°，但尚未达到稳定全覆盖，也未连接自动摆正。见 [A2 记录](docs/exec-plans/active/datum_pose_a2.md)及[目标配置](docs/data/datum_pose_targets_v1.json)。
+
+**A3 大倾角/翻转自动摆正（2026-11-01）：**已实现侧夹、六 RGB、中心关键点训练、双端面几何与外形校核，连接“预测摆正 → 复拍 → 原竖轴预定位”。[冻结协议](docs/data/pose_cell_a3_protocol_v1.json)后 48 次新抓取为 **25 完整成功 / 20 留件 / 3 齿轮深度超限**；正常图像、有定位结构的总体成功为 **25/36（69.4%）**，实际预定位为 25/28。180° 翻转和反向上料各 6/6 完整成功，90°/120° 各 2/6，不能称任意姿态稳定覆盖。数据、模型、分母、置信区间和限制见 [A3 记录](docs/exec-plans/active/pose_cell_a3.md)。仍是定制代理、有间隙预定位，真实门禁 CLOSED。
+
+A3 本地演示：`runs/pose-cell/20261101-demo-export-v1/a3-auto-orientation.mp4`（30.46 s；两段通过检测 RGB/物理终态一致性校验的 3 倍速动作回放，另含原始留件图像证据）。
+
+**A4 有限主动观察（2026-11-01）：**已完成困难姿态诊断、2,328/780 图的分组数据与 10 轮补训，增加最多两个观察姿态和持件一致性检查。[A4 冻结协议](docs/data/active_pose_a4_protocol_v1.json)后 54 次新抓取中，正常工况 **35/36 完整成功**；初检无解的 **4/5** 通过观察恢复并完成预定位，90° 为 5/6、120° 为 6/6。黑屏/空抓未观察转腕，无定位结构观察至上限后均留件。补训初检覆盖收益在不同批次不稳定，不能把本轮成绩全部归功于新模型，详见 [A4 记录](docs/exec-plans/active/active_pose_a4.md)。29.46 s 原始运行视频：`runs/active-pose/20261101-demo-v1/a4-active-inspection.mp4`。仍为代理仿真，真实门禁 CLOSED。
 
 本项目研究如何使用普通 RGB 相机、消费级 GPU、Traditional CV 与轻量 YOLO OBB，在低成本条件下完成工业零件的检测、正反面判定、可适用的二维朝向判断，以及跨零件换型验证。
 
 后续研究方向已更新为**轴承、锥形齿轮或螺丝的朝向检测，以及条件具备时的 3D/6D 姿态与虚拟机械臂验证**，见 [ADR-0002](docs/decisions/adr-0002-industrial-orientation-3d-simulation.md)。先明确可观察方向，再生成带真值的仿真数据并验证视觉引导动作；历史原型不代表这些工业件的已验证能力。
 
-**最新主线：夹持后检测与螺丝对孔预插入。** 已按用户选择实现 [H1](docs/exec-plans/active/held_inspection_h1.md)：物理夹起 → 固定检测位双 RGB 复核 → 单次许可与预测补偿 → 对孔预插入并保持夹持。独立夹持模型已完成开发微调；数据、训练、冻结协议及评价证据见 H1 记录。它不等于真实锁付或投产验收，现有来料分拣成绩也不计入 H1。工业依据见[工艺调研](docs/design-docs/held_part_inspection_assembly_research_20261031.md)与 [ADR-0003](docs/decisions/adr-0003-held-part-inspection-before-assembly.md)。
+**H1 历史阶段为夹持后检测与螺丝对孔预插入。** 已按用户选择实现 [H1](docs/exec-plans/active/held_inspection_h1.md)：物理夹起 → 固定检测位双 RGB 复核 → 单次许可与预测补偿 → 对孔预插入并保持夹持。独立夹持模型已完成开发微调；数据、训练、冻结协议及评价证据见 H1 记录。它不等于真实锁付或投产验收，现有来料分拣成绩也不计入 H1。工业依据见[工艺调研](docs/design-docs/held_part_inspection_assembly_research_20261031.md)与 [ADR-0003](docs/decisions/adr-0003-held-part-inspection-before-assembly.md)。
 
 H1 冻结后 24 次新抓取：11 视觉 PASS / 6 REJECT / 7 UNCERTAIN；3 次 PASS 因许可过期留件，实际预插入 **8/8 成功**，非合规件误放行 **0/9**，另有 1 次普通正常件被保守拒绝。样本小且故障比例人为加重，不表示生产可靠性。51.67 s 三分支演示位于 `runs/screw-orientation/20261031-h1-demo-v1/h1-held-inspection-preinsert.mp4`；原始数据和视频为本地产物，未提交到 Git。
 
-**最新进展 [H2：插入前滑移复检](docs/exec-plans/active/held_recheck_h2.md)**：在孔上方增加独立 RGB 复检及短时插入许可，使用 Train 拟合的有界端点补偿。冻结后 36 次新抓取中，正常流程预插入 **9/9**；6 次仍夹持但实际位姿已变的场景全部在插入前留件。新批同图初检对照 H1/H2 均为 24/24，尚不能宣称独立评价证明拒绝率降低。62.42 s 演示：`runs/screw-orientation/20261031-h2-demo-v1/h2-recheck-preinsert.mp4`。四路固定相机与宽松代理孔仍是仿真条件。
+**H2 历史阶段为[插入前滑移复检](docs/exec-plans/active/held_recheck_h2.md)**：在孔上方增加独立 RGB 复检及短时插入许可，使用 Train 拟合的有界端点补偿。冻结后 36 次新抓取中，正常流程预插入 **9/9**；6 次仍夹持但实际位姿已变的场景全部在插入前留件。新批同图初检对照 H1/H2 均为 24/24，尚不能宣称独立评价证明拒绝率降低。62.42 s 演示：`runs/screw-orientation/20261031-h2-demo-v1/h2-recheck-preinsert.mp4`。四路固定相机与宽松代理孔仍是仿真条件。
 
 > 既有 **V4.1a / Phase 1** 的正式协议与数据门禁尚未通过；**螺丝代理视觉训练与 Panda 2.5D 抓取仿真闭环已完成**，真实型号/CAD 和工况仍待 S0 定义。
 
