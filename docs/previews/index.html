@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工业件姿态检测 · 仿真成果预览</title>
+  <style>
+    :root { color-scheme: light; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: #203141; background: #f1f4f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1380px; margin: auto; padding: 48px 28px; }
+    header { margin-bottom: 32px; }
+    .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: #366b66; }
+    h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.25; margin: 14px 0; }
+    h2 { font-size: 21px; margin: 0 0 12px; }
+    p { line-height: 1.8; margin: 10px 0; }
+    .intro { max-width: 920px; color: #526472; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+    a { color: #176b64; text-underline-offset: 3px; }
+    nav a { background: white; border: 1px solid #ccd7db; padding: 9px 14px; border-radius: 6px; text-decoration: none; }
+    a:focus-visible, video:focus-visible { outline: 3px solid #d78925; outline-offset: 4px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    article { background: white; border: 1px solid #d7e0e3; border-radius: 10px; overflow: hidden; }
+    .description { padding: 23px 25px; }
+    .stage { font-size: 12px; color: #54726b; font-weight: 700; margin-bottom: 8px; }
+    .metric { font-weight: 650; }
+    .note { color: #5a6975; font-size: 14px; }
+    video { display: block; width: 100%; aspect-ratio: 16 / 11; object-fit: contain; background: #151c23; }
+    .featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr 1fr; }
+    .featured .description { align-self: center; padding: 30px; }
+    .featured video { height: 100%; }
+    .facts { padding-left: 20px; line-height: 1.9; }
+    footer { border-top: 1px solid #ccd7db; margin-top: 34px; padding-top: 20px; font-size: 14px; color: #526472; }
+    @media (max-width: 800px) {
+      main { padding: 28px 16px; }
+      .grid, .featured { grid-template-columns: 1fr; }
+      .description, .featured .description { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">FLEXPOSE-YOLO / SIMULATION HANDOFF / 2026-11-04</div>
+      <h1>工业件姿态检测与装配前复核</h1>
+      <p class="intro">从螺丝头尾识别，到轴承与齿轮的连续姿态、主动观察和键／销配合。这里汇集九段已记录仿真，供协作者快速了解成果与现存边界。</p>
+      <nav aria-label="成果导航">
+        <a href="#a5">最新 A5</a>
+        <a href="#a4">姿态与主动观察</a>
+        <a href="#h1">螺丝阶段</a>
+        <a href="README.md">视频来源与说明</a>
+        <a href="../handoff/README.md">接手与运行指南</a>
+      </nav>
+      <p class="note">项目自建几何代理 · MuJoCo 仿真 · 真实门禁 CLOSED。评价分母与置信区间见接手指南，当前装配主线完成到保持夹持的预插入。</p>
+    </header>
+    <div class="grid">
+      <article class="featured" id="a5">
+        <video controls playsinline preload="none" poster="a5.jpg" aria-label="A5 键槽与定位销配合演示"><source src="a5.mp4" type="video/mp4"><a href="a5.mp4">下载 A5 视频</a></video>
+        <div class="description">
+          <div class="stage">A5 / 当前完成阶段 / 30.00 秒</div>
+          <h2>正确配合进入，错位受阻退回</h2>
+          <p>齿轮键槽与凸键、轴承外缺口与定位销参与实际碰撞求解。腕部反馈触发停止后，机械臂保持夹持并退回。</p>
+          <ul class="facts"><li>正常工况完整成功 34/36</li><li>故意错位工装接触停止并退回 12/12</li><li>轴承大倾角仍有 2 次留件</li></ul>
+          <p class="note">原录像速度，附静态结果卡。右上俯视示意用于显示物理配合关系。故障组将工装相对配方故意偏转 30°／90°。</p>
+          <p><a href="a5-wrist-feedback.png">查看腕部力／力矩曲线</a> · <a href="a5.mp4" download>下载视频</a></p>
+        </div>
+      </article>
+      <article id="a4">
+        <video controls playsinline preload="none" poster="a4.jpg" aria-label="A4 主动观察演示"><source src="a4.mp4" type="video/mp4"><a href="a4.mp4">下载 A4 视频</a></video>
+        <div class="description"><div class="stage">A4 / 29.46 秒 / 动作段 2 倍速</div><h2>转腕观察，恢复可测姿态</h2><p class="metric">正常完整成功 35/36，初检无解后恢复且成功 4/5。</p><p class="note">展示有界观察与无定位结构留件。补训的初检覆盖收益在不同批次存在波动。</p></div>
+      </article>
+      <article id="a3">
+        <video controls playsinline preload="none" poster="a3.jpg" aria-label="A3 大倾角与翻转摆正演示"><source src="a3.mp4" type="video/mp4"><a href="a3.mp4">下载 A3 视频</a></video>
+        <div class="description"><div class="stage">A3 / 30.46 秒 / 动作段 3 倍速</div><h2>大倾角与翻转自动摆正</h2><p class="metric">正常完整成功 25/36，保留 3 次齿轮深度超限。</p><p class="note">视频为经图像和物理终态一致性核验的动作重放，另含原始留件图像卡。</p></div>
+      </article>
+      <article id="a2">
+        <video controls playsinline preload="none" poster="a2.jpg" aria-label="A2 连续姿态与目标角度比较"><source src="a2.mp4" type="video/mp4"><a href="a2.mp4">下载 A2 视频</a></video>
+        <div class="description"><div class="stage">A2 / 45.83 秒</div><h2>测量轴向与绕轴角</h2><p class="metric">带定位结构样本可测 22/40，覆盖率 55%。</p><p class="note">三视角几何融合，展示目标姿态的通过、拒绝和无法判断。该阶段包络为已知朝上、倾角 0–30°。</p></div>
+      </article>
+      <article id="a1">
+        <video controls playsinline preload="none" poster="a1.jpg" aria-label="A1 轴承齿轮方向检测"><source src="a1.mp4" type="video/mp4"><a href="a1.mp4">下载 A1 视频</a></video>
+        <div class="description"><div class="stage">A1 / 41.83 秒</div><h2>轴承与齿轮端向检测</h2><p class="metric">40 次新抓取，8 次实际套轴预定位全部成功。</p><p class="note">单 RGB 面类检测与固定配方动作，另有 16 次拒绝、16 次无法判断。</p></div>
+      </article>
+      <article id="h1">
+        <video controls playsinline preload="none" poster="h1.jpg" aria-label="H1 螺丝夹持复核"><source src="h1.mp4" type="video/mp4"><a href="h1.mp4">下载 H1 视频</a></video>
+        <div class="description"><div class="stage">H1 / 51.67 秒 / 螺丝主展示</div><h2>夹起后识别，再对孔预插入</h2><p class="metric">24 次新抓取，11 次视觉 PASS，实际插入成功 8/8。</p><p class="note">3 次 PASS 因许可过期留件。视频保留通过、反向拒绝和无法判断三个分支。</p></div>
+      </article>
+      <article id="h2">
+        <video controls playsinline preload="none" poster="h2.png" aria-label="H2 插入前复检"><source src="h2.mp4" type="video/mp4"><a href="h2.mp4">下载 H2 视频</a></video>
+        <div class="description"><div class="stage">H2 / 62.42 秒 / 螺丝扩展</div><h2>转运后检查夹持滑移</h2><p class="metric">36 次新抓取，实际插入 9/9，显著滑移／偏转 6/6 留件。</p><p class="note">孔口双视角复检与短时插入许可，展示正常、滑移和图像过期场景。</p></div>
+      </article>
+      <article id="m4">
+        <video controls playsinline preload="none" poster="m4.jpg" aria-label="M4 螺丝视觉抓放"><source src="m4.mp4" type="video/mp4"><a href="m4.mp4">下载 M4 视频</a></video>
+        <div class="description"><div class="stage">M4 / 12.25 秒</div><h2>固定支撑面上的视觉抓放</h2><p class="metric">24 个配对场景中，视觉分支成功 24/24。</p><p class="note">单次 RGB 的 2.5D 规划与关节反馈执行。理想真值参考单独计分。</p></div>
+      </article>
+      <article id="l1">
+        <video controls playsinline preload="none" poster="l1.jpg" aria-label="L1 分度式工位"><source src="l1.mp4" type="video/mp4"><a href="l1.mp4">下载 L1 视频</a></video>
+        <div class="description"><div class="stage">L1 / 58.25 秒</div><h2>多帧事件与工位动作</h2><p class="metric">24 事件形成 8 放行、8 方向不合格、8 留件。</p><p class="note">演示由独立工位事件组成。完整连续上料、卸料与生产吞吐仍待测量。</p></div>
+      </article>
+    </div>
+    <footer>
+      <p>视频保留各自的演示剪辑与速度。各阶段任务、样本与条件不同，按各自冻结协议解释结果。预览文件与评价摘要可通过 <code>python scripts/verify_handoff.py</code> 核对。</p>
+      <p>Panda 机器人资产来自 MuJoCo Menagerie，固定提交 a662de603224c47123b0783821c58ad4402ad3e3。<a href="PANDA_LICENSE.txt">Apache-2.0 许可</a> · <a href="../handoff/README.md">环境、模型材料与后续开发</a></p>
+    </footer>
+  </main>
+</body>
+</html>

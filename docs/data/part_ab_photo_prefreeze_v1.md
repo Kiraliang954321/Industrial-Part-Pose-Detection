@@ -1,5 +1,7 @@
 # Part A / B 实拍预冻结草案 V1
 
+> 历史草案边界（2026-10-31）：本页保留旧对象、照片与人工接受记录。后续对象已改为轴承、锥形齿轮或螺丝，见 [ADR-0002](../decisions/adr-0002-industrial-orientation-3d-simulation.md)及[新执行计划](../exec-plans/active/industrial_orientation_3d_execution_plan.md)。下文灰白瓶盖候选不再作为下一次训练/换型对象；本草案未冻结，也不能替代新工业件的实物、方向与协议定义。
+
 最近更新：2026-10-06。状态：**PREFREEZE DRAFT — 尚未正式 FROZEN；Dataset V1 / Training Gate CLOSED。**新增 80 张 Part A 真实照片开发微调已完成，独立记录于[开发微调说明](../exec-plans/active/real_cap_80_development.md)，不改变本草案的正式状态。
 
 用户已选择按 [V4.1 项目方案](../new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md) 的 Part A → Part B 路线推进。本记录依据原 14 张实拍照片及新增 80 张 Part A 照片整理 Phase 1 对象候选和开发进度，不改写 [EXPERIMENT_PROTOCOL_V1](../new-plans/EXPERIMENT_PROTOCOL_V1.md) 第 2、3、17 节的 TBD 字段或门禁勾选。路线已获选择，当前执行 Phase 1 准备；正式训练仍需全部门禁通过。

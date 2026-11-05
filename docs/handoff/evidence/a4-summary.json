@@ -1,0 +1,2323 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "A4_ACTIVE_INSPECTION_SIMULATION",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 54,
+    "outcomes": {
+      "SUCCESS": 35,
+      "UNCERTAIN": 13,
+      "ABORT": 6
+    },
+    "initial_coverage": {
+      "x": 31,
+      "n": 42,
+      "estimate": 0.7380952380952381,
+      "wilson95": [
+        0.5893126929422804,
+        0.8469735971216702
+      ]
+    },
+    "initial_rotation_deg": {
+      "n": 31,
+      "mean": 1.879009127643017,
+      "median": 1.6410367140637336,
+      "p95": 4.294265568657145
+    },
+    "initial_position_mm": {
+      "n": 31,
+      "mean": 0.10968437946175573,
+      "median": 0.07791731521170181,
+      "p95": 0.2607576268703704
+    },
+    "active_recovery_initial_misses": {
+      "x": 4,
+      "n": 5,
+      "estimate": 0.8,
+      "wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ]
+    },
+    "active_correct_recovery_initial_misses": {
+      "x": 4,
+      "n": 5,
+      "estimate": 0.8,
+      "wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ]
+    },
+    "completed_after_initial_miss": {
+      "x": 4,
+      "n": 5,
+      "estimate": 0.8,
+      "wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ]
+    },
+    "verification_recoveries": 0,
+    "observation_move_counts": {
+      "0": 43,
+      "2": 7,
+      "1": 4
+    },
+    "observation_seconds": {
+      "n": 11,
+      "mean": 3.3181818181834717,
+      "median": 4.300000000003173,
+      "p95": 4.300000000003175
+    },
+    "observation_extra_wall_s": {
+      "n": 11,
+      "mean": 2.7373588908918793,
+      "median": 2.8681890000007115,
+      "p95": 3.6277892499638256
+    },
+    "aligned_after_correction": {
+      "x": 35,
+      "n": 35,
+      "estimate": 1.0,
+      "wilson95": [
+        0.9010990076755959,
+        0.9999999999999999
+      ]
+    },
+    "preposition_given_attempt": {
+      "x": 35,
+      "n": 35,
+      "estimate": 1.0,
+      "wilson95": [
+        0.9010990076755959,
+        0.9999999999999999
+      ]
+    },
+    "closed_loop_success_all_locatable": {
+      "x": 35,
+      "n": 42,
+      "estimate": 0.8333333333333334,
+      "wilson95": [
+        0.6939599725535115,
+        0.9168408335360192
+      ]
+    },
+    "closed_loop_success_clear_featured": {
+      "x": 35,
+      "n": 36,
+      "estimate": 0.9722222222222222,
+      "wilson95": [
+        0.8583028134672614,
+        0.9950795928601897
+      ]
+    },
+    "wrong_insertion_permission": {
+      "x": 0,
+      "n": 35,
+      "estimate": 0.0,
+      "wilson95": [
+        6.938893903907228e-18,
+        0.09890099232440402
+      ]
+    },
+    "no_datum_with_correction_or_insertion": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "no_datum_with_observation": {
+      "x": 6,
+      "n": 6,
+      "estimate": 1.0,
+      "wilson95": [
+        0.6096657120978346,
+        1
+      ]
+    },
+    "blind_with_observation": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "empty_with_observation": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "paired_initial_rgb": {
+      "episodes": 36,
+      "a3_coverage": {
+        "x": 29,
+        "n": 36,
+        "estimate": 0.8055555555555556,
+        "wilson95": [
+          0.6497195700482261,
+          0.9024690458107127
+        ]
+      },
+      "a4_coverage": {
+        "x": 31,
+        "n": 36,
+        "estimate": 0.8611111111111112,
+        "wilson95": [
+          0.713404696106438,
+          0.9391818499086717
+        ]
+      },
+      "a3_within_10deg_all": {
+        "x": 29,
+        "n": 36,
+        "estimate": 0.8055555555555556,
+        "wilson95": [
+          0.6497195700482261,
+          0.9024690458107127
+        ]
+      },
+      "a4_within_10deg_all": {
+        "x": 31,
+        "n": 36,
+        "estimate": 0.8611111111111112,
+        "wilson95": [
+          0.713404696106438,
+          0.9391818499086717
+        ]
+      },
+      "a3_rotation_deg": {
+        "n": 29,
+        "mean": 1.8264015878953885,
+        "median": 1.6532073001776009,
+        "p95": 3.686508323268084
+      },
+      "a4_rotation_deg": {
+        "n": 31,
+        "mean": 1.879009127643017,
+        "median": 1.6410367140637336,
+        "p95": 4.294265568657145
+      },
+      "note": "Same initial RGB only; not a paired physical A3 execution"
+    },
+    "wall_s": {
+      "n": 54,
+      "mean": 24.48488573704014,
+      "median": 24.14078874999541,
+      "p95": 32.09521664998901
+    },
+    "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+  },
+  "by_part": {
+    "bearing": {
+      "episodes": 27,
+      "outcomes": {
+        "SUCCESS": 17,
+        "UNCERTAIN": 7,
+        "ABORT": 3
+      },
+      "initial_coverage": {
+        "x": 16,
+        "n": 21,
+        "estimate": 0.7619047619047619,
+        "wilson95": [
+          0.5490882631704924,
+          0.8937198697736354
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 16,
+        "mean": 2.1435844582564885,
+        "median": 2.00188487715604,
+        "p95": 4.2367160640020405
+      },
+      "initial_position_mm": {
+        "n": 16,
+        "mean": 0.08899092917488,
+        "median": 0.07558086883202993,
+        "p95": 0.1836882825657114
+      },
+      "active_recovery_initial_misses": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 22,
+        "2": 4,
+        "1": 1
+      },
+      "observation_seconds": {
+        "n": 5,
+        "mean": 3.760000000002114,
+        "median": 4.300000000003175,
+        "p95": 4.300000000003175
+      },
+      "observation_extra_wall_s": {
+        "n": 5,
+        "mean": 3.3363093599793503,
+        "median": 3.4526961999363266,
+        "p95": 3.652881339972373
+      },
+      "aligned_after_correction": {
+        "x": 17,
+        "n": 17,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8156818649911483,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 17,
+        "n": 17,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8156818649911483,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 17,
+        "n": 21,
+        "estimate": 0.8095238095238095,
+        "wilson95": [
+          0.5999943530979508,
+          0.9233243494723822
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 17,
+        "n": 18,
+        "estimate": 0.9444444444444444,
+        "wilson95": [
+          0.7424269921812741,
+          0.990124809021697
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 17,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.1843181350088518
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "no_datum_with_observation": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "paired_initial_rgb": {
+        "episodes": 18,
+        "a3_coverage": {
+          "x": 16,
+          "n": 18,
+          "estimate": 0.8888888888888888,
+          "wilson95": [
+            0.672002348698212,
+            0.9689804773543876
+          ]
+        },
+        "a4_coverage": {
+          "x": 16,
+          "n": 18,
+          "estimate": 0.8888888888888888,
+          "wilson95": [
+            0.672002348698212,
+            0.9689804773543876
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 16,
+          "n": 18,
+          "estimate": 0.8888888888888888,
+          "wilson95": [
+            0.672002348698212,
+            0.9689804773543876
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 16,
+          "n": 18,
+          "estimate": 0.8888888888888888,
+          "wilson95": [
+            0.672002348698212,
+            0.9689804773543876
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 16,
+          "mean": 2.1173528484621635,
+          "median": 1.801740551310854,
+          "p95": 4.1313754226637585
+        },
+        "a4_rotation_deg": {
+          "n": 16,
+          "mean": 2.1435844582564885,
+          "median": 2.00188487715604,
+          "p95": 4.2367160640020405
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 27,
+        "mean": 24.07840721481221,
+        "median": 23.893752400006633,
+        "p95": 31.646264539979164
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "gear": {
+      "episodes": 27,
+      "outcomes": {
+        "SUCCESS": 18,
+        "UNCERTAIN": 6,
+        "ABORT": 3
+      },
+      "initial_coverage": {
+        "x": 15,
+        "n": 21,
+        "estimate": 0.7142857142857143,
+        "wilson95": [
+          0.5004361928391441,
+          0.8618613704787788
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 15,
+        "mean": 1.5967954416553136,
+        "median": 1.2856368535801692,
+        "p95": 3.58742151785716
+      },
+      "initial_position_mm": {
+        "n": 15,
+        "mean": 0.13175739310108986,
+        "median": 0.08085911807672591,
+        "p95": 0.40216047112777764
+      },
+      "active_recovery_initial_misses": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 21,
+        "2": 3,
+        "1": 3
+      },
+      "observation_seconds": {
+        "n": 6,
+        "mean": 2.95000000000127,
+        "median": 2.9500000000015234,
+        "p95": 4.300000000003173
+      },
+      "observation_extra_wall_s": {
+        "n": 6,
+        "mean": 2.238233499985654,
+        "median": 2.223593099974096,
+        "p95": 3.0313004999625264
+      },
+      "aligned_after_correction": {
+        "x": 18,
+        "n": 18,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8241207763533425,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 18,
+        "n": 18,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8241207763533425,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 18,
+        "n": 21,
+        "estimate": 0.8571428571428571,
+        "wilson95": [
+          0.6536393971937906,
+          0.9501898750027473
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 18,
+        "n": 18,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8241207763533425,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 18,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.17587922364665765
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "no_datum_with_observation": {
+        "x": 3,
+        "n": 3,
+        "estimate": 1.0,
+        "wilson95": [
+          0.4385029682449546,
+          1
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "paired_initial_rgb": {
+        "episodes": 18,
+        "a3_coverage": {
+          "x": 13,
+          "n": 18,
+          "estimate": 0.7222222222222222,
+          "wilson95": [
+            0.4912734343970254,
+            0.8750024662044601
+          ]
+        },
+        "a4_coverage": {
+          "x": 15,
+          "n": 18,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.6077796189608428,
+            0.9416342319413856
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 13,
+          "n": 18,
+          "estimate": 0.7222222222222222,
+          "wilson95": [
+            0.4912734343970254,
+            0.8750024662044601
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 15,
+          "n": 18,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.6077796189608428,
+            0.9416342319413856
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 13,
+          "mean": 1.4683077287362816,
+          "median": 1.0367632169537602,
+          "p95": 3.2514749357850654
+        },
+        "a4_rotation_deg": {
+          "n": 15,
+          "mean": 1.5967954416553136,
+          "median": 1.2856368535801692,
+          "p95": 3.58742151785716
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 27,
+        "mean": 24.89136425926807,
+        "median": 24.366446400003042,
+        "p95": 32.20411809998914
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    }
+  },
+  "by_case": {
+    "upright": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.258647930357949,
+        "median": 1.4966993178542771,
+        "p95": 2.008140113637233
+      },
+      "initial_position_mm": {
+        "n": 6,
+        "mean": 0.04667771550718256,
+        "median": 0.04006220597387541,
+        "p95": 0.0727813389070291
+      },
+      "active_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "completed_after_initial_miss": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 6
+      },
+      "observation_seconds": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "observation_extra_wall_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_coverage": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 6,
+          "mean": 1.4827697440398373,
+          "median": 1.1443944386379905,
+          "p95": 3.3255948931825117
+        },
+        "a4_rotation_deg": {
+          "n": 6,
+          "mean": 1.258647930357949,
+          "median": 1.4966993178542771,
+          "p95": 2.008140113637233
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 23.551042800002808,
+        "median": 23.571914899977855,
+        "p95": 25.036574849989847
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "tilt60": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 5,
+        "mean": 2.468418259314476,
+        "median": 2.750274952647587,
+        "p95": 4.192448196170407
+      },
+      "initial_position_mm": {
+        "n": 5,
+        "mean": 0.09650074660522492,
+        "median": 0.09226471318454664,
+        "p95": 0.135633616514163
+      },
+      "active_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 5,
+        "1": 1
+      },
+      "observation_seconds": {
+        "n": 1,
+        "mean": 1.5999999999991132,
+        "median": 1.5999999999991132,
+        "p95": 1.5999999999991132
+      },
+      "observation_extra_wall_s": {
+        "n": 1,
+        "mean": 1.761883199971635,
+        "median": 1.761883199971635,
+        "p95": 1.761883199971635
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a4_coverage": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 4,
+          "mean": 2.6718105487348343,
+          "median": 2.5491616975454816,
+          "p95": 4.932169182887032
+        },
+        "a4_rotation_deg": {
+          "n": 5,
+          "mean": 2.468418259314476,
+          "median": 2.750274952647587,
+          "p95": 4.192448196170407
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 25.088136533343157,
+        "median": 23.980815950024407,
+        "p95": 29.55907702499826
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "side90": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 5,
+        "UNCERTAIN": 1
+      },
+      "initial_coverage": {
+        "x": 4,
+        "n": 6,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 4,
+        "mean": 2.3268086301670476,
+        "median": 2.249365990898704,
+        "p95": 3.0700565332793124
+      },
+      "initial_position_mm": {
+        "n": 4,
+        "mean": 0.25250277859055575,
+        "median": 0.17676683887303657,
+        "p95": 0.5590942308029531
+      },
+      "active_recovery_initial_misses": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 1,
+        "n": 2,
+        "estimate": 0.5,
+        "wilson95": [
+          0.09453120573423074,
+          0.9054687942657693
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 4,
+        "2": 1,
+        "1": 1
+      },
+      "observation_seconds": {
+        "n": 2,
+        "mean": 2.9500000000005224,
+        "median": 2.9500000000005224,
+        "p95": 4.165000000001791
+      },
+      "observation_extra_wall_s": {
+        "n": 2,
+        "mean": 2.4426867999718525,
+        "median": 2.4426867999718525,
+        "p95": 3.3516952599398793
+      },
+      "aligned_after_correction": {
+        "x": 5,
+        "n": 5,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 5,
+        "n": 5,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a4_coverage": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 4,
+          "n": 6,
+          "estimate": 0.6666666666666666,
+          "wilson95": [
+            0.299993315138392,
+            0.9032285888942195
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 4,
+          "mean": 2.0748892706608446,
+          "median": 1.7885088120554897,
+          "p95": 3.0160436500335157
+        },
+        "a4_rotation_deg": {
+          "n": 4,
+          "mean": 2.3268086301670476,
+          "median": 2.249365990898704,
+          "p95": 3.0700565332793124
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 27.870429616673693,
+        "median": 27.795547500019893,
+        "p95": 34.15902920001827
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "tilt120": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 5,
+        "mean": 1.794406650332439,
+        "median": 1.2856368535801692,
+        "p95": 3.8556990051866293
+      },
+      "initial_position_mm": {
+        "n": 5,
+        "mean": 0.1447231134978605,
+        "median": 0.12118577304270617,
+        "p95": 0.2814559077720182
+      },
+      "active_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 5,
+        "1": 1
+      },
+      "observation_seconds": {
+        "n": 1,
+        "mean": 1.5999999999998735,
+        "median": 1.5999999999998735,
+        "p95": 1.5999999999998735
+      },
+      "observation_extra_wall_s": {
+        "n": 1,
+        "mean": 1.595677400007844,
+        "median": 1.595677400007844,
+        "p95": 1.595677400007844
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 3,
+          "n": 6,
+          "estimate": 0.5,
+          "wilson95": [
+            0.1876163064826506,
+            0.8123836935173494
+          ]
+        },
+        "a4_coverage": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 3,
+          "n": 6,
+          "estimate": 0.5,
+          "wilson95": [
+            0.1876163064826506,
+            0.8123836935173494
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 3,
+          "mean": 2.2923326047431067,
+          "median": 2.8849252822105638,
+          "p95": 3.2513209470641984
+        },
+        "a4_rotation_deg": {
+          "n": 5,
+          "mean": 1.794406650332439,
+          "median": 1.2856368535801692,
+          "p95": 3.8556990051866293
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 25.962348883331288,
+        "median": 24.83547710001585,
+        "p95": 30.541715599989402
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "inverted180": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.9458749350673987,
+        "median": 1.5692923878938254,
+        "p95": 3.853480032113845
+      },
+      "initial_position_mm": {
+        "n": 6,
+        "mean": 0.07351493163342558,
+        "median": 0.06963767727834488,
+        "p95": 0.1256711776577394
+      },
+      "active_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "completed_after_initial_miss": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 6
+      },
+      "observation_seconds": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "observation_extra_wall_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_coverage": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 6,
+          "mean": 1.7773559631712879,
+          "median": 1.9419610918442793,
+          "p95": 3.2672052243482907
+        },
+        "a4_rotation_deg": {
+          "n": 6,
+          "mean": 1.9458749350673987,
+          "median": 1.5692923878938254,
+          "p95": 3.853480032113845
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 29.465468500003528,
+        "median": 29.480134049983462,
+        "p95": 31.658748474990716
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "reverse_grasp": {
+      "episodes": 6,
+      "outcomes": {
+        "SUCCESS": 6
+      },
+      "initial_coverage": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 5,
+        "mean": 1.6801573390957336,
+        "median": 1.1620451472689854,
+        "p95": 2.956979834914727
+      },
+      "initial_position_mm": {
+        "n": 5,
+        "mean": 0.09258589311862568,
+        "median": 0.062116207643579564,
+        "p95": 0.18611254356981494
+      },
+      "active_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "completed_after_initial_miss": {
+        "x": 1,
+        "n": 1,
+        "estimate": 1.0,
+        "wilson95": [
+          0.20654931437723745,
+          1
+        ]
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 5,
+        "1": 1
+      },
+      "observation_seconds": {
+        "n": 1,
+        "mean": 1.5999999999991132,
+        "median": 1.5999999999991132,
+        "p95": 1.5999999999991132
+      },
+      "observation_extra_wall_s": {
+        "n": 1,
+        "mean": 2.5503055000444874,
+        "median": 2.5503055000444874,
+        "p95": 2.5503055000444874
+      },
+      "aligned_after_correction": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "preposition_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 6,
+        "a3_coverage": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_coverage": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_within_10deg_all": {
+          "x": 6,
+          "n": 6,
+          "estimate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1
+          ]
+        },
+        "a4_within_10deg_all": {
+          "x": 5,
+          "n": 6,
+          "estimate": 0.8333333333333334,
+          "wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ]
+        },
+        "a3_rotation_deg": {
+          "n": 6,
+          "mean": 1.2568491189812485,
+          "median": 1.215027762589334,
+          "p95": 1.888810233051689
+        },
+        "a4_rotation_deg": {
+          "n": 5,
+          "mean": 1.6801573390957336,
+          "median": 1.1620451472689854,
+          "p95": 2.956979834914727
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 27.27682906666693,
+        "median": 26.416942699986976,
+        "p95": 32.602928925000015
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "blind": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "initial_position_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "active_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "completed_after_initial_miss": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 6
+      },
+      "observation_seconds": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "observation_extra_wall_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preposition_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 0,
+        "a3_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "a4_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 16.809318283349665,
+        "median": 16.801871600036975,
+        "p95": 17.935954500018852
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "plain": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "initial_position_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "active_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "completed_after_initial_miss": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "2": 6
+      },
+      "observation_seconds": {
+        "n": 6,
+        "mean": 4.300000000003174,
+        "median": 4.300000000003174,
+        "p95": 4.300000000003175
+      },
+      "observation_extra_wall_s": {
+        "n": 6,
+        "mean": 3.2196180166405006,
+        "median": 3.2543187999690417,
+        "p95": 3.6486993249709485
+      },
+      "aligned_after_correction": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preposition_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_observation": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "paired_initial_rgb": {
+        "episodes": 0,
+        "a3_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "a4_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 20.655488200000644,
+        "median": 21.088174949982204,
+        "p95": 21.349725775013212
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    },
+    "empty": {
+      "episodes": 6,
+      "outcomes": {
+        "ABORT": 6
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "initial_position_mm": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "active_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "active_correct_recovery_initial_misses": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "completed_after_initial_miss": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "verification_recoveries": 0,
+      "observation_move_counts": {
+        "0": 6
+      },
+      "observation_seconds": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "observation_extra_wall_s": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "aligned_after_correction": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "preposition_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_all_locatable": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "closed_loop_success_clear_featured": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_insertion_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "paired_initial_rgb": {
+        "episodes": 0,
+        "a3_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_coverage": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a4_within_10deg_all": {
+          "x": 0,
+          "n": 0,
+          "estimate": null,
+          "wilson95": null
+        },
+        "a3_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "a4_rotation_deg": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "p95": null
+        },
+        "note": "Same initial RGB only; not a paired physical A3 execution"
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 23.684909749989554,
+        "median": 23.815532249980606,
+        "p95": 24.926882249987102
+      },
+      "note": "Observation turns, corrective turns and insertion are separate. Wall time includes baseline inference, physics computation and recording; not continuous production throughput. GT never selects an action."
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "status": "frozen_development_only",
+  "scope": "simulation_closed_loop_development",
+  "real_formal_gate": "closed",
+  "created_at": "2026-10-31T09:56:45.149059+00:00",
+  "calibration_report": "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-m4-calibration-v1\\report.json",
+  "calibration_report_sha256": "1eee3e3d21234d1a48fd067d21dfbf9b984cc5ded91c4f363afca6e65d88126b",
+  "calibration_manifest_sha256": "95183d13416badd53e591cad2a2efc9b68d543d5e4dea6e36e4acb1b49e4dd44",
+  "calibration_seeds": [
+    9001,
+    9002,
+    9003,
+    9004,
+    9005,
+    9006
+  ],
+  "scene_seeds": [
+    2026103104,
+    2026103105,
+    2026103106,
+    2026103107,
+    2026103108,
+    2026103109,
+    2026103110,
+    2026103111,
+    2026103112,
+    2026103113,
+    2026103114,
+    2026103115,
+    2026103116,
+    2026103117,
+    2026103118,
+    2026103119,
+    2026103120,
+    2026103121,
+    2026103122,
+    2026103123,
+    2026103124,
+    2026103125,
+    2026103126,
+    2026103127
+  ],
+  "light_conditions": [
+    "nominal",
+    "low_light",
+    "reflection",
+    "background_shift"
+  ],
+  "adaptation": {
+    "robot_commit": "a662de603224c47123b0783821c58ad4402ad3e3",
+    "base_world_m": [
+      -0.45,
+      0.0,
+      0.0
+    ],
+    "tcp_in_hand_m": [
+      0,
+      0,
+      0.115
+    ],
+    "pad_half_size_m": [
+      0.008,
+      0.002,
+      0.002
+    ],
+    "pad_local_finger_pos_m": [
+      0,
+      0.003,
+      0.0566
+    ],
+    "pad_friction": [
+      1.0,
+      0.005,
+      0.0001
+    ],
+    "gripper_kp": 1500,
+    "gripper_kv": 10,
+    "gripper_force_limit_N": 10,
+    "robot_gravity_compensation": true,
+    "object_gravity_compensation": false,
+    "timestep_s": 0.001,
+    "contact_solref": [
+      0.003,
+      1
+    ],
+    "friction_cone": "elliptic",
+    "impratio": 10,
+    "solver": "Newton",
+    "solver_tolerance": 1e-10,
+    "nominal_grasp_z_m": 0.0045,
+    "notes": [
+      "Custom thin fingertips; not an unmodified OEM Panda gripper",
+      "Existing finger inertia retained; small adapter inertia neglected",
+      "Screw collision geometry and scale unchanged; no adhesive or weld constraint"
+    ]
+  },
+  "criteria": {
+    "lift_above_initial_m": 0.04,
+    "hold_bilateral_fraction": 0.8,
+    "close_tail_bilateral_fraction": 0.8,
+    "close_tail_seconds": 0.2,
+    "placement_xy_tolerance_m": 0.015,
+    "placement_heading_tolerance_deg": 10,
+    "maximum_soft_contact_penetration_m": 0.001,
+    "settled_linear_speed_m_s": 0.015,
+    "settled_angular_speed_rad_s": 0.2,
+    "note": "Simulation development criteria, not real industrial tolerances"
+  },
+  "planning_priors": {
+    "head_height_m": 0.006,
+    "tip_height_m": 0.003,
+    "grasp_height_m": 0.0045,
+    "release_height_m": 0.01,
+    "maximum_joint_speed_rad_s": 1.2,
+    "opening_half_width_m": 0.04,
+    "closing_target_half_width_m": 0.0
+  },
+  "weight_sha256": "0a29b8c5660d62cb19b84bf2cc0805e1c3b3ed2fb2e7478dc80813ab2f1e155a",
+  "asset_manifest_sha256": "3f8264e068243c5014c87dab3fbe933487d9d8fdac74d163d6f59fef4c26e777",
+  "controller_source_hashes": {
+    "src/yolo_conveyor/simulation/screw_scene.py": "4e193ecfb173ea802e027027e00bbe20be74efb2734b334c00ec56cad7fcd9fe",
+    "src/yolo_conveyor/simulation/panda_scene.py": "bd2156ec6686766b3c4922fa132bd552e8a4960711103ae0c59efd475bfe520d",
+    "src/yolo_conveyor/simulation/panda_control.py": "ffe67bfef773aa4018db3c1d5e7fef7a33132d02e493a23c828f08dd8e1cbc24",
+    "src/yolo_conveyor/simulation/grasp_geometry.py": "7fd0fac1b5e349d75fa7410982bd85c36eeca5c30baed823d915c82f9b7189ce",
+    "src/yolo_conveyor/simulation/grasp_evaluation.py": "0a4db27e4cef100857c7291a54de74d69f7e67c6446cebb4d878619b7635dd32",
+    "src/yolo_conveyor/simulation/robot_assets.py": "607f9d705d6c9b8603e1c053ef1885f823b3a1d0f7b6ec00139e8abfe40f07ba",
+    "src/yolo_conveyor/orientation/pose_adapter.py": "153a7a6b3c3efdbea934368fbb67b257dba30d1a7923909ca2e0da5dd7345b86",
+    "src/yolo_conveyor/orientation/geometry.py": "05dd47e89fe48053d94969379566d08d66b949dd654ffdef52b782bf54979a2d"
+  },
+  "rule": "Do not tune on these outcomes; a controller change requires new calibration/protocol and new evaluation seeds"
+}

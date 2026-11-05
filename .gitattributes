@@ -1,0 +1,12 @@
+# Frozen simulation protocols hash the exact UTF-8/LF source bytes.
+.gitattributes text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.mp4 binary
+*.png binary
+*.jpg binary
+# Preserve imported evidence and license bytes exactly as recorded.
+/docs/handoff/evidence/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/previews/PANDA_LICENSE.txt -text

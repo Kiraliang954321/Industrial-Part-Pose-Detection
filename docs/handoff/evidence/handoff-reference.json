@@ -1,0 +1,882 @@
+[
+  {
+    "kind": "bearing",
+    "case": "matched",
+    "seed": 261400,
+    "phase": 0.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": false,
+    "stage": "insert",
+    "failure": null,
+    "physical": {
+      "success": true,
+      "attempted": true,
+      "abort": null,
+      "held": true,
+      "engagement_m": 0.0037891715620172275,
+      "radial_m": 1.3625755510667691e-05,
+      "tilt_deg": 0.38686403907955946,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.00010813472218536379,
+      "index_overlap_m": 0.003734213870747273,
+      "index_clearance_m": 0.0004965316290601856,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.38686403907955946,
+        "rotation_deg": 0.39124947844025193
+      },
+      "index_contact_seen": false,
+      "max_index_penetration_m": 0.0,
+      "deepest_engagement_m": 0.0037891715620172275,
+      "wrong_angle_passage": false,
+      "index_entry_seen": true,
+      "keyed_success": true,
+      "retracted_and_held": false
+    },
+    "wrench": {
+      "max_force_delta_n": 1.3976164648094562,
+      "max_torque_delta_nm": 0.09731908664946287,
+      "trigger": null
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9999873645359771,
+          -0.001008157947054915,
+          -0.004924874205795808
+        ],
+        [
+          0.0010309076532789459,
+          0.9999888009934061,
+          0.004618995256405339
+        ],
+        [
+          0.004920162375321954,
+          -0.004624013983767149,
+          0.9999772049886322
+        ]
+      ],
+      "center": [
+        -0.09999521425901227,
+        0.11998545997034425,
+        0.11971091257773205
+      ],
+      "angles": {
+        "inclination_deg": 0.38686403907955946,
+        "axis_world": [
+          -0.004924874205795808,
+          0.004618995256405339,
+          0.9999772049886322
+        ],
+        "key_world": [
+          0.9999873645359771,
+          0.0010309076532789459,
+          0.004920162375321954
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 0.05906738301912837
+      },
+      "target_error": {
+        "axis_deg": 0.38686403907955946,
+        "rotation_deg": 0.39124947844025193
+      }
+    }
+  },
+  {
+    "kind": "bearing",
+    "case": "wrong30",
+    "seed": 261401,
+    "phase": 30.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007902189324203618,
+      "radial_m": 8.343871670656786e-05,
+      "tilt_deg": 0.5156068452357317,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.00010612065013018187,
+      "index_overlap_m": -0.007974005916811636,
+      "index_clearance_m": -0.0036464488724336536,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.5156068452357317,
+        "rotation_deg": 30.583476507003816
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.013651243782221e-05,
+      "deepest_engagement_m": 7.475114265327685e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 2.259953670491507,
+      "max_torque_delta_nm": 0.08867926335688732,
+      "trigger": {
+        "time": 24.3690000000068,
+        "stage": "keyed_insert",
+        "force_delta_n": 2.259953670491507,
+        "torque_delta_nm": 0.018212195943937786
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9999108344485053,
+          0.010118764501195013,
+          -0.008713997788870347
+        ],
+        [
+          -0.010099547499719556,
+          0.9999464747751079,
+          0.0022464917397114715
+        ],
+        [
+          0.008736263091047003,
+          -0.0021582839954554234,
+          0.999959508938937
+        ]
+      ],
+      "center": [
+        -0.10001643746713747,
+        0.12001636593306692,
+        0.13140247102036823
+      ],
+      "angles": {
+        "inclination_deg": 0.5156068452357317,
+        "axis_world": [
+          -0.008713997788870347,
+          0.0022464917397114715,
+          0.999959508938937
+        ],
+        "key_world": [
+          0.9999108344485053,
+          -0.010099547499719556,
+          0.008736263091047003
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 359.4213066307204
+      },
+      "target_error": {
+        "axis_deg": 0.5156068452357317,
+        "rotation_deg": 0.7754738416727631
+      }
+    }
+  },
+  {
+    "kind": "bearing",
+    "case": "wrong90",
+    "seed": 261402,
+    "phase": 90.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007998515016642978,
+      "radial_m": 7.04871729777428e-05,
+      "tilt_deg": 0.47874258403884673,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.00014455952288699344,
+      "index_overlap_m": -0.007972535785075941,
+      "index_clearance_m": -0.00979869704703014,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.47874258403884673,
+        "rotation_deg": 90.16723256142757
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.1347766186622922e-05,
+      "deepest_engagement_m": -2.4093390130739984e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 2.205346680970465,
+      "max_torque_delta_nm": 0.09429608185605022,
+      "trigger": {
+        "time": 24.375000000006807,
+        "stage": "keyed_insert",
+        "force_delta_n": 2.205346680970465,
+        "torque_delta_nm": 0.019877342517430986
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9999657164540645,
+          0.0029133572960953146,
+          -0.0077510170800087486
+        ],
+        [
+          -0.002889243932677431,
+          0.9999909577263535,
+          0.0031203741807570838
+        ],
+        [
+          0.0077600377580773275,
+          -0.0030978726241950275,
+          0.9999650918903107
+        ]
+      ],
+      "center": [
+        -0.10001991509726332,
+        0.12002253534763942,
+        0.13149869173325932
+      ],
+      "angles": {
+        "inclination_deg": 0.47874258403884673,
+        "axis_world": [
+          -0.0077510170800087486,
+          0.0031203741807570838,
+          0.9999650918903107
+        ],
+        "key_world": [
+          0.9999657164540645,
+          -0.002889243932677431,
+          0.0077600377580773275
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 359.8344533018072
+      },
+      "target_error": {
+        "axis_deg": 0.47874258403884673,
+        "rotation_deg": 0.5067825117313731
+      }
+    }
+  },
+  {
+    "kind": "bearing",
+    "case": "wrong180",
+    "seed": 261403,
+    "phase": 180.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.00805930967116307,
+      "radial_m": 0.00010293766934038013,
+      "tilt_deg": 0.451873083670057,
+      "illegal_contacts": [],
+      "max_penetration_m": 9.809298265181004e-05,
+      "index_overlap_m": -0.007984969492206399,
+      "index_clearance_m": -0.0200020271594819,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.451873083670057,
+        "rotation_deg": 179.8837543757343
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.1761062179482806e-05,
+      "deepest_engagement_m": -7.797044826001343e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 3.7518887795652573,
+      "max_torque_delta_nm": 0.09019161675843133,
+      "trigger": {
+        "time": 24.282000000006693,
+        "stage": "keyed_insert",
+        "force_delta_n": 3.7518887795652573,
+        "torque_delta_nm": 0.06008795815370757
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.999967310281219,
+          -0.00202506515935719,
+          -0.007827993360026193
+        ],
+        [
+          0.0020326382771195892,
+          0.9999974737660606,
+          0.0009596057165085229
+        ],
+        [
+          0.007826030320580468,
+          -0.0009754858262041368,
+          0.999968900354818
+        ]
+      ],
+      "center": [
+        -0.09998808446722189,
+        0.12000063340115172,
+        0.13155976184255086
+      ],
+      "angles": {
+        "inclination_deg": 0.451873083670057,
+        "axis_world": [
+          -0.007827993360026193,
+          0.0009596057165085229,
+          0.999968900354818
+        ],
+        "key_world": [
+          0.999967310281219,
+          0.0020326382771195892,
+          0.007826030320580468
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 0.11646524136997351
+      },
+      "target_error": {
+        "axis_deg": 0.451873083670057,
+        "rotation_deg": 0.4665859717049545
+      }
+    }
+  },
+  {
+    "kind": "bearing",
+    "case": "no_datum",
+    "seed": 261404,
+    "phase": 0.0,
+    "feature": false,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007896933615435545,
+      "radial_m": 0.00013001047483359842,
+      "tilt_deg": 0.5454287222893391,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.00010387570005872345,
+      "index_overlap_m": -0.007976180771713096,
+      "index_clearance_m": 0.0004059446507627025,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.5454287222893391,
+        "rotation_deg": 0.7119880896183844
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.0754560798631463e-05,
+      "deepest_engagement_m": 7.8131644955029e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 3.0607450944171113,
+      "max_torque_delta_nm": 0.09472514385218668,
+      "trigger": {
+        "time": 25.1060000000077,
+        "stage": "keyed_insert",
+        "force_delta_n": 3.0607450944171113,
+        "torque_delta_nm": 0.021967237979369395
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9999425946459903,
+          0.008009567410471718,
+          -0.007117179394931408
+        ],
+        [
+          -0.007964617550553211,
+          0.9999482988895718,
+          0.006321741462835612
+        ],
+        [
+          0.007167445843251737,
+          -0.00626469294910968,
+          0.9999546896446534
+        ]
+      ],
+      "center": [
+        -0.09998833285478766,
+        0.11998098337657959,
+        0.13139765330249906
+      ],
+      "angles": {
+        "inclination_deg": 0.5454287222893391,
+        "axis_world": [
+          -0.007117179394931408,
+          0.006321741462835612,
+          0.9999546896446534
+        ],
+        "key_world": [
+          0.9999425946459903,
+          -0.007964617550553211,
+          0.007167445843251737
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 359.5436444817157
+      },
+      "target_error": {
+        "axis_deg": 0.5454287222893391,
+        "rotation_deg": 0.7119880896183844
+      }
+    }
+  },
+  {
+    "kind": "gear",
+    "case": "matched",
+    "seed": 261500,
+    "phase": 0.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": false,
+    "stage": "insert",
+    "failure": null,
+    "physical": {
+      "success": true,
+      "attempted": true,
+      "abort": null,
+      "held": true,
+      "engagement_m": 0.004108300671836165,
+      "radial_m": 0.00031122550070254544,
+      "tilt_deg": 0.6635636063329626,
+      "illegal_contacts": [],
+      "max_penetration_m": 9.636223567755352e-05,
+      "index_overlap_m": 0.004122607184671398,
+      "index_clearance_m": 0.0003447195251063598,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.6635636063329626,
+        "rotation_deg": 1.481583379353678
+      },
+      "index_contact_seen": false,
+      "max_index_penetration_m": 0.0,
+      "deepest_engagement_m": 0.004108300671836165,
+      "wrong_angle_passage": false,
+      "index_entry_seen": true,
+      "keyed_success": true,
+      "retracted_and_held": false
+    },
+    "wrench": {
+      "max_force_delta_n": 1.3902506643925803,
+      "max_torque_delta_nm": 0.09547371349217781,
+      "trigger": null
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9996825292877038,
+          0.02308820947159866,
+          0.010088370549110402
+        ],
+        [
+          -0.023146375555406322,
+          0.9997159088415619,
+          0.005687434196508668
+        ],
+        [
+          -0.009954191860149418,
+          -0.00591913781619497,
+          0.9999329366872189
+        ]
+      ],
+      "center": [
+        -0.09980283551012849,
+        0.1197545433180631,
+        0.12278129280116655
+      ],
+      "angles": {
+        "inclination_deg": 0.6635636063329626,
+        "axis_world": [
+          0.010088370549110402,
+          0.005687434196508668,
+          0.9999329366872189
+        ],
+        "key_world": [
+          0.9996825292877038,
+          -0.023146375555406322,
+          -0.009954191860149418
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 358.6736261965073
+      },
+      "target_error": {
+        "axis_deg": 0.6635636063329626,
+        "rotation_deg": 1.481583379353678
+      }
+    }
+  },
+  {
+    "kind": "gear",
+    "case": "wrong30",
+    "seed": 261501,
+    "phase": 30.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.008063522438954961,
+      "radial_m": 0.000258875018303957,
+      "tilt_deg": 2.003143982084021,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.0001357630477478519,
+      "index_overlap_m": -0.008020642874023352,
+      "index_clearance_m": -0.0016306734259710456,
+      "angle_to_actual_fixture": {
+        "axis_deg": 2.003143982084021,
+        "rotation_deg": 31.672376094385818
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.7056224183717885e-05,
+      "deepest_engagement_m": -0.0001142377446230634,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 3.3077634862816994,
+      "max_torque_delta_nm": 0.09096662019398152,
+      "trigger": {
+        "time": 23.901000000006228,
+        "stage": "keyed_insert",
+        "force_delta_n": 3.3077634862816994,
+        "torque_delta_nm": 0.019244877218327364
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9994578372145697,
+          0.027836405642169385,
+          0.017583121204630677
+        ],
+        [
+          -0.028359059519860456,
+          0.9991411933680443,
+          0.030209923174789183
+        ],
+        [
+          -0.016727085027617477,
+          -0.030692185259480184,
+          0.9993889104800362
+        ]
+      ],
+      "center": [
+        -0.09955549454864139,
+        0.12026724325246003,
+        0.1349467670603097
+      ],
+      "angles": {
+        "inclination_deg": 2.003143982084021,
+        "axis_world": [
+          0.017583121204630677,
+          0.030209923174789183,
+          0.9993889104800362
+        ],
+        "key_world": [
+          0.9994578372145697,
+          -0.028359059519860456,
+          -0.016727085027617477
+        ],
+        "axis_azimuth_deg": 59.79925474932905,
+        "key_azimuth_deg": 358.37470025263883
+      },
+      "target_error": {
+        "axis_deg": 2.003143982084021,
+        "rotation_deg": 2.5702738487610035
+      }
+    }
+  },
+  {
+    "kind": "gear",
+    "case": "wrong90",
+    "seed": 261502,
+    "phase": 90.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007956816059000336,
+      "radial_m": 0.00045225029861271785,
+      "tilt_deg": 0.9613485227845678,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.0001045873873702366,
+      "index_overlap_m": -0.007941826827648657,
+      "index_clearance_m": -0.0035049674395931504,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.9613485227845678,
+        "rotation_deg": 90.96686245669638
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.2758463355775827e-05,
+      "deepest_engagement_m": -3.291847383202727e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 2.9136399110987328,
+      "max_torque_delta_nm": 0.09345264094610636,
+      "trigger": {
+        "time": 24.258000000006664,
+        "stage": "keyed_insert",
+        "force_delta_n": 2.9136399110987328,
+        "torque_delta_nm": 0.017513545543434487
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9997936877142821,
+          0.016733570966973293,
+          0.011513887673987682
+        ],
+        [
+          -0.016873934800841848,
+          0.99978314732697,
+          0.012203632463925019
+        ],
+        [
+          -0.011307180506778664,
+          -0.012395399294532414,
+          0.9998592409661051
+        ]
+      ],
+      "center": [
+        -0.09977133373575572,
+        0.11973265927282674,
+        0.13484953595563096
+      ],
+      "angles": {
+        "inclination_deg": 0.9613485227845678,
+        "axis_world": [
+          0.011513887673987682,
+          0.012203632463925019,
+          0.9998592409661051
+        ],
+        "key_world": [
+          0.9997936877142821,
+          -0.016873934800841848,
+          -0.011307180506778664
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 359.0330870476813
+      },
+      "target_error": {
+        "axis_deg": 0.9613485227845678,
+        "rotation_deg": 1.3606396538730476
+      }
+    }
+  },
+  {
+    "kind": "gear",
+    "case": "wrong180",
+    "seed": 261503,
+    "phase": 180.0,
+    "feature": true,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007869521215002737,
+      "radial_m": 0.00038682830222199063,
+      "tilt_deg": 2.338178683685693,
+      "illegal_contacts": [],
+      "max_penetration_m": 0.0001397059307527729,
+      "index_overlap_m": -0.007992418276677623,
+      "index_clearance_m": -0.0044351046315827735,
+      "angle_to_actual_fixture": {
+        "axis_deg": 2.338178683685693,
+        "rotation_deg": 178.5419241324691
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 1.7157665916794612e-05,
+      "deepest_engagement_m": 5.879550059152694e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 2.213609489919697,
+      "max_torque_delta_nm": 0.09220971422085766,
+      "trigger": {
+        "time": 24.00900000000636,
+        "stage": "keyed_insert",
+        "force_delta_n": 2.213609489919697,
+        "torque_delta_nm": 0.006816009376780312
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9993704093239996,
+          0.025038824820853685,
+          0.025136471891884803
+        ],
+        [
+          -0.025841535728184047,
+          0.9991494452082269,
+          0.03213411226875013
+        ],
+        [
+          -0.02431049153739802,
+          -0.03276344596775883,
+          0.9991674317197928
+        ]
+      ],
+      "center": [
+        -0.0994628878492652,
+        0.12012500787617354,
+        0.13475428704478612
+      ],
+      "angles": {
+        "inclination_deg": 2.338178683685693,
+        "axis_world": [
+          0.025136471891884803,
+          0.03213411226875013,
+          0.9991674317197928
+        ],
+        "key_world": [
+          0.9993704093239996,
+          -0.025841535728184047,
+          -0.02431049153739802
+        ],
+        "axis_azimuth_deg": 51.96618901039096,
+        "key_azimuth_deg": 358.5187863679892
+      },
+      "target_error": {
+        "axis_deg": 2.338178683685693,
+        "rotation_deg": 2.75565873118907
+      }
+    }
+  },
+  {
+    "kind": "gear",
+    "case": "no_datum",
+    "seed": 261504,
+    "phase": 0.0,
+    "feature": false,
+    "attempted": true,
+    "blocked": true,
+    "stage": "retreat",
+    "failure": null,
+    "physical": {
+      "success": false,
+      "attempted": true,
+      "abort": "contact_stop",
+      "held": true,
+      "engagement_m": -0.007931353413663314,
+      "radial_m": 0.0003547441566043552,
+      "tilt_deg": 0.38235785604257005,
+      "illegal_contacts": [],
+      "max_penetration_m": 8.197098669037913e-05,
+      "index_overlap_m": -0.007959853904984625,
+      "index_clearance_m": 0.0004414246331888676,
+      "angle_to_actual_fixture": {
+        "axis_deg": 0.38235785604257005,
+        "rotation_deg": 0.9963588366334892
+      },
+      "index_contact_seen": true,
+      "max_index_penetration_m": 8.550690794796361e-06,
+      "deepest_engagement_m": 2.8489203029929272e-05,
+      "wrong_angle_passage": false,
+      "index_entry_seen": false,
+      "keyed_success": false,
+      "retracted_and_held": true
+    },
+    "wrench": {
+      "max_force_delta_n": 2.9082390988515217,
+      "max_torque_delta_nm": 0.08822102127073753,
+      "trigger": {
+        "time": 24.285000000006697,
+        "stage": "keyed_insert",
+        "force_delta_n": 2.9082390988515217,
+        "torque_delta_nm": 0.009393584497478355
+      }
+    },
+    "final": {
+      "held": true,
+      "rotation": [
+        [
+          0.9998488877857331,
+          0.016056077825779794,
+          -0.006663629528047035
+        ],
+        [
+          -0.01605883280093115,
+          0.9998709837745395,
+          -0.0003601316542209043
+        ],
+        [
+          0.006656987509849755,
+          0.000467087346367462,
+          0.9999777329254419
+        ]
+      ],
+      "center": [
+        -0.09980254933715157,
+        0.11979947870048682,
+        0.134822927000884
+      ],
+      "angles": {
+        "inclination_deg": 0.38235785604257005,
+        "axis_world": [
+          -0.006663629528047035,
+          -0.0003601316542209043,
+          0.9999777329254419
+        ],
+        "key_world": [
+          0.9998488877857331,
+          -0.01605883280093115,
+          0.006656987509849755
+        ],
+        "axis_azimuth_deg": null,
+        "key_azimuth_deg": 359.0798367143125
+      },
+      "target_error": {
+        "axis_deg": 0.38235785604257005,
+        "rotation_deg": 0.9963588366334892
+      }
+    }
+  }
+]

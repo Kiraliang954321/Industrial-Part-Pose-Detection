@@ -1,0 +1,216 @@
+{
+  "status": "FROZEN_H2_SIMULATION_ONLY",
+  "real_formal_gate": "closed",
+  "created_at": "2026-10-31T14:42:30.380300+00:00",
+  "sources": {
+    "src/yolo_conveyor/datasets/screw_orientation.py": "efcbacfba8c4775277b18f0046f04447c549f2ba0c28e95d1281e61153f25c7c",
+    "src/yolo_conveyor/orientation/__init__.py": "462963bb9e0a8d5ae9890efac42a2f12f987824f7fdbe3251dba229962ae4b50",
+    "src/yolo_conveyor/orientation/common.py": "db2629cb4b12dfb3e0a7569ea9c18b922038ba27617d9fc599ef869a32c281d5",
+    "src/yolo_conveyor/orientation/comparison.py": "db44c99ee16d641817c59a69848ce1eeb0a6fa92a74dbb1304ca2131b1ed4c06",
+    "src/yolo_conveyor/orientation/evaluate.py": "701ed8b0c1710b906a766d796afd877ac32e8ffc825bf4178fa11acbfff4812a",
+    "src/yolo_conveyor/orientation/evaluation.py": "e1f1fb84ed6d74a45349966e54df7e427b969db4902abe87d0c2c09d4b2a034c",
+    "src/yolo_conveyor/orientation/geometry.py": "05dd47e89fe48053d94969379566d08d66b949dd654ffdef52b782bf54979a2d",
+    "src/yolo_conveyor/orientation/pose_adapter.py": "153a7a6b3c3efdbea934368fbb67b257dba30d1a7923909ca2e0da5dd7345b86",
+    "src/yolo_conveyor/orientation/predict.py": "6c4feb67ed3212318f17cfa51022c851e7af40dcabd0961a36d505a9c731869c",
+    "src/yolo_conveyor/orientation/traditional.py": "c85603a7d4475059c7b8e25248f947b0a9798d6900cac8e405944572ae2fd8ef",
+    "src/yolo_conveyor/orientation/training.py": "ee5ffed28384f927af6fe6a29168e25620627e567c95f68bdaac6f530a22a351",
+    "src/yolo_conveyor/simulation/__init__.py": "9a1f76f905e691f8d0164cc520bd957e8545a486fe739755854d1f3d2ab3d224",
+    "src/yolo_conveyor/simulation/closed_loop.py": "eac9437d20a5c23ad468bf9b1e914a4664a7a63f20491988fcf6b0f8509d6c4f",
+    "src/yolo_conveyor/simulation/generate.py": "1c0a10843d5519ac37166ba40937965c9f3ca45f4d009f9fe4f9d700891aad19",
+    "src/yolo_conveyor/simulation/grasp_evaluation.py": "0a4db27e4cef100857c7291a54de74d69f7e67c6446cebb4d878619b7635dd32",
+    "src/yolo_conveyor/simulation/grasp_geometry.py": "7fd0fac1b5e349d75fa7410982bd85c36eeca5c30baed823d915c82f9b7189ce",
+    "src/yolo_conveyor/simulation/indexed_scene.py": "bb67d01817fa7df48a696237f0ec5ea69aa350d2de8dc92ab692f01850119fb9",
+    "src/yolo_conveyor/simulation/m4_protocol.py": "6ca7824eb359fe1aedb18ac1db49086c0ac52827230e4e7d8f979cc65bdeeb47",
+    "src/yolo_conveyor/simulation/panda_control.py": "ffe67bfef773aa4018db3c1d5e7fef7a33132d02e493a23c828f08dd8e1cbc24",
+    "src/yolo_conveyor/simulation/panda_scene.py": "bd2156ec6686766b3c4922fa132bd552e8a4960711103ae0c59efd475bfe520d",
+    "src/yolo_conveyor/simulation/robot_assets.py": "607f9d705d6c9b8603e1c053ef1885f823b3a1d0f7b6ec00139e8abfe40f07ba",
+    "src/yolo_conveyor/simulation/screw_scene.py": "4e193ecfb173ea802e027027e00bbe20be74efb2734b334c00ec56cad7fcd9fe",
+    "src/yolo_conveyor/held/control.py": "b9fd05537fbb5e88f788d0a254a607bc0cf131f9167df85d5a9861e4216c8a8e",
+    "src/yolo_conveyor/held/data.py": "04f568fadf93571d526d4cbf1c4f06a427e2f7a13e86131307798a1fe6aaa88a",
+    "src/yolo_conveyor/held/evaluation.py": "0f342667b1b5761539d79e0922ae611d431aed05339fffa880ac930b30e619c2",
+    "src/yolo_conveyor/held/gate.py": "58e8f16409899ced818a06fd0e57a4a31b6bba1ac36df3fbd9f96eb67e47f734",
+    "src/yolo_conveyor/held/geometry.py": "a9a8b670a5f0b320a94e5145d6f3998e96f01d519c76efa8c501d933c84fb4a9",
+    "src/yolo_conveyor/held/protocol.py": "874240e3f761b4c84edabf60e79679e657087dab4d653f18d6d11ca708186228",
+    "src/yolo_conveyor/held/provenance.py": "343808ae701350173b6386d08e2991a50f621bbe87e939ba318f92465495c855",
+    "src/yolo_conveyor/held/runtime.py": "864dee74cf861267fb5300d87c8746806e275f209435366e458974ceefe5db0f",
+    "src/yolo_conveyor/held/scene.py": "a12acde7c6e809168b02e01ecfd27bcb05888890667b7df4781f1b270d7dd50f",
+    "src/yolo_conveyor/held/training.py": "b6887055d66f6b08aa3d32bb5ce33c629721a064a82941cbea8472415eb7f5f1",
+    "src/yolo_conveyor/held/video.py": "8c6cd031f3ef8ba518ddb8cd64db8efdfc437d01298a2d1611aa27e7088bda72",
+    "src/yolo_conveyor/held/__init__.py": "cf55048e5094f7c07e82a52bdcd3dc06748387a548d4e248f091de08fb02da6f",
+    "scripts/freeze_held_inspection.py": "1188bc30b9e449be2b8d0e00ede0c52b46accb395415a6690dbcd43759d4e2f1",
+    "scripts/generate_held_inspection.py": "03161019c8d7e26dabf48f69aa872fe86a55a350a4eb40be49da96087178bf12",
+    "scripts/run_held_inspection.py": "c0bb16fee1ba87e8c691f41a9663cc405d6060559e6ba93bc664dc831eb94cd3",
+    "scripts/train_held_inspection.py": "437a73237fbd750c0b1a0e6353b90c3639ccc279f94df6b281eff3ac97f58ca3",
+    "src/yolo_conveyor/held_recheck/calibration.py": "c37377de9ab817d24effc211951e77233e1b2ce53c300b489f23026a42216047",
+    "src/yolo_conveyor/held_recheck/development.py": "b94d6e861d8ee2010e9ad11e1aaac7c77d3c2b18ab55eeeca5f91831e4a842cf",
+    "src/yolo_conveyor/held_recheck/evaluation.py": "3f81cf4a9fcba9178acfde7e9b13e88000962077ac1c895a96d2ed3e31de2d14",
+    "src/yolo_conveyor/held_recheck/faults.py": "2b91ab9ef98e7073c907ed3a5b2e6f2e50e19b0d1e92e3f764ea8cc635a8dda0",
+    "src/yolo_conveyor/held_recheck/inspection.py": "f5c1c2b23d74e17fffeec79145a84931b851df050b83932f681b2cc406327efc",
+    "src/yolo_conveyor/held_recheck/perception.py": "8efa24a1d6cfe2626f5c24fc48703eedeb8819606d17047e3b0036db594f5e13",
+    "src/yolo_conveyor/held_recheck/protocol.py": "19b1615bb30a5b58518bae43ee2e1b4198c4b802a48ef759fafa91cc71eda114",
+    "src/yolo_conveyor/held_recheck/provenance.py": "022665abe911f1369974141eac5af59ece1d07905204077da2842d4cd4180be6",
+    "src/yolo_conveyor/held_recheck/runtime.py": "a89e2ef9fade357043b25c03dbdf916838a75d0924b734dd44629b8db7427236",
+    "src/yolo_conveyor/held_recheck/scene.py": "b26e9945645ab026236e72959bda6e1d80cf6072223541ab4e513dc2d0709f3c",
+    "src/yolo_conveyor/held_recheck/__init__.py": "bd05a955d33b8f4ab8272c91c41c2cbd1b556372435b91c66d912d7d6eb74a1c",
+    "scripts/develop_held_recheck.py": "ec2fcdabc2300db8180c90b950ed8dd54da796ffae83444639260a4fbf498aab",
+    "scripts/freeze_held_recheck.py": "cac76dc296ac392f8843c98649852ab00030c645618f4a70b6711ce244bcd64f",
+    "scripts/run_held_recheck.py": "a9fe93b095d8f13e91180d6a37708f5c48a6333c71354f5f1b7a923ff3390a69"
+  },
+  "setup": {
+    "inspection_tcp_m": [
+      -0.1,
+      0.0,
+      0.25
+    ],
+    "inspection_rotation": [
+      [
+        0.0,
+        0.49999999999999994,
+        -0.8660254037844387
+      ],
+      [
+        0.0,
+        0.8660254037844387,
+        0.49999999999999994
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "guide_xy_m": [
+      -0.1,
+      0.1
+    ],
+    "guide_top_m": 0.12,
+    "guide_inner_radius_m": 0.005,
+    "guide_segments": 24,
+    "guide_wall_height_m": 0.01,
+    "preinsert_depth_m": 0.008,
+    "task": "Held two-view axis/position inspection and held pre-insertion; not screw tightening",
+    "recheck_camera_center_m": [
+      -0.1,
+      0.1,
+      0.157
+    ],
+    "recheck_camera_offsets_m": [
+      [
+        -0.15,
+        -0.259807621,
+        0
+      ],
+      [
+        -0.259807621,
+        0.15,
+        0
+      ]
+    ],
+    "recheck_fovy_deg": 30,
+    "total_fixed_rgb_cameras": 4
+  },
+  "policy": {
+    "box_confidence": 0.6,
+    "point_confidence": 0.5,
+    "max_ray_gap_m": 0.0015,
+    "max_reprojection_px": 3.0,
+    "max_tilt_deg": 7.5,
+    "protrusion_min_m": 0.02,
+    "protrusion_max_m": 0.028,
+    "max_lateral_m": 0.004,
+    "finger_min_m": 0.001,
+    "finger_max_m": 0.005,
+    "finger_change_m": 0.0003,
+    "permit_lifetime_s": 30.0,
+    "max_force_delta_n": 2.0,
+    "max_torque_delta_nm": 0.2,
+    "inspection_position_tolerance_m": 0.001,
+    "inspection_angle_tolerance_deg": 1.0,
+    "gt_max_tilt_deg": 8.0,
+    "gt_protrusion_min_m": 0.019,
+    "gt_protrusion_max_m": 0.029,
+    "final_max_tilt_deg": 3.0,
+    "final_radial_m": 0.001,
+    "final_depth_tolerance_m": 0.0015,
+    "max_penetration_m": 0.0005,
+    "recheck_frame_age_s": 0.25,
+    "stereo_skew_s": 0.02,
+    "max_relative_shift_m": 0.0015,
+    "max_relative_axis_deg": 2.0,
+    "gt_relative_shift_m": 0.002,
+    "gt_relative_axis_deg": 3.0,
+    "insert_permit_lifetime_s": 2.0,
+    "prealign_max_radial_m": 0.002,
+    "prealign_gap_min_m": 0.01,
+    "prealign_gap_max_m": 0.02
+  },
+  "faults": {
+    "axial_slip": {
+      "force_world_n": [
+        0,
+        0,
+        -3.0
+      ],
+      "seconds": 0.03
+    },
+    "strong_disturbance": {
+      "force_world_n": [
+        0,
+        0,
+        -4.0
+      ],
+      "seconds": 0.05
+    }
+  },
+  "artifacts": {
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-development-v1\\artifact-hashes.json": "838a986ddbe2ce9a625f45b9091c7cee0cdb712fdbeb0f59d4bf2b0cc8ae0881",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-calibration-v2\\artifact-hashes.json": "1f2709bc9cab33854120abbe7c4400bbf2f5670ff44568f587ad48af953d7f43",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h1-train-v1\\fit\\weights\\best.pt": "e78fc24c4dd5b758aa0646e8da7ec8b7ba251f382ac327c17dcf85725903cb03",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-development-v1\\calibrator.json": "70dc101a1475c2fcc196d3ac97df26a46539239fdcbb97f70c2779247f5f0f88",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-development-v1\\manifest.json": "9d33d9148d9771eb89e8b058c3e04e636d93c0fa0def28fd61591540018ce713",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-development-v1\\prealign-records.json": "2d436bab2f98747884eda5f521989f17356482845e773e893c70df9179efe67e",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-calibration-v2\\manifest.json": "bb9d0c76df636e11a86e53669ce1e1553a6653b67bdacf03d6c929fcaa96d4a5",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-calibration-v2\\summary.json": "9ec6703df6ff7d86885e052d7d2746e124649b911c91c55d45c716a3a832cd1d",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-calibration-v2\\results.json": "6fde4978ef5b3cb8a5a85d7d1b12e5ad77340cf1caa4fea37197a45149b14c5c",
+    "E:\\AllProjects\\Industrial-Part-Pose-Detection\\docs\\data\\screw_held_protocol_v1.json": "29af3a6feb5314f3481a824838770300c0d64b10be08531801e4be0c72fd685c"
+  },
+  "weights_sha256": "e78fc24c4dd5b758aa0646e8da7ec8b7ba251f382ac327c17dcf85725903cb03",
+  "calibrator_sha256": "70dc101a1475c2fcc196d3ac97df26a46539239fdcbb97f70c2779247f5f0f88",
+  "asset_sha256": "3f8264e068243c5014c87dab3fbe933487d9d8fdac74d163d6f59fef4c26e777",
+  "scene_sha256": "c8ec8e67ddd75eb6581220fa74d0b80ed6893f54b39111c33c5aed9d12841142",
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.171",
+    "numpy": "1.26.4",
+    "opencv-python": "4.11.0.86",
+    "mujoco": "3.17.0",
+    "glfw": "2.11.0",
+    "PyOpenGL": "3.1.10",
+    "etils": "1.14.0",
+    "zipp": "4.1.2",
+    "absl-py": "2.4.0",
+    "fsspec": "2026.2.0",
+    "websockets": "16.0"
+  },
+  "calibration": "E:\\AllProjects\\Industrial-Part-Pose-Detection\\runs\\screw-orientation\\20261031-h2-calibration-v2",
+  "evaluation": {
+    "seed": 91000,
+    "episodes": 36,
+    "cases": [
+      "normal",
+      "long",
+      "yaw_jitter",
+      "reversed",
+      "short",
+      "empty",
+      "initial_blackout",
+      "axial_slip",
+      "strong_disturbance",
+      "recheck_blackout",
+      "stale_recheck",
+      "expired_insert"
+    ]
+  },
+  "rules": "No tuning on evaluation; source/config changes require calibration and new reserved evaluation seeds"
+}

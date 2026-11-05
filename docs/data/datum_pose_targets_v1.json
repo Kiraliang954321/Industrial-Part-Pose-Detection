@@ -1,0 +1,13 @@
+{
+  "coordinate_frame": "simulation_world_axes_parallel_to_robot_base",
+  "convention": "minimal rotation from world +Z to the axis, then local +Z spin; spin zero transports world +X",
+  "axis_tolerance_deg": 10.0,
+  "spin_tolerance_deg": 10.0,
+  "guard_deg": 4.0,
+  "targets": [
+    {"id": "station_a", "inclination_deg": 10.0, "azimuth_deg": 40.0, "spin_deg": 25.0},
+    {"id": "station_b", "inclination_deg": 20.0, "azimuth_deg": 140.0, "spin_deg": 125.0},
+    {"id": "station_c", "inclination_deg": 28.0, "azimuth_deg": 260.0, "spin_deg": 280.0},
+    {"id": "wrap_boundary", "inclination_deg": 18.0, "azimuth_deg": 355.0, "spin_deg": 359.0}
+  ]
+}

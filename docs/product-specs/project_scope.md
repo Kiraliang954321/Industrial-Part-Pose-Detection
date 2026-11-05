@@ -1,8 +1,24 @@
 # 项目范围：V4.1 假设验证
 
-当前权威：[V4.1 项目方案](../new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)及其正式修正 [EXPERIMENT_PROTOCOL_V1](../new-plans/EXPERIMENT_PROTOCOL_V1.md)。旧 V2 命名仅用于现存采集/标注软件契约，并非当前项目方案。本项目是普通 RGB 相机、消费级 GPU、轻量 OBB 的课程研究原型，不是生产系统、安全联锁或 PLC/机器人控制。结论只能限定在已冻结 Operating Envelope 内；不得宣称通用工业可靠性。
+既有二维基线权威：[V4.1 项目方案](../new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)及其正式修正 [EXPERIMENT_PROTOCOL_V1](../new-plans/EXPERIMENT_PROTOCOL_V1.md)。旧 V2 命名仅用于现存采集/标注软件契约，并非当前项目方案。本项目是普通 RGB 相机、消费级 GPU、轻量 OBB 的课程研究原型，不是生产系统、安全联锁或实体 PLC/机器人控制。结论只能限定在已冻结 Operating Envelope 内；不得宣称通用工业可靠性。
 
-## 四个研究问题与六阶段
+## 已确认的后续研究范围
+
+用户已确认的 [A5 键／销实体配合](../exec-plans/active/keyed_cell_a5.md)已完成，验证绕轴角通过实际几何约束影响预插入。齿轮使用带键轴，轴承外缺口使用定位销，腕部反馈触发接触停止与带件退回。冻结后正常工况 34/36 完整成功，故意错位工装 12/12 实际接触停止并退回。当前证据覆盖有间隙、保持夹持的代理仿真，真实压装、负载传递和松爪交接仍待验证。下文 A1–A4 的范围描述对应各自阶段。
+用户已确认继续 [A4](../exec-plans/active/active_pose_a4.md)：困难姿态诊断、有限主动观察及针对性补训。观察转腕与姿态校正/装配分别计数；保留黑屏、空抓、无定位结构和无法确认时的留件。A4 使用独立开发与新评价批次，不改写 A3 的冻结成绩；本轮不扩大到连续上下料或精密装配。
+用户已进一步确认 [A3](../exec-plans/active/pose_cell_a3.md)：对带可见定位结构的轴承/锥形齿轮覆盖大倾角与翻转，通过视觉估计自动摆正到指定朝向，复拍确认后沿已有竖轴预定位。六相机、侧夹、高位料架、固定标定与定制代理均属于仿真工位；实际覆盖、误差、拒绝及物理成功率必须分别报告。按斜轴工位新姿态装配、真实压装、齿轮啮合及连续生产尚不属于本轮交付。
+轴承/齿轮 [A1](../exec-plans/active/bearing_bevel_a1.md)已按用户选择开展：轴承必须具有可观察的正反结构，采用 F608ZZ 单侧法兰代理；齿轮采用 SB1-2040 简化锥齿代理。验证单相机端向/明显姿态门控与固定配方套轴预定位，不扩展到真实压装、键槽对齐或齿轮啮合。螺丝阶段已收尾提交，不再默认细化精度。
+最新用途按 [ADR-0003](../decisions/adr-0003-held-part-inspection-before-assembly.md)确定为：机械臂先夹持零件，在固定检测位复核，满足条件后继续装配。用户已选择首轮螺丝对孔预插入，[H1](../exec-plans/active/held_inspection_h1.md)已实现双视图模型、空间轴线/端点估计、夹持许可、预测补偿和保持夹持的物理预插入。开发参数按独立 H1 仿真协议冻结；真实接口、公差与验收条件未冻结。L1 保留为来料分拣分支，不默认扩线。装配前许可与过程/结果验收分开，真实锁付及实体执行机构仍在本轮范围外。
+
+2026-10-31 按 [ADR-0002](../decisions/adr-0002-industrial-orientation-3d-simulation.md)记录：后续只研究轴承、锥形齿轮或螺丝的可观察朝向，并在条件满足时扩展 3D/6D 姿态与虚拟机械臂验证。历史瓶盖成果仅用于追溯，不再新增相关训练、换型或机械臂实验。
+
+虚拟机械臂优先用于带真值的视觉数据生成、预测驱动的运动学规划和虚拟抓取/摆正评价；动作策略学习为可选分支，实体机械臂、PLC 和生产控制仍不属于当前范围。对象型号、CAD、坐标与真值协议尚待 S0 定义，见[新执行计划](../exec-plans/active/industrial_orientation_3d_execution_plan.md)。
+
+方向确认不等于完成实现或正式协议冻结。现有二维标签和 OBB 角不能直接代表空间姿态，仿真与真实验证分层，原门禁及 Test/Final Holdout 不调参规则继续适用。
+
+用户随后选择分度式流程，[L1 单工位仿真](../exec-plans/active/screw_line_simulation_v1.md)已实现到位停稳、8 帧判定、PASS 下游交接、FAIL_ORIENTATION 分拣及 UNCERTAIN 停机留件。它是单件索引托盘原型，不是连续多件产线；PLC job/编码器用于事件建立，GT 仅作独立评分与执行终态标注。完整上下料/回程/复核恢复、视觉多目标跟踪与真实风险标定仍未实现。
+
+## 既有 V4.1 研究问题与六阶段
 
 1. RQ1 Traditional CV vs YOLO26n-OBB / YOLO26s-OBB：AI 在指定工况是否值得使用？
 2. RQ2 Single Frame vs Tracking + Multi-frame + Decision Zone：事件决策能否减少错误和抖动？
@@ -18,7 +34,7 @@
 | Phase 5 — Flexible Changeover | Part A → Part B 换型与回归 |
 | Phase 6 — Production-Oriented Finalization | 反馈、轻量环境监测、追溯、最终演示与报告 |
 
-Phase 1 验收为 **Experiment Protocol FROZEN + Dataset V1 Gate OPEN**，并非仅成功组装数据。Phase 1 不做正式长时训练；Phase 2 才进行感知基线对照。Seg+OBB 不在默认主线，仅当基线证明实质瓶颈时考虑。Active Learning 的复杂版本、Unknown/Anomaly、3D、真实执行机构为 Future Work。
+Phase 1 验收为 **Experiment Protocol FROZEN + Dataset V1 Gate OPEN**，并非仅成功组装数据。Phase 1 不做正式长时训练；Phase 2 才进行感知基线对照。Seg+OBB 不在默认主线，仅当基线证明实质瓶颈时考虑。螺丝代理视觉开发及 [M4 Panda 2.5D 仿真闭环](../exec-plans/active/screw_m4_closed_loop.md)已实施；完整 6D、执行中视觉伺服、动作策略学习及真实迁移仍未实现。复杂 Active Learning、Unknown/Anomaly 和实体执行机构继续为 Future Work。
 
 ## Phase 1 数据与协议门禁（当前 CLOSED）
 
@@ -42,6 +58,6 @@ NOT_APPLICABLE 表示姿态不是合规维度，Angle=N/A/null，按 Face / Iden
 
 正式 Part A/B 至少一个对象须有适用姿态语义及有效正式实验结果才可声明已验证二维姿态性能；两者均 NOT_APPLICABLE 时仍可验证检测/正反面，但姿态声明范围外。以上是协议/Recipe 语义，**不宣称 FEATURE_ANGLE / SYMMETRY_AWARE 运行时已实现**，仅在实物选用时实施。Training Gate 仍 CLOSED；假设验证、四路 session 隔离与 Final Holdout 规则不变。
 
-**现状（非成果）：**已有单帧脚手架、part-aware 原始采集、OBB sidecar/四点击标注与 QA、按完整 session 的 schema v2 `train/val/test/final_holdout` 四路 Dataset V1 组装能力。无真实 Part A 项目数据集、真实四路 split、正式训练、模型指标、已冻结协议或 Phase 2–6 运行时证据；软件测试或合成烟测不是性能结论。95% 面准确率、90% mAP50、30/60 FPS 仅为未来工程目标，不能预填实测值。
+**现状：**已有采集、单帧、OBB 标注/QA、四路组装、[历史实拍开发微调](../exec-plans/active/real_cap_80_development.md)、[螺丝代理视觉开发](../exec-plans/active/screw_orientation_v1_development.md)、[M4 虚拟抓取](../exec-plans/active/screw_m4_closed_loop.md)及 L1 单件工位事件原型。M4 和 L1 的结果均限定于各自冻结的代理开发设置。尚无新工业件真实正式数据、真实四路 split、正式训练、真实冻结协议、Phase 2–6 正式事件验证或完整 6D 证据；仿真结果不代表真实正式性能。95% 面准确率、90% mAP50、30/60 FPS 仅为未来工程目标，不能预填实测值。
 
 实现约定见 [基线设计](../design-docs/phase1_obb_baseline.md)，工作顺序见 [执行计划](../exec-plans/active/phase1_execution_plan.md)，技术选择见 [ADR-0001](../decisions/adr-0001-single-obb-baseline.md)。

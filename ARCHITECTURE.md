@@ -1,8 +1,42 @@
 # 架构：V4.1 低成本工业零件视觉验证原型
 
-当前项目权威是 [V4.1 项目方案](docs/new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)及其正式修正 [EXPERIMENT_PROTOCOL_V1](docs/new-plans/EXPERIMENT_PROTOCOL_V1.md)；旧 V2 名称只用于现存采集/标注软件契约，不是当前项目计划。范围见 [项目范围](docs/product-specs/project_scope.md)。本项目以普通 RGB 相机、消费级 GPU 与轻量 OBB 探索有边界的生产检测能力；不是安全联锁、PLC/机器人控制或 24/7 生产系统。任何性能结论只能限定在已冻结的 Operating Envelope（相机/ROI、目标尺寸、运动/间距、照明/背景、模糊/遮挡等工况）内，不得外推为通用工业可靠性。Part A/B 实物及 Operating Envelope 具体值仍 TBD，不能预填性能。
+既有二维基线权威是 [V4.1 项目方案](docs/new-plans/面向柔性流水线的低成本工业零件姿态检测系统_项目方案_V4.1_优化版.md)及其正式修正 [EXPERIMENT_PROTOCOL_V1](docs/new-plans/EXPERIMENT_PROTOCOL_V1.md)；旧 V2 名称只用于现存采集/标注软件契约，不是当前项目计划。范围见 [项目范围](docs/product-specs/project_scope.md)。本项目以普通 RGB 相机、消费级 GPU 与轻量 OBB 探索有边界的生产检测能力；不是安全联锁、实体 PLC/机器人控制或 24/7 生产系统。任何性能结论只能限定在已冻结的 Operating Envelope（相机/ROI、目标尺寸、运动/间距、照明/背景、模糊/遮挡等工况）内，不得外推为通用工业可靠性。Part A/B 实物及 Operating Envelope 具体值仍 TBD，不能预填性能。
 
-## 六阶段与数据流
+## 工业件朝向与 3D 仿真拓展
+
+后续研究方向按 [ADR-0002](docs/decisions/adr-0002-industrial-orientation-3d-simulation.md)记录，执行见[新计划](docs/exec-plans/active/industrial_orientation_3d_execution_plan.md)：对象只限轴承、锥形齿轮或螺丝，先确认可观察朝向，再按条件扩展完整 6D。历史开发对象不再作为后续训练或换型任务。
+
+拓展链路：工业件 CAD/场景与相机 → 图像及独立监督标签 → 朝向/姿态预测 → 固定标定与高度先验下的平面目标 → 运动学/路径/碰撞检查 → 虚拟抓取/放置记录。当前已在螺丝代理仿真开发域实现：`simulation/` 生成图像与真值，`orientation/` 提供两点有向角；`grasp_geometry.py` 只接收预测与固定标定，`panda_control.py` 使用关节反馈执行，`grasp_evaluation.py` 独立读取真值评分。见[视觉开发](docs/exec-plans/active/screw_orientation_v1_development.md)与 [M4 闭环记录](docs/exec-plans/active/screw_m4_closed_loop.md)。这是一帧视觉引导的 2.5D 抓取，完整 6D、执行中视觉伺服和动作策略学习未实现。
+
+现有面类/OBB 接口不等于 3D 契约，已有对象专用训练与过滤也不等于通用换型。螺丝代理采用独立[仿真开发契约](docs/data/screw_orientation_v1.md)，不改变旧 180° OBB 语义；真实型号、尺度/标定与工艺仍须完成 S0。原真实协议门禁保持 CLOSED，实体设备控制仍在范围外。
+
+## L1 分度式单工位仿真
+
+最新用户用途已按 [ADR-0003](docs/decisions/adr-0003-held-part-inspection-before-assembly.md)转为夹持后检测与装配前复核。[H1](docs/exec-plans/active/held_inspection_h1.md)使用独立 `held/` 模块实现：已知窝位物理抓取 → 固定检测姿态 → 双 RGB 头尾预测/三角化 → 可修正轴向/露出长度检查 → 一次性夹持许可 → 预测端点相对实际 TCP 的补偿 → 导向孔预插入 → 独立物理评分。许可与运动代码只接收图像预测、固定标定及机器人反馈；`evaluation.py` 的对象 GT 不回流控制。`data.py`/`training.py` 使用专门的夹持视图，`protocol.py` 冻结后才能评价新 episode。预插入继续夹持，不模拟真实螺纹锁付，也不估计不可观察的绕轴角。M4/L1 的抓取前模型与成果保留，不能代替 H1 验证。
+
+[H2](docs/exec-plans/active/held_recheck_h2.md)位于独立 `held_recheck/`：H1 模型 → 有界端点残差补偿 → 初检/转运许可 → 孔上方新增双 RGB 复检 → 比较 TCP 坐标系中的相对端点/轴线 → 新鲜证据绑定的插入许可 → 最新预测补偿与物理预插入。`faults.py` 只在实验编排中施加世界坐标外力，`evaluation.py` 仅独立评分；两者均不向视觉许可输入对象真值。两种许可分用途且单次消费，初检证据不能越过复检直接签发插入许可。四相机布局和补偿参数仅在当前代理域验证，不表示真实低成本硬件方案已确定。
+
+[L1](docs/exec-plans/active/screw_line_simulation_v1.md)在独立版本中连接物理索引托盘、8 帧视觉证据、单件事件与 Panda：模拟 PLC job/编码器到位 → 停稳 → `line/perception.py` → `line/events.py` → `line/state.py` → PASS 下游交接 / FAIL_ORIENTATION 拒收分拣 / UNCERTAIN 停机留件。`line/metrics.py` 独立读取 GT 评分；执行后物理终态由仿真评价标注，不冒充真实执行反馈。
+
+事件 ID 来自已声明的单件工位编排，不是视觉多目标跟踪。L1 有仿真开发的多帧拒绝和唯一事件记录，但尚无连续上下料、回程、复核恢复与真实风险工作点标定。M4 冻结文件不变，L1 使用自己的[开发协议](docs/data/screw_line_protocol_v1.json)。
+
+## A1–A5 轴承与锥形齿轮
+
+各阶段成果、可克隆的预览、开发入口及模型材料见[接手指南](docs/handoff/README.md)。
+
+[A5](docs/exec-plans/active/keyed_cell_a5.md)在独立 `keyed_cell/` 将已知圆轴工位扩展为实体索引配合：齿轮内键槽配凸键、轴承外缺口配定位销。复用 A4 视觉模型与有界观察；`scene.py` 增加碰撞几何和腕部力/力矩传感，`control.py` 分离接近、分段插入与退回，闭爪预检使用实际夹爪编码器开度。`guard.py` 仅用机器人传感反馈触发停止；`evaluation.py` 独立读取工件/索引件几何和接触评分。`reference.py` 的理想位姿控制只验证机械配合，不算神经网络成果。录像俯视示意读物理状态，但不进入检测或动作条件。
+
+[A4](docs/exec-plans/active/active_pose_a4.md)在独立 `active_pose/` 增加有限主动观察。复用 A3 冻结的场景、双端面几何、校正与预定位；`policy.py` 用图像质量/单件检测门控观察动作，`control.py` 只用机器人 FK 规划两个小角度观察姿态。`runtime.py` 分开记录观察、校正和插入，并在下游比较视觉估计在工具坐标中的一致性。`diagnostics.py` 的理想种子仅用于离线分析，运行时不导入该诊断入口；`preprocessing.py` 是独立的纯图像/标定变换。新数据用 `grab_id` 绑定同一次抓取的多个观察姿态，不能按视角随机拆分。具体训练与验证进展以 A4 记录为准。
+
+[A3](docs/exec-plans/active/pose_cell_a3.md)在独立 `pose_cell/` 扩展翻转与大倾角：高位料架侧夹 → 上下六路 RGB → 有版本的孔中心/定位结构中心预测 → 双端面圆几何、多视角拟合与已知 CAD 外形边缘校核 → 数值旋转/平移 → 结合实际 TCP 计算相对持件变换 → 分段关节校正 → 新鲜图像复核 → 原竖轴有间隙预定位。每次不确定、不可达或物理中止均留在评价分母。`control.py` 只接收视觉估计和机器人反馈；`profile.py` 只编译静态几何，不读取仿真对象状态。对象 GT 在 `evaluation.py` 和观测后的评分阶段读取，不签发动作许可。具体实测范围以 A3 记录为准，不能由控制入口存在推断已通过独立评价。
+
+最新连续角度分支 [A2](docs/exec-plans/active/datum_pose_a2.md)在独立 `datum_pose/`：固定 ROI → 两对象/五定位点网络 → RGB 局部边缘与孔口椭圆 → 定位结构提供周向基准 → 跨视角几何拟合与重投影优化 → 连续旋转矩阵/倾角/方位/绕轴角 → 可配置目标比较。估计器只接收 RGB 预测、相机标定和已知几何；对象状态只在之后评分。孔口圆参考采用当前窄包络的弱透视近似，不代表完整6D定位或任意翻转可观测。当前独立覆盖55%，必须保留 UNCERTAIN，尚未接自动纠正或新姿态装配。
+
+用户要求两个新对象也判正反并保持简单流程，[A1](docs/exec-plans/active/bearing_bevel_a1.md)在独立 `annular/` 实现：项目自建留孔代理 → 已知窝位物理夹取 → 单 RGB 六类检测（两对象各 front/back/tilted，空抓负样本）→ 图像/夹持有效性与类型/端向门控 → 固定配方套轴预定位 → 独立接触/孔轴/深度评分。`perception.py` 不读取 GT；`control.py` 只读取机器人反馈与已知配方，不能把固定目标动作称为视觉测得孔位或完整 6D 补偿。`data.py` 与 `training.py` 的新对象标签、数据和权重独立，旧螺丝协议不变。
+
+F608ZZ 单侧法兰与锥齿面/轮毂提供结构方向特征，不使用人造色标。目录尺寸仅参考外形，轴承整件刚体、齿轮简化齿廓；1 mm 径向间隙、3 mm 套入用于用途演示，不用于真实压装或啮合。正式协议仍未冻结。
+
+## 既有 V4.1 六阶段与数据流
 
 | 阶段 | 目标（未完成不视为成果） |
 | --- | --- |
@@ -13,7 +47,7 @@
 | Phase 5 — Flexible Changeover | Part A → Part B 的数据、微调、Recipe、代码变更和回归实测 |
 | Phase 6 — Production-Oriented Finalization | 反馈、轻量环境监测、事件追溯、演示与报告 |
 
-未来目标路径（**非当前已实现运行时**）：Camera/Video → timestamp/ROI → Perception (Traditional CV / YOLO OBB) → Part + Face + OBB + 2D Angle → Geometry Validity → Tracking → Multi-frame Evidence → Decision Zone → Risk Gate → PASS / FAIL_FACE / FAIL_ORIENTATION / UNCERTAIN → Single-Part Event → Statistics / Evidence Log。1 Track → 1 Final Event；单帧候选不等于物理单件事件，也不是控制指令。当前已有单帧脚手架、part-aware 原始采集、OBB 标注 sidecar/QA 以及按完整会话的 train/val/test 组装工具；尚无真实 Part A 项目数据集、正式训练、实测性能或 Phase 2–6 事件运行时证据。默认 YOLO 起点为官方 `yolo26n-obb.pt`，YOLO26s-OBB 是 Phase 2 对比项，Seg+OBB 仅当基线证据显示实质瓶颈时另行考虑；见 [ADR-0001](docs/decisions/adr-0001-single-obb-baseline.md)。
+既有二维目标路径（**完整链路尚未实现，L1 是另行声明的单件仿真分支**）：Camera/Video → timestamp/ROI → Perception (Traditional CV / YOLO OBB) → Part + Face + OBB + 2D Angle → Geometry Validity → Tracking → Multi-frame Evidence → Decision Zone → Risk Gate → PASS / FAIL_FACE / FAIL_ORIENTATION / UNCERTAIN → Single-Part Event → Statistics / Evidence Log。1 Track → 1 Final Event；单帧候选不等于物理单件事件，也不是控制指令。已有单帧、采集、标注/QA、四路组装及[历史实拍开发微调](docs/exec-plans/active/real_cap_80_development.md)，但尚无新工业件正式数据集、正式训练或 Phase 2–6 正式事件验证。既有单 OBB 默认起点与对照见 [ADR-0001](docs/decisions/adr-0001-single-obb-baseline.md)，不自动代表新增 3D 方法已选定。
 
 ## Phase 1 协议与数据门禁（当前 CLOSED）
 

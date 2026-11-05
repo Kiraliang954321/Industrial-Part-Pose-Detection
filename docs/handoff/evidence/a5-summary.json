@@ -1,0 +1,1727 @@
+{
+  "status": "completed",
+  "mode": "evaluate",
+  "scope": "A5_KEYED_CLEARANCE_PREINSERTION_SIMULATION",
+  "real_formal_gate": "closed",
+  "overall": {
+    "episodes": 66,
+    "outcomes": {
+      "KEYED_SUCCESS": 34,
+      "UNCERTAIN": 14,
+      "ABORT": 6,
+      "CONTACT_STOP_RETRACTED": 12
+    },
+    "normal_keyed_success": {
+      "x": 34,
+      "n": 36,
+      "estimate": 0.9444444444444444,
+      "wilson95": [
+        0.8185534279135275,
+        0.9846300133358382
+      ]
+    },
+    "normal_success_given_attempt": {
+      "x": 34,
+      "n": 34,
+      "estimate": 1.0,
+      "wilson95": [
+        0.8984854458466761,
+        0.9999999999999999
+      ]
+    },
+    "fault_attempt_coverage": {
+      "x": 12,
+      "n": 12,
+      "estimate": 1.0,
+      "wilson95": [
+        0.7575059933447592,
+        1
+      ]
+    },
+    "fault_contact_stop_retract": {
+      "x": 12,
+      "n": 12,
+      "estimate": 1.0,
+      "wilson95": [
+        0.7575059933447592,
+        1
+      ]
+    },
+    "fault_contained_all": {
+      "x": 12,
+      "n": 12,
+      "estimate": 1.0,
+      "wilson95": [
+        0.7575059933447592,
+        1
+      ]
+    },
+    "fault_unexpected_mating": {
+      "x": 0,
+      "n": 12,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ]
+    },
+    "fault_unexpected_entry": {
+      "x": 0,
+      "n": 12,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ]
+    },
+    "wrong_angle_physical_passage": {
+      "x": 0,
+      "n": 46,
+      "estimate": 0.0,
+      "wilson95": [
+        0,
+        0.07707356308558039
+      ]
+    },
+    "visual_wrong_permission": {
+      "x": 0,
+      "n": 46,
+      "estimate": 0.0,
+      "wilson95": [
+        0,
+        0.07707356308558039
+      ]
+    },
+    "no_datum_with_correction_or_insertion": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "blind_with_observation": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "empty_with_observation": {
+      "x": 0,
+      "n": 6,
+      "estimate": 0.0,
+      "wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ]
+    },
+    "initial_coverage": {
+      "x": 40,
+      "n": 48,
+      "estimate": 0.8333333333333334,
+      "wilson95": [
+        0.7042217159874441,
+        0.9130448642351444
+      ]
+    },
+    "initial_rotation_deg": {
+      "n": 40,
+      "mean": 1.471862033470877,
+      "median": 1.2278252363475295,
+      "p95": 3.4818648343260143
+    },
+    "force_stop_peak_n": {
+      "n": 12,
+      "mean": 2.9655718975113303,
+      "median": 3.1713540093810586,
+      "p95": 3.8253359628223724
+    },
+    "wall_s": {
+      "n": 66,
+      "mean": 30.23117055151449,
+      "median": 30.52756245000637,
+      "p95": 37.84487940002873
+    },
+    "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+  },
+  "by_part": {
+    "bearing": {
+      "episodes": 33,
+      "outcomes": {
+        "KEYED_SUCCESS": 16,
+        "UNCERTAIN": 8,
+        "ABORT": 3,
+        "CONTACT_STOP_RETRACTED": 6
+      },
+      "normal_keyed_success": {
+        "x": 16,
+        "n": 18,
+        "estimate": 0.8888888888888888,
+        "wilson95": [
+          0.672002348698212,
+          0.9689804773543876
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 16,
+        "n": 16,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8063923194655637,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contact_stop_retract": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contained_all": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 22,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.14865487460862087
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 22,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.14865487460862087
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "initial_coverage": {
+        "x": 18,
+        "n": 24,
+        "estimate": 0.75,
+        "wilson95": [
+          0.55100555994846,
+          0.8800063377140499
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 18,
+        "mean": 1.7401102455798165,
+        "median": 1.5086046361607846,
+        "p95": 2.905791326596052
+      },
+      "force_stop_peak_n": {
+        "n": 6,
+        "mean": 3.059896526134954,
+        "median": 3.274997748194922,
+        "p95": 3.9884245705883563
+      },
+      "wall_s": {
+        "n": 33,
+        "mean": 30.280853339393314,
+        "median": 31.696834500005934,
+        "p95": 38.121761100017466
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "gear": {
+      "episodes": 33,
+      "outcomes": {
+        "KEYED_SUCCESS": 18,
+        "UNCERTAIN": 6,
+        "ABORT": 3,
+        "CONTACT_STOP_RETRACTED": 6
+      },
+      "normal_keyed_success": {
+        "x": 18,
+        "n": 18,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8241207763533425,
+          1
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 18,
+        "n": 18,
+        "estimate": 1.0,
+        "wilson95": [
+          0.8241207763533425,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contact_stop_retract": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contained_all": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 24,
+        "estimate": 0.0,
+        "wilson95": [
+          1.3877787807814457e-17,
+          0.13797620467498017
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 24,
+        "estimate": 0.0,
+        "wilson95": [
+          1.3877787807814457e-17,
+          0.13797620467498017
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 3,
+        "estimate": 0.0,
+        "wilson95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "initial_coverage": {
+        "x": 22,
+        "n": 24,
+        "estimate": 0.9166666666666666,
+        "wilson95": [
+          0.741511978067893,
+          0.9768411847029567
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 22,
+        "mean": 1.2523862235635626,
+        "median": 1.0577120158787192,
+        "p95": 3.463271604942205
+      },
+      "force_stop_peak_n": {
+        "n": 6,
+        "mean": 2.8712472688877084,
+        "median": 2.972940953115876,
+        "p95": 3.250811469993069
+      },
+      "wall_s": {
+        "n": 33,
+        "mean": 30.181487763635673,
+        "median": 29.967050500039477,
+        "p95": 37.0422628799919
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    }
+  },
+  "by_case": {
+    "upright": {
+      "episodes": 6,
+      "outcomes": {
+        "KEYED_SUCCESS": 6
+      },
+      "normal_keyed_success": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.3050459205657325,
+        "median": 1.2006677120072118,
+        "p95": 2.5505966948790384
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 36.55397673331512,
+        "median": 36.09495234998758,
+        "p95": 39.3889871249994
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "tilt60": {
+      "episodes": 6,
+      "outcomes": {
+        "KEYED_SUCCESS": 5,
+        "UNCERTAIN": 1
+      },
+      "normal_keyed_success": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 5,
+        "n": 5,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 4,
+        "n": 6,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 4,
+        "mean": 1.0150840195629651,
+        "median": 1.0277102158438185,
+        "p95": 1.4333432627943368
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 29.45999013335677,
+        "median": 29.84266700001899,
+        "p95": 32.48952067500795
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "side90": {
+      "episodes": 6,
+      "outcomes": {
+        "KEYED_SUCCESS": 6
+      },
+      "normal_keyed_success": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 3,
+        "n": 6,
+        "estimate": 0.5,
+        "wilson95": [
+          0.1876163064826506,
+          0.8123836935173494
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 3,
+        "mean": 2.1045896638269608,
+        "median": 2.567074473546057,
+        "p95": 3.172324661917588
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 31.425884683335124,
+        "median": 31.734116700012237,
+        "p95": 32.632150949997595
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "tilt120": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 1,
+        "KEYED_SUCCESS": 5
+      },
+      "normal_keyed_success": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 5,
+        "n": 5,
+        "estimate": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 5,
+        "estimate": 0.0,
+        "wilson95": [
+          0,
+          0.43448246478317476
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 4,
+        "n": 6,
+        "estimate": 0.6666666666666666,
+        "wilson95": [
+          0.299993315138392,
+          0.9032285888942195
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 4,
+        "mean": 2.0169718974642743,
+        "median": 1.8380082989956872,
+        "p95": 3.3561995282167554
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 30.738976899990423,
+        "median": 31.722603599977447,
+        "p95": 33.32052660000045
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "inverted180": {
+      "episodes": 6,
+      "outcomes": {
+        "KEYED_SUCCESS": 6
+      },
+      "normal_keyed_success": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.9255359924986621,
+        "median": 1.4324798307557955,
+        "p95": 3.743745896116785
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 35.61945941667849,
+        "median": 34.91024309999193,
+        "p95": 38.14254724999773
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "reverse_grasp": {
+      "episodes": 6,
+      "outcomes": {
+        "KEYED_SUCCESS": 6
+      },
+      "normal_keyed_success": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "normal_success_given_attempt": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 5,
+        "n": 6,
+        "estimate": 0.8333333333333334,
+        "wilson95": [
+          0.43649717781352987,
+          0.9699466302516935
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 5,
+        "mean": 1.0720390339409542,
+        "median": 1.1373803027184464,
+        "p95": 1.5226008106393103
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 31.279313399990013,
+        "median": 31.396177799993893,
+        "p95": 32.793639274997986
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "blind": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "normal_keyed_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "normal_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 20.72463943333908,
+        "median": 20.487334150006063,
+        "p95": 22.31575137503387
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "plain": {
+      "episodes": 6,
+      "outcomes": {
+        "UNCERTAIN": 6
+      },
+      "normal_keyed_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "normal_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 23.821379449994613,
+        "median": 23.783949449978536,
+        "p95": 24.33916267499444
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "empty": {
+      "episodes": 6,
+      "outcomes": {
+        "ABORT": 6
+      },
+      "normal_keyed_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "normal_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_attempt_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contact_stop_retract": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_contained_all": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "initial_coverage": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_rotation_deg": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "force_stop_peak_n": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "p95": null
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 28.7078534833369,
+        "median": 28.53798719999031,
+        "p95": 30.236330200001248
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "fixture_misindex30": {
+      "episodes": 6,
+      "outcomes": {
+        "CONTACT_STOP_RETRACTED": 6
+      },
+      "normal_keyed_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "normal_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_attempt_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contact_stop_retract": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contained_all": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.3813339782954053,
+        "median": 1.2210068904731843,
+        "p95": 2.9503758724744475
+      },
+      "force_stop_peak_n": {
+        "n": 6,
+        "mean": 3.024610872378697,
+        "median": 2.8109248450730604,
+        "p95": 3.9884245705883563
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 36.14741754999462,
+        "median": 35.988354900007835,
+        "p95": 39.51487512499443
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    },
+    "fixture_misindex90": {
+      "episodes": 6,
+      "outcomes": {
+        "CONTACT_STOP_RETRACTED": 6
+      },
+      "normal_keyed_success": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "normal_success_given_attempt": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "fault_attempt_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contact_stop_retract": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_contained_all": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "fault_unexpected_mating": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "fault_unexpected_entry": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "wrong_angle_physical_passage": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "visual_wrong_permission": {
+        "x": 0,
+        "n": 6,
+        "estimate": 0.0,
+        "wilson95": [
+          2.7755575615628914e-17,
+          0.3903342879021653
+        ]
+      },
+      "no_datum_with_correction_or_insertion": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "blind_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "empty_with_observation": {
+        "x": 0,
+        "n": 0,
+        "estimate": null,
+        "wilson95": null
+      },
+      "initial_coverage": {
+        "x": 6,
+        "n": 6,
+        "estimate": 1.0,
+        "wilson95": [
+          0.6096657120978346,
+          1
+        ]
+      },
+      "initial_rotation_deg": {
+        "n": 6,
+        "mean": 1.2334663602302778,
+        "median": 1.0736804592479738,
+        "p95": 2.2250709736196033
+      },
+      "force_stop_peak_n": {
+        "n": 6,
+        "mean": 2.906532922643965,
+        "median": 3.225646408234458,
+        "p95": 3.2840364978161367
+      },
+      "wall_s": {
+        "n": 6,
+        "mean": 28.063984883328278,
+        "median": 28.200174250028795,
+        "p95": 29.503995024977485
+      },
+      "note": "Fault fixtures are intentionally misindexed relative to the declared recipe. Visual recipe conformity and actual mechanical compatibility are separate. All refusals retained."
+    }
+  }
+}
